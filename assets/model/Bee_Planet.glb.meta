@@ -2,12 +2,12 @@
   "ver": "2.0.14",
   "importer": "gltf",
   "imported": true,
-  "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f",
+  "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48",
   "files": [],
   "subMetas": {
     "73684": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@73684",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@73684",
       "displayName": "",
       "id": "73684",
       "name": "Cube.012.mesh",
@@ -24,7 +24,7 @@
     },
     "e2349": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@e2349",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@e2349",
       "displayName": "",
       "id": "e2349",
       "name": "Mesh.mesh",
@@ -41,7 +41,7 @@
     },
     "0c841": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@0c841",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@0c841",
       "displayName": "",
       "id": "0c841",
       "name": "Mesh.006.mesh",
@@ -58,7 +58,7 @@
     },
     "ff8ed": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@ff8ed",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@ff8ed",
       "displayName": "",
       "id": "ff8ed",
       "name": "Mesh.008.mesh",
@@ -75,7 +75,7 @@
     },
     "1d18e": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@1d18e",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@1d18e",
       "displayName": "",
       "id": "1d18e",
       "name": "Mesh.010.mesh",
@@ -92,7 +92,7 @@
     },
     "c993a": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@c993a",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@c993a",
       "displayName": "",
       "id": "c993a",
       "name": "Cube.043.mesh",
@@ -109,7 +109,7 @@
     },
     "32a51": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@32a51",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@32a51",
       "displayName": "",
       "id": "32a51",
       "name": "Cube.022.mesh",
@@ -126,7 +126,7 @@
     },
     "d78fc": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@d78fc",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d78fc",
       "displayName": "",
       "id": "d78fc",
       "name": "Cube.025.mesh",
@@ -143,7 +143,7 @@
     },
     "cf1a7": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@cf1a7",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@cf1a7",
       "displayName": "",
       "id": "cf1a7",
       "name": "Cube.011.mesh",
@@ -160,7 +160,7 @@
     },
     "d7dae": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@d7dae",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d7dae",
       "displayName": "",
       "id": "d7dae",
       "name": "Cube.036.mesh",
@@ -177,7 +177,7 @@
     },
     "ee910": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@ee910",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@ee910",
       "displayName": "",
       "id": "ee910",
       "name": "Mesh.009.mesh",
@@ -194,7 +194,7 @@
     },
     "c4192": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@c4192",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@c4192",
       "displayName": "",
       "id": "c4192",
       "name": "Mesh.013.mesh",
@@ -211,7 +211,7 @@
     },
     "d909c": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@d909c",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d909c",
       "displayName": "",
       "id": "d909c",
       "name": "road_cross.005.mesh",
@@ -228,7 +228,7 @@
     },
     "0e50d": {
       "importer": "gltf-mesh",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@0e50d",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@0e50d",
       "displayName": "",
       "id": "0e50d",
       "name": "road_cross.007.mesh",
@@ -245,7 +245,7 @@
     },
     "71e42": {
       "importer": "gltf-animation",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@71e42",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@71e42",
       "displayName": "",
       "id": "71e42",
       "name": "BeeAnim.animation",
@@ -269,7 +269,7 @@
     },
     "771fa": {
       "importer": "gltf-skeleton",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@771fa",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@771fa",
       "displayName": "",
       "id": "771fa",
       "name": "Abelhas_1.skeleton",
@@ -286,7 +286,7 @@
     },
     "f7aae": {
       "importer": "gltf-skeleton",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@f7aae",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@f7aae",
       "displayName": "",
       "id": "f7aae",
       "name": "Abelhas_2.skeleton",
@@ -303,7 +303,7 @@
     },
     "5c6b9": {
       "importer": "gltf-skeleton",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@5c6b9",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@5c6b9",
       "displayName": "",
       "id": "5c6b9",
       "name": "Abelhas_3.001.skeleton",
@@ -320,7 +320,7 @@
     },
     "3d5df": {
       "importer": "gltf-skeleton",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@3d5df",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@3d5df",
       "displayName": "",
       "id": "3d5df",
       "name": "Abelhas_3.skeleton",
@@ -335,12 +335,12 @@
       ],
       "subMetas": {}
     },
-    "a33e8": {
+    "85cc8": {
       "importer": "gltf-embeded-image",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@a33e8",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@85cc8",
       "displayName": "",
-      "id": "a33e8",
-      "name": "Bee_Stuff.image",
+      "id": "85cc8",
+      "name": "Trees_zabor_weel_Atlas_v2.image",
       "userData": {
         "gltfIndex": 0
       },
@@ -352,12 +352,12 @@
       ],
       "subMetas": {}
     },
-    "85cc8": {
+    "ebb98": {
       "importer": "gltf-embeded-image",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@85cc8",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@ebb98",
       "displayName": "",
-      "id": "85cc8",
-      "name": "Trees_zabor_weel_Atlas_v2.image",
+      "id": "ebb98",
+      "name": "Grass_fork_vegs_pound_Atlas.image",
       "userData": {
         "gltfIndex": 1
       },
@@ -369,26 +369,9 @@
       ],
       "subMetas": {}
     },
-    "ebb98": {
-      "importer": "gltf-embeded-image",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@ebb98",
-      "displayName": "",
-      "id": "ebb98",
-      "name": "Grass_fork_vegs_pound_Atlas.image",
-      "userData": {
-        "gltfIndex": 2
-      },
-      "ver": "1.0.3",
-      "imported": true,
-      "files": [
-        ".png",
-        ".json"
-      ],
-      "subMetas": {}
-    },
     "3effa": {
       "importer": "texture",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@3effa",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@3effa",
       "displayName": "",
       "id": "3effa",
       "name": "UnnamedTexture-0.texture",
@@ -400,7 +383,7 @@
         "mipfilter": "linear",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "225188bb-a01d-48b9-bc37-060f861ef92f@a33e8"
+        "imageUuidOrDatabaseUri": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@85cc8"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -411,7 +394,7 @@
     },
     "221a5": {
       "importer": "texture",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@221a5",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@221a5",
       "displayName": "",
       "id": "221a5",
       "name": "UnnamedTexture-1.texture",
@@ -423,7 +406,7 @@
         "mipfilter": "linear",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "225188bb-a01d-48b9-bc37-060f861ef92f@85cc8"
+        "imageUuidOrDatabaseUri": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@ebb98"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -432,35 +415,12 @@
       ],
       "subMetas": {}
     },
-    "0089c": {
-      "importer": "texture",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@0089c",
-      "displayName": "",
-      "id": "0089c",
-      "name": "UnnamedTexture-2.texture",
-      "userData": {
-        "wrapModeS": "repeat",
-        "wrapModeT": "repeat",
-        "minfilter": "linear",
-        "magfilter": "linear",
-        "mipfilter": "linear",
-        "anisotropy": 0,
-        "isUuid": true,
-        "imageUuidOrDatabaseUri": "225188bb-a01d-48b9-bc37-060f861ef92f@ebb98"
-      },
-      "ver": "1.0.21",
-      "imported": true,
-      "files": [
-        ".json"
-      ],
-      "subMetas": {}
-    },
-    "516a6": {
+    "d8618": {
       "importer": "gltf-scene",
-      "uuid": "225188bb-a01d-48b9-bc37-060f861ef92f@516a6",
+      "uuid": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d8618",
       "displayName": "",
-      "id": "516a6",
-      "name": "Bee_Farm.prefab",
+      "id": "d8618",
+      "name": "Bee_Planet.prefab",
       "userData": {
         "gltfIndex": 0
       },
@@ -475,16 +435,12 @@
   "userData": {
     "imageMetas": [
       {
-        "name": "Bee_Stuff",
-        "uri": "225188bb-a01d-48b9-bc37-060f861ef92f@a33e8"
-      },
-      {
         "name": "Trees_zabor_weel_Atlas_v2",
-        "uri": "225188bb-a01d-48b9-bc37-060f861ef92f@85cc8"
+        "uri": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@85cc8"
       },
       {
         "name": "Grass_fork_vegs_pound_Atlas",
-        "uri": "225188bb-a01d-48b9-bc37-060f861ef92f@ebb98"
+        "uri": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@ebb98"
       }
     ],
     "legacyFbxImporter": false,
@@ -503,46 +459,44 @@
         ]
       }
     ],
-    "redirect": "225188bb-a01d-48b9-bc37-060f861ef92f@516a6",
+    "redirect": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d8618",
     "assetFinder": {
       "meshes": [
-        "225188bb-a01d-48b9-bc37-060f861ef92f@e2349",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@0c841",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@ff8ed",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@1d18e",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@c993a",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@32a51",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@d78fc",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@cf1a7",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@73684",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@d7dae",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@ee910",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@c4192",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@d909c",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@0e50d"
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@e2349",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@0c841",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@ff8ed",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@1d18e",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@c993a",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@32a51",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d78fc",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@cf1a7",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@73684",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d7dae",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@ee910",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@c4192",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d909c",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@0e50d"
       ],
       "skeletons": [
-        "225188bb-a01d-48b9-bc37-060f861ef92f@771fa",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@f7aae",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@5c6b9",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@3d5df"
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@771fa",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@f7aae",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@5c6b9",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@3d5df"
       ],
       "textures": [
-        "225188bb-a01d-48b9-bc37-060f861ef92f@3effa",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@221a5",
-        "225188bb-a01d-48b9-bc37-060f861ef92f@0089c"
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@3effa",
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@221a5"
       ],
       "materials": [
-        "673b7320-0bb4-44c5-9578-2cd085c30186",
-        "a2a9e58b-3b44-4459-be99-f7540c6f89d9",
-        "50fe972a-f320-443d-9d87-f89e622b08a8"
+        "285aad9e-f19e-494b-9f1b-0ffd4a00cae4",
+        "395f3d37-7abb-4966-b94d-d66fbd4f6f08",
+        "9d441c6a-28ea-4e7f-a99f-b8e6fa7844b3"
       ],
       "scenes": [
-        "225188bb-a01d-48b9-bc37-060f861ef92f@516a6"
+        "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d8618"
       ]
     },
-    "useVertexColors": true,
     "dumpMaterials": true,
-    "materialDumpDir": "db://assets/material/Materials_Bee_Farm_Final"
+    "materialDumpDir": "db://assets/material"
   }
 }

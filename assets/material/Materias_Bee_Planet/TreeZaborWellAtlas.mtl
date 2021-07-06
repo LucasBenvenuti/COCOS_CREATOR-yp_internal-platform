@@ -37,10 +37,10 @@
   ],
   "_props": [
     {
-      "roughness": 0.831,
-      "metallic": 0.263,
+      "roughness": 0.9,
+      "metallic": 0.4,
       "mainTexture": {
-        "__uuid__": "225188bb-a01d-48b9-bc37-060f861ef92f@221a5",
+        "__uuid__": "325e0710-bf78-499a-9440-cac13465acf0@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },

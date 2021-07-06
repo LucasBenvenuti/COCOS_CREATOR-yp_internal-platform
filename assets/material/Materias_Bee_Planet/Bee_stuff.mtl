@@ -22,12 +22,7 @@
       "depthStencilState": {},
       "blendState": {
         "targets": [
-          {
-            "blend": true,
-            "blendSrc": 2,
-            "blendDst": 4,
-            "blendDstAlpha": 4
-          }
+          {}
         ]
       }
     },
@@ -37,10 +32,10 @@
   ],
   "_props": [
     {
-      "roughness": 0.509,
-      "metallic": 0.318,
+      "roughness": 0.85,
+      "metallic": 0.4,
       "mainTexture": {
-        "__uuid__": "27da8a2d-7c67-4d83-9828-bea88529476c@6c48a",
+        "__uuid__": "921efcd7-273f-4483-a01b-cdbe3cbed0b6@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },

@@ -2,7 +2,7 @@
   "ver": "1.0.21",
   "importer": "image",
   "imported": true,
-  "uuid": "27da8a2d-7c67-4d83-9828-bea88529476c",
+  "uuid": "95234bae-2410-4956-b63b-ef262689b5c2",
   "files": [
     ".png",
     ".json"
@@ -10,19 +10,19 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "27da8a2d-7c67-4d83-9828-bea88529476c@6c48a",
-      "displayName": "Grass_fork_vegs_pound_Atlas",
+      "uuid": "95234bae-2410-4956-b63b-ef262689b5c2@6c48a",
+      "displayName": "n_L",
       "id": "6c48a",
       "name": "texture",
       "userData": {
-        "wrapModeS": "clamp-to-edge",
-        "wrapModeT": "clamp-to-edge",
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
         "minfilter": "linear",
         "magfilter": "linear",
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "27da8a2d-7c67-4d83-9828-bea88529476c"
+        "imageUuidOrDatabaseUri": "95234bae-2410-4956-b63b-ef262689b5c2"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -35,6 +35,6 @@
   "userData": {
     "hasAlpha": true,
     "type": "texture",
-    "redirect": "27da8a2d-7c67-4d83-9828-bea88529476c@6c48a"
+    "redirect": "95234bae-2410-4956-b63b-ef262689b5c2@6c48a"
   }
 }
