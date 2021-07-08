@@ -6,7 +6,8 @@
   },
   "general": {
     "designResolution": {
-      "fitHeight": true
+      "fitHeight": true,
+      "width": 1140
     }
   }
 }
