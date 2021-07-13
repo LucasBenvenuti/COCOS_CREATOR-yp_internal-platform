@@ -1,0 +1,48 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "ReturnBTN_Disappear",
+    "_objFlags": 0,
+    "_native": "",
+    "sample": 60,
+    "speed": 1,
+    "wrapMode": 1,
+    "events": [],
+    "enableTrsBlending": false,
+    "_duration": 0.5,
+    "_keys": [
+      [
+        0,
+        0.5
+      ]
+    ],
+    "_stepness": 0,
+    "_curves": [
+      {
+        "modifiers": [
+          {
+            "__id__": 1
+          },
+          "opacity"
+        ],
+        "data": {
+          "keys": 0,
+          "values": [
+            255,
+            0
+          ],
+          "easingMethods": {
+            "0": "quadIn",
+            "1": "quadOut"
+          }
+        }
+      }
+    ],
+    "_commonTargets": [],
+    "_hash": 1645897730
+  },
+  {
+    "__type__": "cc.animation.ComponentPath",
+    "component": "cc.UIOpacity"
+  }
+]
