@@ -26,11 +26,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 168
+        "__id__": 166
       }
     ],
     "_prefab": {
-      "__id__": 170
+      "__id__": 168
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1801,17 +1801,17 @@
       "__id__": 156
     },
     "asset": {
-      "__uuid__": "bef9201a-df78-4c55-8de5-5ed1b5ea3e48@d8618",
+      "__uuid__": "a22e35f5-b2de-42d1-835c-6983e38f7000@6aa01",
       "__expectedType__": "cc.Prefab"
     },
-    "fileId": "8ccoYVjGJW2oZs0ffZuiBl",
+    "fileId": "fcU69Rh6ZRfa3eDh6wX3mg",
     "instance": {
       "__id__": 158
     }
   },
   {
     "__type__": "cc.PrefabInstance",
-    "fileId": "6fbYYWuWRLmL5v5OmCJOS+",
+    "fileId": "79qQuB9btGHazFBq8hCPQM",
     "prefabRootNode": {
       "__id__": 1
     },
@@ -1825,13 +1825,13 @@
         "__id__": 161
       },
       {
+        "__id__": 162
+      },
+      {
         "__id__": 163
       },
       {
-        "__id__": 165
-      },
-      {
-        "__id__": 166
+        "__id__": 164
       }
     ],
     "removedComponents": []
@@ -1844,18 +1844,18 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "Bee_Planet"
+    "value": "ApiculturaPlanetaAtualizado"
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "8ccoYVjGJW2oZs0ffZuiBl"
+      "fcU69Rh6ZRfa3eDh6wX3mg"
     ]
   },
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 162
+      "__id__": 160
     },
     "propertyPath": [
       "_lpos"
@@ -1868,15 +1868,9 @@
     }
   },
   {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "8ccoYVjGJW2oZs0ffZuiBl"
-    ]
-  },
-  {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 164
+      "__id__": 160
     },
     "propertyPath": [
       "_lrot"
@@ -1890,15 +1884,9 @@
     }
   },
   {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "8ccoYVjGJW2oZs0ffZuiBl"
-    ]
-  },
-  {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 164
+      "__id__": 160
     },
     "propertyPath": [
       "_prefab",
@@ -1911,7 +1899,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 167
+      "__id__": 165
     },
     "propertyPath": [
       "playOnLoad"
@@ -1921,11 +1909,11 @@
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "32QQFtb2RYMY5ybFdOhfhh"
+      "a3Y9yHyHdaHbEwpPqNiV1v"
     ]
   },
   {
-    "__type__": "c464euD601IJoOVrXjoiHHg",
+    "__type__": "3d177MB7+tI/IXW3GS2iLb9",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1933,13 +1921,14 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 169
+      "__id__": 167
     },
+    "speedRotation": 1,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "bejNMAPEBDspe741r4ysbO"
+    "fileId": "a4Yy4JfQ1HpLlJPrdkUU1h"
   },
   {
     "__type__": "cc.PrefabInfo",

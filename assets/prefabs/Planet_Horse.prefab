@@ -26,11 +26,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 12
+        "__id__": 14
       }
     ],
     "_prefab": {
-      "__id__": 14
+      "__id__": 16
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -128,17 +128,17 @@
       "__id__": 4
     },
     "asset": {
-      "__uuid__": "9939f7fb-4bd3-424f-a06a-18c4f01c0d80@62841",
+      "__uuid__": "b96236a3-2bb0-4aca-b388-25e17aa1c792@b84fc",
       "__expectedType__": "cc.Prefab"
     },
-    "fileId": "aa02dZI+VYIKMbKA+LUfPC",
+    "fileId": "37er/bGRNcKog5/n4L84XB",
     "instance": {
       "__id__": 6
     }
   },
   {
     "__type__": "cc.PrefabInstance",
-    "fileId": "976kBHFQNLhoeGty+s5iFH",
+    "fileId": "9bShOe6ZRLIpwGmRikjMRH",
     "prefabRootNode": {
       "__id__": 1
     },
@@ -156,6 +156,9 @@
       },
       {
         "__id__": 11
+      },
+      {
+        "__id__": 12
       }
     ],
     "removedComponents": []
@@ -168,12 +171,12 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "EquinoculturaPlaneta"
+    "value": "CavaloPlanetaAtualizado"
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "aa02dZI+VYIKMbKA+LUfPC"
+      "37er/bGRNcKog5/n4L84XB"
     ]
   },
   {
@@ -221,7 +224,23 @@
     }
   },
   {
-    "__type__": "c464euD601IJoOVrXjoiHHg",
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 13
+    },
+    "propertyPath": [
+      "playOnLoad"
+    ],
+    "value": true
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "6bjh60925X5btFAI0YAXVa"
+    ]
+  },
+  {
+    "__type__": "3d177MB7+tI/IXW3GS2iLb9",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -229,13 +248,14 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 13
+      "__id__": 15
     },
+    "speedRotation": 1,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "bejNMAPEBDspe741r4ysbO"
+    "fileId": "f8JFgIhxFEbbH4gMAGPAJq"
   },
   {
     "__type__": "cc.PrefabInfo",
