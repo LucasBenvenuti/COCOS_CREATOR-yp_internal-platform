@@ -1,0 +1,607 @@
+{
+  "ver": "2.0.14",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae",
+  "files": [],
+  "subMetas": {
+    "24920": {
+      "importer": "gltf-material",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@24920",
+      "displayName": "",
+      "id": "24920",
+      "name": "GrassForkVegsPoundAtlas.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "50743": {
+      "importer": "texture",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@50743",
+      "displayName": "",
+      "id": "50743",
+      "name": "UnnamedTexture-5.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ba904ccf-c21c-44a0-90af-089324d940ae@ab913"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "77104": {
+      "importer": "gltf-material",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@77104",
+      "displayName": "",
+      "id": "77104",
+      "name": "HouseBarnAtlas.material",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "09044": {
+      "importer": "gltf-mesh",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@09044",
+      "displayName": "",
+      "id": "09044",
+      "name": "road_cross.006.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4179e": {
+      "importer": "gltf-mesh",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@4179e",
+      "displayName": "",
+      "id": "4179e",
+      "name": "road_cross.025.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "453ac": {
+      "importer": "gltf-mesh",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@453ac",
+      "displayName": "",
+      "id": "453ac",
+      "name": "car.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "63e6e": {
+      "importer": "gltf-animation",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@63e6e",
+      "displayName": "",
+      "id": "63e6e",
+      "name": "Animation.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 6.375
+        },
+        "events": []
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9d1d": {
+      "importer": "gltf-skeleton",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@f9d1d",
+      "displayName": "",
+      "id": "f9d1d",
+      "name": "Armature.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 2
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "224b9": {
+      "importer": "gltf-skeleton",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@224b9",
+      "displayName": "",
+      "id": "224b9",
+      "name": "Armature.001.skeleton",
+      "userData": {
+        "gltfIndex": 1,
+        "jointsLength": 2
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "aabd7": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@aabd7",
+      "displayName": "",
+      "id": "aabd7",
+      "name": "RoadsAtlas_v2.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "85cc8": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@85cc8",
+      "displayName": "",
+      "id": "85cc8",
+      "name": "Trees_zabor_weel_Atlas_v2.image",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bad7b": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@bad7b",
+      "displayName": "",
+      "id": "bad7b",
+      "name": "Grass_fork_vegs_pound_Atlas.png.001.image",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ee5ee": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@ee5ee",
+      "displayName": "",
+      "id": "ee5ee",
+      "name": "TreeBR_Albedo.image",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a3330": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@a3330",
+      "displayName": "",
+      "id": "a3330",
+      "name": "HouseBarnAtlas_v3.image",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ab913": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@ab913",
+      "displayName": "",
+      "id": "ab913",
+      "name": "Vehicles_mill_Atlascaminhao2.image",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0f01a": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@0f01a",
+      "displayName": "",
+      "id": "0f01a",
+      "name": "Vehicles_mill_Atlas.image",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3effa": {
+      "importer": "texture",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@3effa",
+      "displayName": "",
+      "id": "3effa",
+      "name": "UnnamedTexture-0.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ba904ccf-c21c-44a0-90af-089324d940ae@aabd7"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "221a5": {
+      "importer": "texture",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@221a5",
+      "displayName": "",
+      "id": "221a5",
+      "name": "UnnamedTexture-1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ba904ccf-c21c-44a0-90af-089324d940ae@85cc8"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0089c": {
+      "importer": "texture",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@0089c",
+      "displayName": "",
+      "id": "0089c",
+      "name": "UnnamedTexture-2.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ba904ccf-c21c-44a0-90af-089324d940ae@bad7b"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b633": {
+      "importer": "texture",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@9b633",
+      "displayName": "",
+      "id": "9b633",
+      "name": "UnnamedTexture-3.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ba904ccf-c21c-44a0-90af-089324d940ae@ee5ee"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b782": {
+      "importer": "texture",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@9b782",
+      "displayName": "",
+      "id": "9b782",
+      "name": "UnnamedTexture-4.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ba904ccf-c21c-44a0-90af-089324d940ae@a3330"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "99ea5": {
+      "importer": "texture",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@99ea5",
+      "displayName": "",
+      "id": "99ea5",
+      "name": "UnnamedTexture-6.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ba904ccf-c21c-44a0-90af-089324d940ae@0f01a"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "40d3b": {
+      "importer": "gltf-material",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@40d3b",
+      "displayName": "",
+      "id": "40d3b",
+      "name": "RoadsAtlas.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "80f68": {
+      "importer": "gltf-material",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@80f68",
+      "displayName": "",
+      "id": "80f68",
+      "name": "TreeZaborWellAtlas.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4b1c9": {
+      "importer": "gltf-material",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@4b1c9",
+      "displayName": "",
+      "id": "4b1c9",
+      "name": "Tree.material",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6040f": {
+      "importer": "gltf-material",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@6040f",
+      "displayName": "",
+      "id": "6040f",
+      "name": "VehiclesMillAtlas_2.material",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "76da7": {
+      "importer": "gltf-material",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@76da7",
+      "displayName": "",
+      "id": "76da7",
+      "name": "VehiclesMillAtlas.material",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4e15e": {
+      "importer": "gltf-scene",
+      "uuid": "ba904ccf-c21c-44a0-90af-089324d940ae@4e15e",
+      "displayName": "",
+      "id": "4e15e",
+      "name": "CanaDeAcucar_v2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "RoadsAtlas_v2",
+        "uri": "ba904ccf-c21c-44a0-90af-089324d940ae@aabd7"
+      },
+      {
+        "name": "Trees_zabor_weel_Atlas_v2",
+        "uri": "ba904ccf-c21c-44a0-90af-089324d940ae@85cc8"
+      },
+      {
+        "name": "Grass_fork_vegs_pound_Atlas.png.001",
+        "uri": "ba904ccf-c21c-44a0-90af-089324d940ae@bad7b"
+      },
+      {
+        "name": "TreeBR_Albedo",
+        "uri": "ba904ccf-c21c-44a0-90af-089324d940ae@ee5ee"
+      },
+      {
+        "name": "HouseBarnAtlas_v3",
+        "uri": "ba904ccf-c21c-44a0-90af-089324d940ae@a3330"
+      },
+      {
+        "name": "Vehicles_mill_Atlascaminhao2",
+        "uri": "ba904ccf-c21c-44a0-90af-089324d940ae@ab913"
+      },
+      {
+        "name": "Vehicles_mill_Atlas",
+        "uri": "ba904ccf-c21c-44a0-90af-089324d940ae@0f01a"
+      }
+    ],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Animation",
+        "duration": 6.375,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Animation",
+            "from": 0,
+            "to": 6.375,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "ba904ccf-c21c-44a0-90af-089324d940ae@4e15e",
+    "assetFinder": {
+      "meshes": [
+        "ba904ccf-c21c-44a0-90af-089324d940ae@09044",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@4179e",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@453ac"
+      ],
+      "skeletons": [
+        "ba904ccf-c21c-44a0-90af-089324d940ae@f9d1d",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@224b9"
+      ],
+      "textures": [
+        "ba904ccf-c21c-44a0-90af-089324d940ae@3effa",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@221a5",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@0089c",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@9b633",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@9b782",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@50743",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@99ea5"
+      ],
+      "materials": [
+        "ba904ccf-c21c-44a0-90af-089324d940ae@40d3b",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@80f68",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@24920",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@4b1c9",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@77104",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@6040f",
+        "ba904ccf-c21c-44a0-90af-089324d940ae@76da7"
+      ],
+      "scenes": [
+        "ba904ccf-c21c-44a0-90af-089324d940ae@4e15e"
+      ]
+    }
+  }
+}
