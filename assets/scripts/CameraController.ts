@@ -1,6 +1,7 @@
 
 import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp } from "cc";
 import { Planet_Behavior } from "./Planet_Behavior";
+import { PlatformController } from "./PlatformController";
 const { ccclass, property } = _decorator;
 
 const v2_1 = new math.Vec2();
@@ -141,7 +142,14 @@ export class CameraController extends Component {
                 self.canInteractWithPlanet = true;
 
                 self.closeBtnAnim.node.active = true;
-                self.closeBtnAnim.play('ReturnBTN_Appear');
+                self.closeBtnAnim.play('Btn_Appear_UI');
+
+                PlatformController.instance.titleSpriteComponent.spriteFrame = self.currentPlanetBehavior.planetTitleImg;
+                PlatformController.instance.titleAnimation.play("Appear_TitleImages");
+
+                // PlatformController.instance.titleLabel.string = self.currentPlanetBehavior.planetTitle;
+                // PlatformController.instance.titleLabel.node.active = true;
+                // PlatformController.instance.titleLabel.getComponent(AnimationComponent)?.play("Appear_UI");
             }, 2.2);
         }, 0.5);
     }
@@ -204,9 +212,14 @@ export class CameraController extends Component {
         if(!self.hasSelectedPlanet || !self.currentPlanetBehavior)
             return;
 
-            self.closeBtnAnim.play('ReturnBTN_Disappear');
+            self.closeBtnAnim.play('Btn_Disappear_UI');
+            // PlatformController.instance.titleLabel.getComponent(AnimationComponent)?.play("Disappear_UI");
+            PlatformController.instance.titleAnimation.play("Disappear_TitleImages");
             self.scheduleOnce(()=>{
                 self.closeBtnAnim.node.active = false;
+                PlatformController.instance.titleSpriteComponent.spriteFrame = null;
+                // PlatformController.instance.titleLabel.node.active = false;
+                // PlatformController.instance.titleLabel.string = "";
             }, 0.5);
 
         self.canInteractWithPlanet = false;

@@ -1,13 +1,17 @@
 {
   "game": {
-    "name": "UNKNOW GAME",
-    "app_id": "UNKNOW",
-    "c_id": "0"
+    "app_id": "669603933",
+    "c_id": "0",
+    "name": "Plataforma 3D"
   },
   "appConfigMaps": [
     {
       "app_id": "UNKNOW",
       "config_id": "85f59e"
+    },
+    {
+      "app_id": "669603933",
+      "config_id": "08d210"
     }
   ],
   "configs": [
@@ -16,7 +20,26 @@
       "config_id": "85f59e",
       "config_name": "Default",
       "config_remarks": "",
-      "services": []
+      "services": [
+        {
+          "service_id": "235",
+          "enable": false,
+          "param": {}
+        }
+      ]
+    },
+    {
+      "app_id": "669603933",
+      "config_id": "08d210",
+      "config_name": "Default",
+      "config_remarks": "",
+      "services": [
+        {
+          "service_id": "235",
+          "enable": false,
+          "param": {}
+        }
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, SkeletalAnimationComponent, Vec3, RigidBody, Quat, tween } from 'cc';
+import { _decorator, Component, Node, SkeletalAnimationComponent, Vec3, RigidBody, Quat, tween, SpriteFrame } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Planet_Behavior')
@@ -15,6 +15,12 @@ export class Planet_Behavior extends Component {
 
     @property(Number)
     speedRotation: number = 1;
+
+    @property(String)
+    planetTitle: string = "";
+
+    @property(SpriteFrame)
+    planetTitleImg: SpriteFrame = null!;
 
     startPlanetRotation = new Quat();
 
