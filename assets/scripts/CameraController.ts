@@ -172,6 +172,8 @@ export class CameraController extends Component {
 
     rotateCameraToCustomValue(newRotValue: Quat)
     {
+        var self = this;
+
         const tw = tween(this.node);// Use tween animation
         const quat_start = new Quat();
 
@@ -195,15 +197,6 @@ export class CameraController extends Component {
             },
         })
         tw.start();
-
-        var self = this;
-
-        // tween(self.node).to(1.6, {}, {
-        //     easing: 'cubicInOut',
-        //     'onUpdate': (currentValue: Quat) => {
-        //         self.node.setRotation(currentValue);
-        //     }
-        // }).start();
     }
 
     returnToStartPosition() {

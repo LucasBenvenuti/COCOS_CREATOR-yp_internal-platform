@@ -27,5 +27,18 @@ export class PlatformController extends Component {
 
         self.titleLabel.node.active = false;
         self.titleSpriteComponent.node.active = false;
+        
+        cocosAnalytics.enableDebug(true);
+        console.log(cocosAnalytics.isInited());
+
+        self.scheduleOnce(()=>{
+            cocosAnalytics.CAAccount.loginStart({
+                channel: '99999',
+            });
+        }, 2);
+    }
+    
+    start() {
+        
     }
 }

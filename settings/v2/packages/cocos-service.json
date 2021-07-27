@@ -36,10 +36,22 @@
       "services": [
         {
           "service_id": "235",
-          "enable": false,
-          "param": {}
+          "enable": true,
+          "param": {
+            "app_id": "669603933",
+            "store_id": "H5",
+            "store_id_platform": "",
+            "plugin_version": "2.0.3_2.2.1"
+          }
         }
       ]
+    },
+    {
+      "app_id": "669603933",
+      "config_id": "7f63c3",
+      "config_name": "Test",
+      "config_remarks": "",
+      "services": []
     }
   ]
 }

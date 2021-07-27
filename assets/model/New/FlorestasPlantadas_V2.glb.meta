@@ -12,7 +12,7 @@
       "id": "24920",
       "name": "GrassForkVegsPoundAtlas.material",
       "userData": {
-        "gltfIndex": 3
+        "gltfIndex": 2
       },
       "ver": "1.0.14",
       "imported": true,
@@ -52,7 +52,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@63267"
+        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@1d6b5"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -486,40 +486,6 @@
       ],
       "subMetas": {}
     },
-    "256d2": {
-      "importer": "gltf-mesh",
-      "uuid": "57217f3b-aeb5-4a12-945a-3391c5278f24@256d2",
-      "displayName": "",
-      "id": "256d2",
-      "name": "road_cross.002.mesh",
-      "userData": {
-        "gltfIndex": 25
-      },
-      "ver": "1.1.0",
-      "imported": true,
-      "files": [
-        ".bin",
-        ".json"
-      ],
-      "subMetas": {}
-    },
-    "5e11e": {
-      "importer": "gltf-mesh",
-      "uuid": "57217f3b-aeb5-4a12-945a-3391c5278f24@5e11e",
-      "displayName": "",
-      "id": "5e11e",
-      "name": "road_cross.003.mesh",
-      "userData": {
-        "gltfIndex": 26
-      },
-      "ver": "1.1.0",
-      "imported": true,
-      "files": [
-        ".bin",
-        ".json"
-      ],
-      "subMetas": {}
-    },
     "45bd0": {
       "importer": "gltf-mesh",
       "uuid": "57217f3b-aeb5-4a12-945a-3391c5278f24@45bd0",
@@ -527,7 +493,7 @@
       "id": "45bd0",
       "name": "road_cross.008.mesh",
       "userData": {
-        "gltfIndex": 27
+        "gltfIndex": 25
       },
       "ver": "1.1.0",
       "imported": true,
@@ -689,7 +655,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@1d6b5"
+        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@efd66"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -712,7 +678,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@efd66"
+        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@d73a6"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -735,7 +701,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@d73a6"
+        "imageUuidOrDatabaseUri": "57217f3b-aeb5-4a12-945a-3391c5278f24@63267"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -776,22 +742,6 @@
       ],
       "subMetas": {}
     },
-    "b91ef": {
-      "importer": "gltf-material",
-      "uuid": "57217f3b-aeb5-4a12-945a-3391c5278f24@b91ef",
-      "displayName": "",
-      "id": "b91ef",
-      "name": "Rock_Buraco.material",
-      "userData": {
-        "gltfIndex": 2
-      },
-      "ver": "1.0.14",
-      "imported": true,
-      "files": [
-        ".json"
-      ],
-      "subMetas": {}
-    },
     "80f68": {
       "importer": "gltf-material",
       "uuid": "57217f3b-aeb5-4a12-945a-3391c5278f24@80f68",
@@ -799,7 +749,7 @@
       "id": "80f68",
       "name": "TreeZaborWellAtlas.material",
       "userData": {
-        "gltfIndex": 4
+        "gltfIndex": 3
       },
       "ver": "1.0.14",
       "imported": true,
@@ -814,6 +764,22 @@
       "displayName": "",
       "id": "40d3b",
       "name": "RoadsAtlas.material",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b91ef": {
+      "importer": "gltf-material",
+      "uuid": "57217f3b-aeb5-4a12-945a-3391c5278f24@b91ef",
+      "displayName": "",
+      "id": "b91ef",
+      "name": "Rock_Buraco.material",
       "userData": {
         "gltfIndex": 5
       },
@@ -908,8 +874,6 @@
         "57217f3b-aeb5-4a12-945a-3391c5278f24@54cfa",
         "57217f3b-aeb5-4a12-945a-3391c5278f24@2685a",
         "57217f3b-aeb5-4a12-945a-3391c5278f24@4c3e6",
-        "57217f3b-aeb5-4a12-945a-3391c5278f24@256d2",
-        "57217f3b-aeb5-4a12-945a-3391c5278f24@5e11e",
         "57217f3b-aeb5-4a12-945a-3391c5278f24@45bd0"
       ],
       "skeletons": [],
@@ -924,10 +888,10 @@
       "materials": [
         "57217f3b-aeb5-4a12-945a-3391c5278f24@f9978",
         "57217f3b-aeb5-4a12-945a-3391c5278f24@5ed94",
-        "57217f3b-aeb5-4a12-945a-3391c5278f24@b91ef",
         "57217f3b-aeb5-4a12-945a-3391c5278f24@24920",
         "57217f3b-aeb5-4a12-945a-3391c5278f24@80f68",
-        "57217f3b-aeb5-4a12-945a-3391c5278f24@40d3b"
+        "57217f3b-aeb5-4a12-945a-3391c5278f24@40d3b",
+        "57217f3b-aeb5-4a12-945a-3391c5278f24@b91ef"
       ],
       "scenes": [
         "57217f3b-aeb5-4a12-945a-3391c5278f24@e3f84"
