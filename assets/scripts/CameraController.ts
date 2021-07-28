@@ -1,5 +1,5 @@
 
-import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp } from "cc";
+import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp, Collider, ITriggerEvent } from "cc";
 import { Planet_Behavior } from "./Planet_Behavior";
 import { PlatformController } from "./PlatformController";
 const { ccclass, property } = _decorator;
@@ -41,6 +41,8 @@ export class CameraController extends Component {
 
     currentPlanetBehavior: Planet_Behavior = null!;
 
+    collider: Collider = null!;
+
 	onLoad() {
         var self = this;
 
@@ -56,6 +58,11 @@ export class CameraController extends Component {
         self.startCameraRotation = self.node.getRotation();
 
         self.closeBtnAnim.node.active = false;
+
+        self.collider = self.getComponentInChildren(Collider);
+
+        self.collider?.on("onTriggerEnter", self.onTriggerEnter, self);
+        self.collider?.on("onTriggerExit", self.onTriggerExit, self);
 	}
 
 	onDestroy() {
@@ -122,6 +129,7 @@ export class CameraController extends Component {
             return;
 
         self.hasSelectedPlanet = true;
+        self.collider.node.active = false;
 
         self.scheduleOnce(()=>{
             self.startCameraRotation = self.node.getRotation();
@@ -225,6 +233,32 @@ export class CameraController extends Component {
         self.scheduleOnce(()=>{
             self.hasSelectedPlanet = false;
             self.currentPlanetBehavior = null;
+
+            self.collider.node.active = true;
         }, 2.5);
+    }
+
+    onTriggerEnter(event: ITriggerEvent) {
+        // console.log("Debug TriggerEvent Group number - " + event.selfCollider.attachedRigidBody?.group);
+        
+        // if(event.selfCollider.attachedRigidBody?.group !== 4)
+        //     return;
+    
+        let planet = event.otherCollider.getComponent(Planet_Behavior);
+
+        if(planet)
+            planet?.LogoAnim.play("Logo_Appear");
+    }
+
+    onTriggerExit(event: ITriggerEvent) {
+        // console.log("Debug TriggerEvent Group number - " + event.selfCollider.attachedRigidBody?.group);
+        
+        // if(event.selfCollider.attachedRigidBody?.group !== 4)
+        //     return;
+
+        let planet = event.otherCollider.getComponent(Planet_Behavior);
+
+        if(planet)
+            planet?.LogoAnim.play("Logo_Disappear");
     }
 }

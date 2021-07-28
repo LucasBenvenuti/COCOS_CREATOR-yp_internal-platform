@@ -1,5 +1,6 @@
 
-import { _decorator, Component, Node, SkeletalAnimationComponent, Vec3, RigidBody, Quat, tween, SpriteFrame } from 'cc';
+import { _decorator, Component, Node, SkeletalAnimationComponent, Vec3, RigidBody, Quat, tween, SpriteFrame, AnimationComponent } from 'cc';
+import { PlanetLogoBehavior } from './PlanetLogo_Behavior';
 const { ccclass, property } = _decorator;
 
 @ccclass('Planet_Behavior')
@@ -22,11 +23,22 @@ export class Planet_Behavior extends Component {
     @property(SpriteFrame)
     planetTitleImg: SpriteFrame = null!;
 
+    @property(AnimationComponent)
+    LogoAnim: AnimationComponent = null!;
+
+    @property(PlanetLogoBehavior)
+    planetLogo: PlanetLogoBehavior = null!;
+
     startPlanetRotation = new Quat();
 
     onLoad() {
         var self = this;
         self.startPlanetRotation = self.planetModel.node.getRotation();
+
+        let planetLogo = self.getComponentInChildren(PlanetLogoBehavior);
+
+        if(planetLogo)
+            planetLogo.node.active = false;
     }
 
     addTorqueToPlanet(yValue: number)
@@ -57,7 +69,7 @@ export class Planet_Behavior extends Component {
                 quat_now.set(quat_start).slerp(quat_end, self.easeInOutCubic(ratio));
                 self.planetModel.node.setRotation(quat_now);
             },
-        })
+        });
         tw.start();
     }
 

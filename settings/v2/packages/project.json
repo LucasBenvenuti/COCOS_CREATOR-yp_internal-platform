@@ -15,11 +15,16 @@
       {
         "index": 1,
         "name": "PLANETS"
+      },
+      {
+        "index": 2,
+        "name": "CAMERACOLLIDER"
       }
     ],
     "collisionMatrix": {
       "0": 3,
-      "1": 1
+      "1": 5,
+      "2": 2
     }
   }
 }
