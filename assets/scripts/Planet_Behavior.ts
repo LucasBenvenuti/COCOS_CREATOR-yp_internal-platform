@@ -1,6 +1,6 @@
 
-import { _decorator, Component, Node, SkeletalAnimationComponent, Vec3, RigidBody, Quat, tween, SpriteFrame, AnimationComponent } from 'cc';
-import { PlanetLogoBehavior } from './PlanetLogo_Behavior';
+import { _decorator, Component, Node, Vec3, RigidBody, Quat, tween, SpriteFrame, AnimationComponent, MeshRenderer, Texture2D, Color } from 'cc';
+import { ImageBillboardBehavior } from './ImageBillboardBehavior';
 const { ccclass, property } = _decorator;
 
 @ccclass('Planet_Behavior')
@@ -13,6 +13,8 @@ export class Planet_Behavior extends Component {
     planetModel: RigidBody = null!;
 
     newRotationEuler = new Vec3(0,0,0);
+    
+    startPlanetRotation = new Quat();
 
     @property(Number)
     speedRotation: number = 1;
@@ -26,19 +28,50 @@ export class Planet_Behavior extends Component {
     @property(AnimationComponent)
     LogoAnim: AnimationComponent = null!;
 
-    @property(PlanetLogoBehavior)
-    planetLogo: PlanetLogoBehavior = null!;
+    //IN CASE OF DIFFERENT TEXTURE 2D ON LOGO PLANE AND SPRITE ON UI
+    // @property(Texture2D)
+    // logoTexture: Texture2D = null!;
 
-    startPlanetRotation = new Quat();
+    @property(MeshRenderer)
+    logoMesh: MeshRenderer = null!;
+
+    @property([AnimationComponent])
+    planetIcons_Anim: AnimationComponent[] = [];
+
+    @property([Texture2D])
+    iconsTexture: Texture2D[] = [];
+
+    @property([String])
+    webviewURLs: string[] = [];
 
     onLoad() {
         var self = this;
         self.startPlanetRotation = self.planetModel.node.getRotation();
 
-        let planetLogo = self.getComponentInChildren(PlanetLogoBehavior);
+        //ALWAYS MAINTAIN LOGO_CONT ON LAST CHILD
+        let planetLogo = self.node.getChildByName("Logo_Cont");
 
         if(planetLogo)
-            planetLogo.node.active = false;
+            planetLogo.active = false;
+
+        if(self.logoMesh)
+            self.logoMesh.material.setProperty("mainTexture", self.planetTitleImg.texture);
+            //IN CASE OF DIFFERENT TEXTURE 2D ON LOGO PLANE AND SPRITE ON UI, COMMENT LINE ABOVE AND UNCOMMENT LINE BELOW
+            // self.logoMesh.material.setProperty("mainTexture", self.planetTitleImg);
+
+        if(self.planetIcons_Anim.length > 0)
+        {
+            for(let i = 0; i < self.planetIcons_Anim.length; i++)
+            {
+                console.log(self.planetIcons_Anim[i]);
+
+                let curMeshRenderer = self.planetIcons_Anim[i].getComponentInChildren(MeshRenderer);
+                curMeshRenderer?.material?.setProperty("mainTexture", self.iconsTexture[i]);
+                curMeshRenderer?.material?.setProperty("mainColor", new Color(255,255,255,0));
+
+                self.planetIcons_Anim[i].node.active = false;
+            }
+        }
     }
 
     addTorqueToPlanet(yValue: number)

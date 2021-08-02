@@ -1,5 +1,6 @@
-import { _decorator, Component, Node, Material, systemEvent, SystemEventType, EventTouch, CameraComponent, geometry, Touch, PhysicsSystem, ModelComponent, ToggleComponent, LabelComponent, EditBoxComponent, RigidBody } from "cc";
+import { _decorator, Component, Node, Material, systemEvent, SystemEventType, EventTouch, CameraComponent, geometry, Touch, PhysicsSystem, ModelComponent, ToggleComponent, LabelComponent, EditBoxComponent, RigidBody, AnimationComponent, Camera } from "cc";
 import { CameraController } from "./CameraController";
+import { PlatformController } from "./PlatformController";
 const { ccclass, property } = _decorator;
 
 enum ERaycastType {
@@ -29,34 +30,94 @@ export class RaycastController extends Component {
 
     onEnable () {
         systemEvent.on(SystemEventType.TOUCH_START, this.onTouchStart, this);
+        systemEvent.on(SystemEventType.TOUCH_END, this.onTouchEnd, this);
     }
 
     onDisable () {
         systemEvent.off(SystemEventType.TOUCH_START, this.onTouchStart, this);
+        systemEvent.off(SystemEventType.TOUCH_END, this.onTouchEnd, this);
     }
 
     onTouchStart (touch: Touch, event: EventTouch) {
-        this.camera.screenPointToRay(touch.getLocationX(), touch.getLocationY(), this._ray);
-        switch (this._raycastType) {
+        var self = this;
+
+        self.camera.screenPointToRay(touch.getLocationX(), touch.getLocationY(), self._ray);
+        switch (self._raycastType) {
             case ERaycastType.ALL:
-                if (PhysicsSystem.instance.raycast(this._ray, this._mask, this._maxDistance)) {
+                if (PhysicsSystem.instance.raycast(self._ray, self._mask, self._maxDistance)) {
                     const r = PhysicsSystem.instance.raycastResults;
 
                     console.log(r);
                 }
                 break;
             case ERaycastType.CLOSEST:
-                if (PhysicsSystem.instance.raycastClosest(this._ray, this._mask, this._maxDistance)) {
+                if (PhysicsSystem.instance.raycastClosest(self._ray, self._mask, self._maxDistance)) {
                     const r = PhysicsSystem.instance.raycastClosestResult;
 
                     var rigidBodyNode = r.collider.attachedRigidBody;
 
-                    if(!r.collider.attachedRigidBody)
-                        return;
+                    console.log(r.collider.node.parent);
 
-                    if(r.collider.attachedRigidBody.group == 2){
-                        if(!CameraController.instance.currentPlanetBehavior)
+                    if(!rigidBodyNode)
+                    {
+                        // let colliderParent = r.collider.node.parent;
+
+                        // if(colliderParent?.name.includes("Icon"))
+                        // {
+                        //     console.log("Is Icon!");
+                        //     let finalURL = CameraController.instance.getCurrentURLFromSelectedIcon(colliderParent.getComponent(AnimationComponent));
+                        //     PlatformController.instance.openWebview(finalURL);
+                        // }
+                    }
+                    else
+                    {   
+                        if(rigidBodyNode.group == 2){
+                            if(!CameraController.instance.currentPlanetBehavior)
                             CameraController.instance.goToPlanet(r.collider.node);
+                        }
+                    }
+                }
+                break;
+        }
+    }
+
+    onTouchEnd (touch: Touch, event: EventTouch) {
+        var self = this;
+
+        self.camera.screenPointToRay(touch.getLocationX(), touch.getLocationY(), self._ray);
+        switch (self._raycastType) {
+            case ERaycastType.ALL:
+                if (PhysicsSystem.instance.raycast(self._ray, self._mask, self._maxDistance)) {
+                    const r = PhysicsSystem.instance.raycastResults;
+
+                    console.log(r);
+                }
+                break;
+            case ERaycastType.CLOSEST:
+                if (PhysicsSystem.instance.raycastClosest(self._ray, self._mask, self._maxDistance)) {
+                    const r = PhysicsSystem.instance.raycastClosestResult;
+
+                    var rigidBodyNode = r.collider.attachedRigidBody;
+
+                    console.log(r.collider.node.parent);
+
+                    if(!rigidBodyNode)
+                    {
+                        let colliderParent = r.collider.node.parent;
+
+                        if(colliderParent?.name.includes("Icon"))
+                        {
+                            console.log("Is Icon!");
+                            let finalURL = CameraController.instance.getCurrentURLFromSelectedIcon(colliderParent.getComponent(AnimationComponent));
+                            PlatformController.instance.openWebview(finalURL);
+                        }
+                    }
+                    else
+                    {   
+                        // if(rigidBodyNode.group == 2){
+                        //     if(!CameraController.instance.currentPlanetBehavior)
+                        //     CameraController.instance.goToPlanet(r.collider.node);
+                        // }
                     }
                 }
                 break;

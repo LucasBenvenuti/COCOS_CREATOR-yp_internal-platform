@@ -1,5 +1,6 @@
 
 import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp, Collider, ITriggerEvent } from "cc";
+import { AudioController } from "./AudioController";
 import { Planet_Behavior } from "./Planet_Behavior";
 import { PlatformController } from "./PlatformController";
 const { ccclass, property } = _decorator;
@@ -131,19 +132,33 @@ export class CameraController extends Component {
         self.hasSelectedPlanet = true;
         self.collider.node.active = false;
 
+        
         self.scheduleOnce(()=>{
             self.startCameraRotation = self.node.getRotation();
-                
+            
             self.currentPlanetBehavior = planet.getComponent('Planet_Behavior');
-    
+            
             if(!self.currentPlanetBehavior)
-                return;
+            return;
+
+            AudioController.instance.playGoToPlanetSource();
     
             self.translateCameraToCustomValue(self.currentPlanetBehavior.cameraPoint.getWorldPosition());
     
-                self.scheduleOnce(()=> {
+            self.scheduleOnce(()=> {
                 self.rotateCameraToCustomValue(self.currentPlanetBehavior.cameraPoint.getRotation());
             }, 1);
+
+            self.scheduleOnce(()=>{
+                for(let i = 0; i < self.currentPlanetBehavior.planetIcons_Anim.length; i++)
+                {
+                    self.scheduleOnce(()=>{
+                        // console.log(self.currentPlanetBehavior.planetIcons_Anim[i]);
+                        self.currentPlanetBehavior.planetIcons_Anim[i].node.active = true;
+                        self.currentPlanetBehavior.planetIcons_Anim[i].play("AppearIcon");
+                    }, i * 0.15 );
+                }
+            }, 1.2);
     
             //TIME TO WAIT TO INTERACT WITH SELECTED PLANET
             self.scheduleOnce(()=> {
@@ -213,6 +228,15 @@ export class CameraController extends Component {
         if(!self.hasSelectedPlanet || !self.currentPlanetBehavior)
             return;
 
+            self.scheduleOnce(()=>{
+                AudioController.instance.playReturnFromPlanetSource();
+            }, 0.2);
+
+            for(let i = 0; i < self.currentPlanetBehavior.planetIcons_Anim.length; i++)
+            {
+                self.currentPlanetBehavior.planetIcons_Anim[i].play("DisappearIcon");
+            }
+
             self.closeBtnAnim.play('Btn_Disappear_UI');
             // PlatformController.instance.titleLabel.getComponent(AnimationComponent)?.play("Disappear_UI");
             PlatformController.instance.titleAnimation.play("Disappear_TitleImages");
@@ -260,5 +284,15 @@ export class CameraController extends Component {
 
         if(planet)
             planet?.LogoAnim.play("Logo_Disappear");
+    }
+
+    public getCurrentURLFromSelectedIcon(nodeByAnimationComponent: AnimationComponent): string
+    {
+        var self = this;
+
+        let index = self.currentPlanetBehavior.planetIcons_Anim.indexOf(nodeByAnimationComponent);
+        let url = self.currentPlanetBehavior.webviewURLs[index];
+
+        return url;
     }
 }
