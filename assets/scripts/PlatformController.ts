@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp } from 'cc';
+import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button } from 'cc';
 import { AudioController } from './AudioController';
 import { ButtonsHelper } from './ButtonsHelper';
 const { ccclass, property } = _decorator;
@@ -18,16 +18,19 @@ export class PlatformController extends Component {
     @property(AnimationComponent)
     titleAnimation: AnimationComponent = null!;
 
-    @property(Node)
-    webviewParent: Node = null!;
+    @property(AnimationComponent)
+    webviewParent_Anim: AnimationComponent = null!;
 
     @property(AnimationComponent)
-    webview_Animation: AnimationComponent = null!;
+    webview_Anim: AnimationComponent = null!;
 
-    webviewUI: WebView = null!;
+    @property(WebView)
+    webview: WebView = null!;
 
-    webviewParent_Sprite: Sprite = null!;
-    webview_opacity: UIOpacity = null!;
+    @property(Button)
+    closeWebviewBtn: Button = null!;
+
+    closeWebviewBtn_Anim: AnimationComponent = null!;
 
     onLoad()
     {
@@ -42,21 +45,17 @@ export class PlatformController extends Component {
         self.titleLabel.node.active = false;
         self.titleSpriteComponent.node.active = false;
 
-        self.webviewParent_Sprite = self.webviewParent.getComponent(Sprite)?.material;
-        self.webview_opacity = self.webview_Animation.getComponent(UIOpacity);
+        self.webview.node.active = false;
+        self.closeWebviewBtn.node.active = false;
+        self.closeWebviewBtn.interactable = false;
 
-        if(self.webviewParent_Sprite)
-        {
-            self.webviewParent_Sprite.color = new Color(0,0,0,0);
-        }
-        
-        if(self.webview_opacity)
-        {
-            self.webview_opacity.opacity = 0;
-        }
+        self.closeWebviewBtn_Anim = self.closeWebviewBtn.getComponent(AnimationComponent);
 
-        self.webviewUI = self.webview_Animation.getComponent(WebView);
-        self.webviewParent.active = false;
+        self.webviewParent_Anim.node.active = false;
+        let webviewParentOpacity = self.webviewParent_Anim.getComponent(UIOpacity)?.opacity;
+        webviewParentOpacity = 0;
+
+        self.webview.node.on(WebView.EventType.LOADED, self.webviewLoadedFunc, self);
         
         cocosAnalytics.enableDebug(true);
         console.log(cocosAnalytics.isInited());
@@ -87,51 +86,50 @@ export class PlatformController extends Component {
         }
         else
         {
-            if(!self.webviewUI)
+            if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
             {
                 console.log("WEBVIEW NOT SETTED");
                 return;
             }
 
-            console.log("OPEN HERE WEBVIEWWITH LINK - " + url);
+            self.webviewParent_Anim.node.active = true;
 
-            self.webviewParent.active = true;
+            self.webviewParent_Anim.play("Appear_UI");
 
-            tween(self.webviewParent_Sprite).to(5, { color: new Color(0,0,0,200) }, {
-                easing: 'quadInOut',
-                onUpdate: (ratio: number)=> {
-                    // self.webviewParent_Sprite.color = new Color(0,0,0, lerp(0, 200, ratio));
-                    // self.webviewParent.active = false;
-                },
-                onComplete: ()=> {
-                    // self.webviewParent.active = false;
-                }
-            }).start();
-
-            // self.webviewUI.
-
-            self.scheduleOnce(()=>{
-                // self.webview_Animation.play("Appear_UI");
-            }, 1);
+            self.webview.node.active = true;
+            self.webview.url = "http://localhost:7456/";
         }
     }
 
     closeWebview() {
         var self = this;
 
-        if(!self.webviewUI)
+        if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
         {
             console.log("WEBVIEW NOT SETTED");
             return;
         }
 
-        tween(self.webviewParent_Sprite).to(1.5, { color: new Color(0,0,0,0) }, {
-            easing: 'quadInOut',
-            onComplete: ()=> {
-                self.webviewParent.active = false;
-            }
-        }).start();
+        self.webviewParent_Anim.play("Disappear_UI");
+        self.webview_Anim.play("Disappear_UI");
+        self.closeWebviewBtn_Anim.play("Btn_Disappear_UI");
 
-        self.webview_Animation.play("Disappear_UI");
+        self.scheduleOnce(()=>{
+            self.webview.url = "";
+            self.webviewParent_Anim.node.active = false;
+            self.closeWebviewBtn.node.active = false;
+        }, 0.5);
+
+    }
+
+    webviewLoadedFunc(event: WebView ) {
+        var self = this;
+        console.log(event);
+        console.log(self.closeWebviewBtn_Anim);
+
+        self.closeWebviewBtn.node.active = true;
+
+        self.webview_Anim.play("Appear_UI");
+        self.closeWebviewBtn_Anim.play("Btn_Appear_UI");
     }
 }

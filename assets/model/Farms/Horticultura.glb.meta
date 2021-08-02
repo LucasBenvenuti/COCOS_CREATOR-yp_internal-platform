@@ -1,0 +1,625 @@
+{
+  "ver": "2.0.14",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "824955b1-2775-46bb-84c9-27b630f142b7",
+  "files": [],
+  "subMetas": {
+    "24920": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@24920",
+      "displayName": "",
+      "id": "24920",
+      "name": "GrassForkVegsPoundAtlas.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "45540": {
+      "importer": "gltf-embeded-image",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@45540",
+      "displayName": "",
+      "id": "45540",
+      "name": "BrushCheeseAtlas.image",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".jpg",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "50743": {
+      "importer": "texture",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@50743",
+      "displayName": "",
+      "id": "50743",
+      "name": "UnnamedTexture-5.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "824955b1-2775-46bb-84c9-27b630f142b7@0f01a"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "77104": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@77104",
+      "displayName": "",
+      "id": "77104",
+      "name": "HouseBarnAtlas.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "09f92": {
+      "importer": "gltf-mesh",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@09f92",
+      "displayName": "",
+      "id": "09f92",
+      "name": "barn.001.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ce9cf": {
+      "importer": "gltf-mesh",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@ce9cf",
+      "displayName": "",
+      "id": "ce9cf",
+      "name": "Cube.023.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "453ac": {
+      "importer": "gltf-mesh",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@453ac",
+      "displayName": "",
+      "id": "453ac",
+      "name": "car.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "63e6e": {
+      "importer": "gltf-animation",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@63e6e",
+      "displayName": "",
+      "id": "63e6e",
+      "name": "Animation.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 6.25
+        },
+        "events": []
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9d1d": {
+      "importer": "gltf-skeleton",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@f9d1d",
+      "displayName": "",
+      "id": "f9d1d",
+      "name": "Armature.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 2
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "224b9": {
+      "importer": "gltf-skeleton",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@224b9",
+      "displayName": "",
+      "id": "224b9",
+      "name": "Armature.001.skeleton",
+      "userData": {
+        "gltfIndex": 1,
+        "jointsLength": 5
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "108a5": {
+      "importer": "gltf-embeded-image",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@108a5",
+      "displayName": "",
+      "id": "108a5",
+      "name": "HouseBarnAtlas (1).image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "efd66": {
+      "importer": "gltf-embeded-image",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@efd66",
+      "displayName": "",
+      "id": "efd66",
+      "name": "Grass_fork_vegs_pound_Atlas.png.image",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d73a6": {
+      "importer": "gltf-embeded-image",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@d73a6",
+      "displayName": "",
+      "id": "d73a6",
+      "name": "Trees_zabor_weel_Atlas_v2.png.image",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e29b4": {
+      "importer": "gltf-embeded-image",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@e29b4",
+      "displayName": "",
+      "id": "e29b4",
+      "name": "FloresObjetosAtlas.image",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0f01a": {
+      "importer": "gltf-embeded-image",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@0f01a",
+      "displayName": "",
+      "id": "0f01a",
+      "name": "Vehicles_mill_Atlas.image",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ee5ee": {
+      "importer": "gltf-embeded-image",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@ee5ee",
+      "displayName": "",
+      "id": "ee5ee",
+      "name": "TreeBR_Albedo.image",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3effa": {
+      "importer": "texture",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@3effa",
+      "displayName": "",
+      "id": "3effa",
+      "name": "UnnamedTexture-0.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "824955b1-2775-46bb-84c9-27b630f142b7@108a5"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "221a5": {
+      "importer": "texture",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@221a5",
+      "displayName": "",
+      "id": "221a5",
+      "name": "UnnamedTexture-1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "824955b1-2775-46bb-84c9-27b630f142b7@efd66"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0089c": {
+      "importer": "texture",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@0089c",
+      "displayName": "",
+      "id": "0089c",
+      "name": "UnnamedTexture-2.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "824955b1-2775-46bb-84c9-27b630f142b7@45540"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b633": {
+      "importer": "texture",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@9b633",
+      "displayName": "",
+      "id": "9b633",
+      "name": "UnnamedTexture-3.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "824955b1-2775-46bb-84c9-27b630f142b7@d73a6"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b782": {
+      "importer": "texture",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@9b782",
+      "displayName": "",
+      "id": "9b782",
+      "name": "UnnamedTexture-4.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "824955b1-2775-46bb-84c9-27b630f142b7@e29b4"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "99ea5": {
+      "importer": "texture",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@99ea5",
+      "displayName": "",
+      "id": "99ea5",
+      "name": "UnnamedTexture-6.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "824955b1-2775-46bb-84c9-27b630f142b7@ee5ee"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "389e6": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@389e6",
+      "displayName": "",
+      "id": "389e6",
+      "name": "BrushCheeseShopAtlas.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "80f68": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@80f68",
+      "displayName": "",
+      "id": "80f68",
+      "name": "TreeZaborWellAtlas.material",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d96c0": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@d96c0",
+      "displayName": "",
+      "id": "d96c0",
+      "name": "FloresObjetosAtlas.material",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "76da7": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@76da7",
+      "displayName": "",
+      "id": "76da7",
+      "name": "VehiclesMillAtlas.material",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f3b47": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@f3b47",
+      "displayName": "",
+      "id": "f3b47",
+      "name": "TreeAtlas.material",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "60bc1": {
+      "importer": "gltf-material",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@60bc1",
+      "displayName": "",
+      "id": "60bc1",
+      "name": "Alpha.material",
+      "userData": {
+        "gltfIndex": 7
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "dae51": {
+      "importer": "gltf-scene",
+      "uuid": "824955b1-2775-46bb-84c9-27b630f142b7@dae51",
+      "displayName": "",
+      "id": "dae51",
+      "name": "Horticultura.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "HouseBarnAtlas (1)",
+        "uri": "824955b1-2775-46bb-84c9-27b630f142b7@108a5"
+      },
+      {
+        "name": "Grass_fork_vegs_pound_Atlas.png",
+        "uri": "824955b1-2775-46bb-84c9-27b630f142b7@efd66"
+      },
+      {
+        "name": "BrushCheeseAtlas",
+        "uri": "824955b1-2775-46bb-84c9-27b630f142b7@45540"
+      },
+      {
+        "name": "Trees_zabor_weel_Atlas_v2.png",
+        "uri": "824955b1-2775-46bb-84c9-27b630f142b7@d73a6"
+      },
+      {
+        "name": "FloresObjetosAtlas",
+        "uri": "824955b1-2775-46bb-84c9-27b630f142b7@e29b4"
+      },
+      {
+        "name": "Vehicles_mill_Atlas",
+        "uri": "824955b1-2775-46bb-84c9-27b630f142b7@0f01a"
+      },
+      {
+        "name": "TreeBR_Albedo",
+        "uri": "824955b1-2775-46bb-84c9-27b630f142b7@ee5ee"
+      }
+    ],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Animation",
+        "duration": 6.25,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Animation",
+            "from": 0,
+            "to": 6.25,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "824955b1-2775-46bb-84c9-27b630f142b7@dae51",
+    "assetFinder": {
+      "meshes": [
+        "824955b1-2775-46bb-84c9-27b630f142b7@09f92",
+        "824955b1-2775-46bb-84c9-27b630f142b7@ce9cf",
+        "824955b1-2775-46bb-84c9-27b630f142b7@453ac"
+      ],
+      "skeletons": [
+        "824955b1-2775-46bb-84c9-27b630f142b7@f9d1d",
+        "824955b1-2775-46bb-84c9-27b630f142b7@224b9"
+      ],
+      "textures": [
+        "824955b1-2775-46bb-84c9-27b630f142b7@3effa",
+        "824955b1-2775-46bb-84c9-27b630f142b7@221a5",
+        "824955b1-2775-46bb-84c9-27b630f142b7@0089c",
+        "824955b1-2775-46bb-84c9-27b630f142b7@9b633",
+        "824955b1-2775-46bb-84c9-27b630f142b7@9b782",
+        "824955b1-2775-46bb-84c9-27b630f142b7@50743",
+        "824955b1-2775-46bb-84c9-27b630f142b7@99ea5"
+      ],
+      "materials": [
+        "824955b1-2775-46bb-84c9-27b630f142b7@77104",
+        "824955b1-2775-46bb-84c9-27b630f142b7@24920",
+        "824955b1-2775-46bb-84c9-27b630f142b7@389e6",
+        "824955b1-2775-46bb-84c9-27b630f142b7@80f68",
+        "824955b1-2775-46bb-84c9-27b630f142b7@d96c0",
+        "824955b1-2775-46bb-84c9-27b630f142b7@76da7",
+        "824955b1-2775-46bb-84c9-27b630f142b7@f3b47",
+        "824955b1-2775-46bb-84c9-27b630f142b7@60bc1"
+      ],
+      "scenes": [
+        "824955b1-2775-46bb-84c9-27b630f142b7@dae51"
+      ]
+    },
+    "useVertexColors": false
+  }
+}
