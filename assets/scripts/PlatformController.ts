@@ -27,10 +27,8 @@ export class PlatformController extends Component {
     @property(WebView)
     webview: WebView = null!;
 
-    @property(Button)
-    closeWebviewBtn: Button = null!;
-
-    closeWebviewBtn_Anim: AnimationComponent = null!;
+    @property(Node)
+    closeWebviewButton:Node = null!;
 
     onLoad()
     {
@@ -46,10 +44,6 @@ export class PlatformController extends Component {
         self.titleSpriteComponent.node.active = false;
 
         self.webview.node.active = false;
-        self.closeWebviewBtn.node.active = false;
-        self.closeWebviewBtn.interactable = false;
-
-        self.closeWebviewBtn_Anim = self.closeWebviewBtn.getComponent(AnimationComponent);
 
         self.webviewParent_Anim.node.active = false;
         let webviewParentOpacity = self.webviewParent_Anim.getComponent(UIOpacity)?.opacity;
@@ -59,6 +53,9 @@ export class PlatformController extends Component {
         
         cocosAnalytics.enableDebug(true);
         console.log(cocosAnalytics.isInited());
+
+        self.webview.node.setSiblingIndex(0);
+        self.closeWebviewButton.setSiblingIndex(9999);
 
         self.scheduleOnce(()=>{
             cocosAnalytics.CAAccount.loginStart({
@@ -112,12 +109,10 @@ export class PlatformController extends Component {
 
         self.webviewParent_Anim.play("Disappear_UI");
         self.webview_Anim.play("Disappear_UI");
-        self.closeWebviewBtn_Anim.play("Btn_Disappear_UI");
 
         self.scheduleOnce(()=>{
             self.webview.url = "";
             self.webviewParent_Anim.node.active = false;
-            self.closeWebviewBtn.node.active = false;
         }, 0.5);
 
     }
@@ -125,11 +120,7 @@ export class PlatformController extends Component {
     webviewLoadedFunc(event: WebView ) {
         var self = this;
         console.log(event);
-        console.log(self.closeWebviewBtn_Anim);
-
-        self.closeWebviewBtn.node.active = true;
 
         self.webview_Anim.play("Appear_UI");
-        self.closeWebviewBtn_Anim.play("Btn_Appear_UI");
     }
 }
