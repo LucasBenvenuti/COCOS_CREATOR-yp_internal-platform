@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button } from 'cc';
+import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button, director, TextureCube } from 'cc';
 import { AudioController } from './AudioController';
 import { ButtonsHelper } from './ButtonsHelper';
 const { ccclass, property } = _decorator;
@@ -53,9 +53,6 @@ export class PlatformController extends Component {
         
         cocosAnalytics.enableDebug(true);
         console.log(cocosAnalytics.isInited());
-
-        self.webview.node.setSiblingIndex(0);
-        self.closeWebviewButton.setSiblingIndex(9999);
 
         self.scheduleOnce(()=>{
             cocosAnalytics.CAAccount.loginStart({
@@ -122,5 +119,10 @@ export class PlatformController extends Component {
         console.log(event);
 
         self.webview_Anim.play("Appear_UI");
+    }
+
+    loadSceneFunc(event, customEventData)
+    {
+        director.loadScene(customEventData);
     }
 }

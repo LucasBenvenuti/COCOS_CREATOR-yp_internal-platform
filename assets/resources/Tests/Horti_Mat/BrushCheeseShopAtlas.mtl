@@ -1,0 +1,46 @@
+{
+  "__type__": "cc.Material",
+  "_name": "BrushCheeseShopAtlas",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "1baf0fc9-befa-459c-8bdd-af1a450a0319",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "USE_ALBEDO_MAP": true
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {
+        "cullMode": 0
+      },
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      },
+      "depthStencilState": {}
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "2297e677-1800-4985-8041-a18e515cd5df@0089c",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "metallic": 0,
+      "roughness": 1,
+      "emissiveScale": {
+        "__type__": "cc.Vec4",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      }
+    }
+  ]
+}

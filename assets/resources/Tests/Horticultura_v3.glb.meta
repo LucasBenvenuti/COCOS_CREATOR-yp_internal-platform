@@ -1,0 +1,477 @@
+{
+  "ver": "2.0.14",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2297e677-1800-4985-8041-a18e515cd5df",
+  "files": [],
+  "subMetas": {
+    "50743": {
+      "importer": "texture",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@50743",
+      "displayName": "",
+      "id": "50743",
+      "name": "UnnamedTexture-5.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2297e677-1800-4985-8041-a18e515cd5df@e5889"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "79e9d": {
+      "importer": "gltf-mesh",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@79e9d",
+      "displayName": "",
+      "id": "79e9d",
+      "name": "Base.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ce9cf": {
+      "importer": "gltf-mesh",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@ce9cf",
+      "displayName": "",
+      "id": "ce9cf",
+      "name": "Cube.023.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "453ac": {
+      "importer": "gltf-mesh",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@453ac",
+      "displayName": "",
+      "id": "453ac",
+      "name": "car.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "63e6e": {
+      "importer": "gltf-animation",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@63e6e",
+      "displayName": "",
+      "id": "63e6e",
+      "name": "Animation.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 6.25
+        },
+        "events": []
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9d1d": {
+      "importer": "gltf-skeleton",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@f9d1d",
+      "displayName": "",
+      "id": "f9d1d",
+      "name": "Armature.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 2
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "224b9": {
+      "importer": "gltf-skeleton",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@224b9",
+      "displayName": "",
+      "id": "224b9",
+      "name": "Armature.001.skeleton",
+      "userData": {
+        "gltfIndex": 1,
+        "jointsLength": 5
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "57efa": {
+      "importer": "gltf-embeded-image",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@57efa",
+      "displayName": "",
+      "id": "57efa",
+      "name": "HouseBarnAtlas_compressed.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d189d": {
+      "importer": "gltf-embeded-image",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@d189d",
+      "displayName": "",
+      "id": "d189d",
+      "name": "Grass_fork_vegs_pound_Atlas_compressed.image",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7ef56": {
+      "importer": "gltf-embeded-image",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@7ef56",
+      "displayName": "",
+      "id": "7ef56",
+      "name": "BrushCheeseAtlas_compressed.image",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bc45e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@bc45e",
+      "displayName": "",
+      "id": "bc45e",
+      "name": "TreeBR_Albedo_compressed.image",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "11fc0": {
+      "importer": "gltf-embeded-image",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@11fc0",
+      "displayName": "",
+      "id": "11fc0",
+      "name": "FloresObjetosAtlas_compressed.image",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e5889": {
+      "importer": "gltf-embeded-image",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@e5889",
+      "displayName": "",
+      "id": "e5889",
+      "name": "Vehicles_mill_Atlas_compressed.image",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3effa": {
+      "importer": "texture",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@3effa",
+      "displayName": "",
+      "id": "3effa",
+      "name": "UnnamedTexture-0.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2297e677-1800-4985-8041-a18e515cd5df@57efa"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "221a5": {
+      "importer": "texture",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@221a5",
+      "displayName": "",
+      "id": "221a5",
+      "name": "UnnamedTexture-1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2297e677-1800-4985-8041-a18e515cd5df@d189d"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0089c": {
+      "importer": "texture",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@0089c",
+      "displayName": "",
+      "id": "0089c",
+      "name": "UnnamedTexture-2.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2297e677-1800-4985-8041-a18e515cd5df@7ef56"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b633": {
+      "importer": "texture",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@9b633",
+      "displayName": "",
+      "id": "9b633",
+      "name": "UnnamedTexture-3.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2297e677-1800-4985-8041-a18e515cd5df@bc45e"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b782": {
+      "importer": "texture",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@9b782",
+      "displayName": "",
+      "id": "9b782",
+      "name": "UnnamedTexture-4.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2297e677-1800-4985-8041-a18e515cd5df@11fc0"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "99ea5": {
+      "importer": "texture",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@99ea5",
+      "displayName": "",
+      "id": "99ea5",
+      "name": "UnnamedTexture-6.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2297e677-1800-4985-8041-a18e515cd5df@bc45e"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d35ec": {
+      "importer": "gltf-scene",
+      "uuid": "2297e677-1800-4985-8041-a18e515cd5df@d35ec",
+      "displayName": "",
+      "id": "d35ec",
+      "name": "Horticultura_v3.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "HouseBarnAtlas_compressed",
+        "uri": "2297e677-1800-4985-8041-a18e515cd5df@57efa"
+      },
+      {
+        "name": "Grass_fork_vegs_pound_Atlas_compressed",
+        "uri": "2297e677-1800-4985-8041-a18e515cd5df@d189d"
+      },
+      {
+        "name": "BrushCheeseAtlas_compressed",
+        "uri": "2297e677-1800-4985-8041-a18e515cd5df@7ef56"
+      },
+      {
+        "name": "TreeBR_Albedo_compressed",
+        "uri": "2297e677-1800-4985-8041-a18e515cd5df@bc45e"
+      },
+      {
+        "name": "FloresObjetosAtlas_compressed",
+        "uri": "2297e677-1800-4985-8041-a18e515cd5df@11fc0"
+      },
+      {
+        "name": "Vehicles_mill_Atlas_compressed",
+        "uri": "2297e677-1800-4985-8041-a18e515cd5df@e5889"
+      }
+    ],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Animation",
+        "duration": 6.25,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Animation",
+            "from": 0,
+            "to": 6.25,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "2297e677-1800-4985-8041-a18e515cd5df@d35ec",
+    "assetFinder": {
+      "meshes": [
+        "2297e677-1800-4985-8041-a18e515cd5df@79e9d",
+        "2297e677-1800-4985-8041-a18e515cd5df@ce9cf",
+        "2297e677-1800-4985-8041-a18e515cd5df@453ac"
+      ],
+      "skeletons": [
+        "2297e677-1800-4985-8041-a18e515cd5df@f9d1d",
+        "2297e677-1800-4985-8041-a18e515cd5df@224b9"
+      ],
+      "textures": [
+        "2297e677-1800-4985-8041-a18e515cd5df@3effa",
+        "2297e677-1800-4985-8041-a18e515cd5df@221a5",
+        "2297e677-1800-4985-8041-a18e515cd5df@0089c",
+        "2297e677-1800-4985-8041-a18e515cd5df@9b633",
+        "2297e677-1800-4985-8041-a18e515cd5df@9b782",
+        "2297e677-1800-4985-8041-a18e515cd5df@50743",
+        "2297e677-1800-4985-8041-a18e515cd5df@99ea5"
+      ],
+      "materials": [
+        "3767d6b0-7c2c-42bd-9e48-991d8b31644a",
+        "4447bc0a-bdaf-4dea-b506-a2b9a3b7bf93",
+        "c4054cd8-e0b9-44f5-96ec-8302f774d861",
+        "657210a5-6138-4f5a-9182-0634647c3533",
+        "29746c1e-4817-4e36-9042-a2492b20be28",
+        "4f24249d-04fe-4dcf-878a-741456d64b7f",
+        "f374a7f4-b226-41cf-9158-f5fb2b67cb96",
+        "488eab0e-b326-444c-8ed4-5e35309c6a26"
+      ],
+      "scenes": [
+        "2297e677-1800-4985-8041-a18e515cd5df@d35ec"
+      ]
+    },
+    "dumpMaterials": true,
+    "materialDumpDir": "db://assets/resources/Tests/Horti_Mat"
+  }
+}
