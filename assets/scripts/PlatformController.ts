@@ -30,6 +30,9 @@ export class PlatformController extends Component {
     @property(Node)
     closeWebviewButton:Node = null!;
 
+    @property(UIOpacity)
+    soundContainer: UIOpacity = null!;
+
     onLoad()
     {
         var self = this;
@@ -69,6 +72,22 @@ export class PlatformController extends Component {
         if(ButtonsHelper.instance){
             ButtonsHelper.instance.setButtonsScaleAnim(0.08, 0.75);
         }
+
+        this.soundContainer.node.active = false;
+        this.soundContainer.opacity = 0;
+    }
+    
+    showSoundCointainer(show: boolean)
+    {
+        if(show)
+        {
+            tween(this.soundContainer).to(0.5, {opacity: 255}, {easing: 'cubicInOut', onStart: ()=>{ this.soundContainer.node.active = true; }}).start();
+        }
+        else
+        {
+            tween(this.soundContainer).to(0.5, {opacity: 0}, {easing: 'cubicInOut', onComplete: ()=>{ this.soundContainer.node.active = false; }}).start();
+        }
+
     }
 
     openWebview(url: string) {

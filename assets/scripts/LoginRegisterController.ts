@@ -1,5 +1,7 @@
 
-import { _decorator, Component, Node, UIOpacity, tween, AnimationComponent } from 'cc';
+import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBox, EditBoxComponent } from 'cc';
+import { DataStorage } from './DataStorage';
+
 const { ccclass, property } = _decorator;
 
 @ccclass('LoginRegisterController')
@@ -34,8 +36,32 @@ export class LoginRegisterController extends Component {
     @property(AnimationComponent)
     loadingAnimation: AnimationComponent = null!;
 
+    @property(EditBoxComponent)
+    loginEmailField: EditBoxComponent = null!;
+    @property(EditBoxComponent)
+    loginPasswordField: EditBoxComponent = null!;
+
+    @property(EditBoxComponent)
+    registerCompleteNameField: EditBoxComponent = null!;
+    @property(EditBoxComponent)
+    registerEmailField: EditBoxComponent = null!;
+    @property(EditBoxComponent)
+    registerPasswordField: EditBoxComponent = null!;
+    @property(EditBoxComponent)
+    registerPasswordConfirmationField: EditBoxComponent = null!;
+
+    @property(EditBoxComponent)
+    recoveryEmailField: EditBoxComponent = null!;
+
+    @property(EditBoxComponent)
+    changePasswordField: EditBoxComponent = null!;
+    @property(EditBoxComponent)
+    changePasswordConfirmationField: EditBoxComponent = null!;
+
     @property(Number)
     fadeDuration: number = 0.5;
+
+    urlToken: string = "";
 
     onLoad() {
         var self = this;
@@ -58,10 +84,18 @@ export class LoginRegisterController extends Component {
         self.NewPasswordConfirmationNode.opacity = 0;
         self.loadingNode.opacity = 0;
 
-        //START WITH LOGIN ENABLED
-        self.loginAnim(true);
-
         //CHECK FIRST COOKIE HERE... IF IT EXISTS, ACTIVE = FALSE TO cookiesNode
+        if(localStorage.getItem("platform_cookiesEnabled") && localStorage.getItem("platform_cookiesEnabled") === "true")
+            self.cookiesNode.node.active = false;
+        
+        if(localStorage.getItem("platform_validatedToken"))
+        {
+            self.loginNode.node.active = false;
+            console.log("ALREADY LOGGED BY TOKEN");
+            return;
+        }
+
+        self.checkInitial();
     }
 
     //  START INDIVIDUAL FUNCTIONS
@@ -82,6 +116,8 @@ export class LoginRegisterController extends Component {
         {
             //SAVE FIRST COOKIE TO NOT SHOW THIS LAYOUT AGAIN
             console.log("SAVE HERE FIRST COOKIE");
+
+            localStorage.setItem("platform_cookiesEnabled", "true");
         }
     }
 
@@ -277,36 +313,6 @@ export class LoginRegisterController extends Component {
         }, 0.2);
     }
 
-    loginToLoading()
-    {
-        var self = this;
-        
-        self.scheduleOnce(()=> {
-            self.loadingAnim(true);
-            
-            self.scheduleOnce(()=> {
-                self.loginAnim(false);
-                console.log("DO LOADING STUFF");
-                self.loadingAnim(false);
-            }, 4);
-        }, 0.2);
-    }
-
-    registerToLoading()
-    {
-        var self = this;
-        
-        self.scheduleOnce(()=> {
-            self.loadingAnim(true);
-            
-            self.scheduleOnce(()=> {
-                self.registerAnim(false);
-                console.log("DO LOADING STUFF");
-                self.loadingAnim(false);
-            }, 4);
-        }, 0.2);
-    }
-
     registerToLogin()
     {
         var self = this;
@@ -362,16 +368,16 @@ export class LoginRegisterController extends Component {
         }, 0.2);
     }
 
-    loginToNewPassword()
-    {
-        var self = this;
+    // loginToNewPassword()
+    // {
+    //     var self = this;
         
-        self.loginAnim(false);
+    //     self.loginAnim(false);
 
-        self.scheduleOnce(()=> {
-            self.newPasswordAnim(true);
-        }, 0.2);
-    }
+    //     self.scheduleOnce(()=> {
+    //         self.newPasswordAnim(true);
+    //     }, 0.2);
+    // }
 
     newPasswordToLogin()
     {
@@ -397,13 +403,269 @@ export class LoginRegisterController extends Component {
 
     newPasswordConfirmationToLogin()
     {
-        var self = this;
-        
-        self.newPasswordConfirmationAnim(false);
+        let newURL = location.href.split('?')[0];
 
-        self.scheduleOnce(()=> {
+        window.location.href = newURL;
+
+        // var self = this;
+        
+        // self.newPasswordConfirmationAnim(false);
+
+        // self.scheduleOnce(()=> {
+        //     self.loginAnim(true);
+        // }, 0.2);
+    }
+
+    loginlogic() {
+        var self = this;
+
+        let url = "https://hfl5rlsrp5.execute-api.sa-east-1.amazonaws.com/user-login";
+
+        let emailInputValue = self.loginEmailField.string;
+        let passwordInputValue = self.loginPasswordField.string;
+
+        if(emailInputValue == "" || emailInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Email deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(passwordInputValue == "" || passwordInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Senha deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        xmlhttp.onloadstart = function () {
+            self.loadingAnim(true);
+        };
+
+        xmlhttp.onreadystatechange = function () {
+            var response = xmlhttp.responseText;
+            var responseObj = JSON.parse(response || "{}");
+
+            if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
+            {
+                //Success
+                self.loginAnim(false);
+                self.loadingAnim(false);
+
+                localStorage.setItem("platform_validatedToken", responseObj.token);
+                DataStorage.instance.token = responseObj.token;
+            }
+            
+            self.loadingAnim(false);
+
+        };
+
+        xmlhttp.send(JSON.stringify({ "email": emailInputValue, "password": passwordInputValue }));
+    }
+
+    registerlogic() {
+        var self = this;
+
+        let url = "https://hfl5rlsrp5.execute-api.sa-east-1.amazonaws.com/user-register";
+
+        let completeNameInputValue = self.registerCompleteNameField.string;
+        let emailInputValue = self.registerEmailField.string;
+        let passwordInputValue = self.registerPasswordField.string;
+        let passwordConfirmationInputValue = self.registerPasswordConfirmationField.string;
+
+        if(completeNameInputValue == "" || completeNameInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Nome Completo deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(emailInputValue == "" || emailInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Email deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(passwordInputValue == "" || passwordInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Senha deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(passwordConfirmationInputValue == "" || passwordConfirmationInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Confirmação de Senha deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(passwordInputValue !== passwordConfirmationInputValue)
+        {
+            console.log("ERRO: Confirmação de Senha deve ser igual à senha");
+            self.loadingAnim(false);
+            return;
+        }
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        xmlhttp.onloadstart = function () {
+            self.loadingAnim(true);
+        };
+
+        xmlhttp.onreadystatechange = function () {
+            var response = xmlhttp.responseText;
+            console.log(response);
+            if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
+            {
+                //Success
+                self.registerAnim(false);
+                self.loadingAnim(false);
+            }
+            
+            self.loadingAnim(false);
+
+        };
+
+        xmlhttp.send(JSON.stringify({ "email": emailInputValue, "name": completeNameInputValue, "password": passwordInputValue }));
+    }
+
+    recoverPasswordlogic() {
+        var self = this;
+
+        let url = "https://hfl5rlsrp5.execute-api.sa-east-1.amazonaws.com/user-email-reset-password";
+
+        let recoveryEmailInputValue = self.recoveryEmailField.string;
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        if(recoveryEmailInputValue == "" || recoveryEmailInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Email deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        xmlhttp.onloadstart = function () {
+            self.loadingAnim(true);
+        };
+
+        xmlhttp.onreadystatechange = function () {
+            var response = xmlhttp.responseText;
+            console.log(response);
+            if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
+            {
+                //Success
+                self.loadingAnim(false);
+
+                self.recoverPasswordToEmailSent();
+            }
+            
+            self.loadingAnim(false);
+        };
+
+        xmlhttp.send(JSON.stringify({ "email": recoveryEmailInputValue }));
+    }
+
+    newPasswordlogic() {
+        var self = this;
+
+        let url = "https://hfl5rlsrp5.execute-api.sa-east-1.amazonaws.com/user-password-change";
+        
+        let passwordInputValue = self.changePasswordField.string;
+        let passwordConfirmationInputValue = self.changePasswordConfirmationField.string;
+
+        if(passwordInputValue == "" || passwordInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Senha deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(passwordConfirmationInputValue == "" || passwordConfirmationInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Confirmação de Senha deve ser preenchido");
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(passwordInputValue !== passwordConfirmationInputValue)
+        {
+            console.log("ERRO: Confirmação de Senha deve ser igual à senha");
+            self.loadingAnim(false);
+            return;
+        }
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        xmlhttp.onloadstart = function () {
+            self.loadingAnim(true);
+        };
+
+        xmlhttp.onreadystatechange = function () {
+            var response = xmlhttp.responseText;
+            console.log(response);
+            if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
+            {
+                //Success
+                self.loadingAnim(false);
+                self.newPasswordToNewPasswordConfirmation();
+            }
+            
+            self.loadingAnim(false);
+        };
+
+        console.log(self.urlToken);
+
+        if(self.urlToken !== "")
+            xmlhttp.send(JSON.stringify({ "password": passwordInputValue, "token": self.urlToken }));
+    }
+
+    checkInitial() {
+        var self = this;
+        var searchObject = self.parseURLParams(location.href);
+
+        console.log(searchObject);
+
+        if(searchObject == undefined || !('token' in searchObject))
+        {
             self.loginAnim(true);
-        }, 0.2);
+            return;
+        }
+
+        self.urlToken = searchObject['token'][0];
+        self.newPasswordAnim(true);
+    }
+
+    parseURLParams(url: any) {
+        var queryStart = url.indexOf("?") + 1,
+            queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+            query = url.slice(queryStart, queryEnd - 1),
+            pairs = query.replace(/\+/g, " ").split("&"),
+            parms = {}, i, n, v, nv;
+    
+        if (query === url || query === "") return;
+    
+        for (i = 0; i < pairs.length; i++) {
+            nv = pairs[i].split("=", 2);
+            n = decodeURIComponent(nv[0]);
+            v = decodeURIComponent(nv[1]);
+    
+            if (!parms.hasOwnProperty(n)) parms[n] = [];
+            parms[n].push(nv.length === 2 ? v : null);
+        }
+        return parms;
     }
 
 }

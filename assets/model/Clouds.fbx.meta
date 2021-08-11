@@ -93,6 +93,7 @@
       ]
     },
     "dumpMaterials": true,
-    "materialDumpDir": "db://assets/model/Materials_Clouds"
+    "materialDumpDir": "db://assets/model/Materials_Clouds",
+    "useVertexColors": true
   }
 }
