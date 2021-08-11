@@ -197,10 +197,10 @@ export class AudioController extends Component {
 
     public findSoundButtonsNode()
     {
-        if(this.soundOffNode == null)
+        // if(this.soundOffNode == null)
             this.soundOffNode = find("Canvas/SoundContainer/SoundOffButton");
         
-        if(this.soundOnNode == null)
+        // if(this.soundOnNode == null)
             this.soundOnNode = find("Canvas/SoundContainer/SoundOnButton");
         // this.soundOnNodeDefaultMenu = find("Canvas/DefaultMenu/MenuDropdownContainer/Cont/SoundContainer/SoundOnButton");
         // this.soundOffNodeDefaultMenu = find("Canvas/DefaultMenu/MenuDropdownContainer/Cont/SoundContainer/SoundOffButton");

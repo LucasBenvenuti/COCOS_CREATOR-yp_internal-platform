@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button, director, TextureCube } from 'cc';
+import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button, director, TextureCube, find } from 'cc';
 import { AudioController } from './AudioController';
 import { ButtonsHelper } from './ButtonsHelper';
 const { ccclass, property } = _decorator;
@@ -18,17 +18,17 @@ export class PlatformController extends Component {
     @property(AnimationComponent)
     titleAnimation: AnimationComponent = null!;
 
-    @property(AnimationComponent)
-    webviewParent_Anim: AnimationComponent = null!;
+    // @property(AnimationComponent)
+    // webviewParent_Anim: AnimationComponent = null!;
 
-    @property(AnimationComponent)
-    webview_Anim: AnimationComponent = null!;
+    // @property(AnimationComponent)
+    // webview_Anim: AnimationComponent = null!;
 
-    @property(WebView)
-    webview: WebView = null!;
+    // @property(WebView)
+    // webview: WebView = null!;
 
-    @property(Node)
-    closeWebviewButton:Node = null!;
+    // @property(Node)
+    // closeWebviewButton:Node = null!;
 
     @property(UIOpacity)
     soundContainer: UIOpacity = null!;
@@ -37,22 +37,21 @@ export class PlatformController extends Component {
     {
         var self = this;
         
-        if(PlatformController.instance != null && PlatformController.instance != self){
-            self.destroy();
-        }else{
+        // if(PlatformController.instance != null && PlatformController.instance != self){
+            // self.destroy();
+        // }else{
             PlatformController.instance = self;
-        }
+        // }
+
+        self.titleLabel = find("Canvas/Planet_Titles")?.getComponent(Label);
+        self.titleSpriteComponent = find("Canvas/Planet_Titles_Images/Title_Image")?.getComponent(Sprite);
+        self.titleAnimation = find("Canvas/Planet_Titles_Images")?.getComponent(AnimationComponent);
+        self.soundContainer = find("Canvas/SoundContainer")?.getComponent(UIOpacity);
 
         self.titleLabel.node.active = false;
         self.titleSpriteComponent.node.active = false;
 
-        self.webview.node.active = false;
-
-        self.webviewParent_Anim.node.active = false;
-        let webviewParentOpacity = self.webviewParent_Anim.getComponent(UIOpacity)?.opacity;
-        webviewParentOpacity = 0;
-
-        self.webview.node.on(WebView.EventType.LOADED, self.webviewLoadedFunc, self);
+        // self.webview.node.on(WebView.EventType.LOADED, self.webviewLoadedFunc, self);
         
         cocosAnalytics.enableDebug(true);
         console.log(cocosAnalytics.isInited());
@@ -66,6 +65,8 @@ export class PlatformController extends Component {
     
     start()
     {
+        console.log("START NEW");
+
         if(AudioController.instance){
             AudioController.instance.startGameSound();
         }
@@ -90,58 +91,53 @@ export class PlatformController extends Component {
 
     }
 
-    openWebview(url: string) {
-        var self = this;
+    // openWebview(url: string) {
+    //     var self = this;
 
-        if(url === undefined || url === "")
-        {
-            console.log("URL not setted...");
-        }
-        else
-        {
-            if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
-            {
-                console.log("WEBVIEW NOT SETTED");
-                return;
-            }
+    //     if(url === undefined || url === "")
+    //     {
+    //         console.log("URL not setted...");
+    //     }
+    //     else
+    //     {
+    //         if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
+    //         {
+    //             console.log("WEBVIEW NOT SETTED");
+    //             return;
+    //         }
 
-            self.webviewParent_Anim.node.active = true;
+    //         self.webviewParent_Anim.node.active = true;
 
-            self.webviewParent_Anim.play("Appear_UI");
+    //         self.webviewParent_Anim.play("Appear_UI");
 
-            self.webview.node.active = true;
-            self.webview.url = "http://localhost:7456/";
-        }
-    }
+    //         self.webview.node.active = true;
+    //         self.webview.url = "http://localhost:7456/";
+    //     }
+    // }
 
-    closeWebview() {
-        var self = this;
+    // closeWebview() {
+    //     var self = this;
 
-        if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
-        {
-            console.log("WEBVIEW NOT SETTED");
-            return;
-        }
+    //     if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
+    //     {
+    //         console.log("WEBVIEW NOT SETTED");
+    //         return;
+    //     }
 
-        self.webviewParent_Anim.play("Disappear_UI");
-        self.webview_Anim.play("Disappear_UI");
+    //     self.webviewParent_Anim.play("Disappear_UI");
+    //     self.webview_Anim.play("Disappear_UI");
 
-        self.scheduleOnce(()=>{
-            self.webview.url = "";
-            self.webviewParent_Anim.node.active = false;
-        }, 0.5);
+    //     self.scheduleOnce(()=>{
+    //         self.webview.url = "";
+    //         self.webviewParent_Anim.node.active = false;
+    //     }, 0.5);
 
-    }
+    // }
 
-    webviewLoadedFunc(event: WebView ) {
-        var self = this;
-        console.log(event);
+    // webviewLoadedFunc(event: WebView ) {
+    //     var self = this;
+    //     console.log(event);
 
-        self.webview_Anim.play("Appear_UI");
-    }
-
-    loadSceneFunc(event, customEventData)
-    {
-        director.loadScene(customEventData);
-    }
+    //     self.webview_Anim.play("Appear_UI");
+    // }
 }

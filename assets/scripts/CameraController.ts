@@ -1,5 +1,5 @@
 
-import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp, Collider, ITriggerEvent } from "cc";
+import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp, Collider, ITriggerEvent, find } from "cc";
 import { AudioController } from "./AudioController";
 import { Planet_Behavior } from "./Planet_Behavior";
 import { PlatformController } from "./PlatformController";
@@ -47,11 +47,18 @@ export class CameraController extends Component {
 	onLoad() {
         var self = this;
 
-        if(CameraController.instance != null && CameraController.instance != self){
-            self.destroy();
-        }else{
+        // if(CameraController.instance != null && CameraController.instance != self){
+        //     self.destroy();
+        // }else{
             CameraController.instance = self;
-        }
+        // }
+
+        self.damp = 0.15;
+        self.rotateSpeed = -0.08;
+        self.limitUp_angle = 5;
+        self.limitDown_angle = -10;
+
+        self.closeBtnAnim = find("Canvas/CloseBtn")?.getComponent(AnimationComponent);
 
 		math.Vec3.copy(self._euler, self.node.eulerAngles);
 
