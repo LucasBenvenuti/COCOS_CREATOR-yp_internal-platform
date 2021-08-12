@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button, director, TextureCube, find } from 'cc';
+import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button, director, TextureCube, find, SystemEventType } from 'cc';
 import { AudioController } from './AudioController';
 import { ButtonsHelper } from './ButtonsHelper';
 const { ccclass, property } = _decorator;
@@ -12,11 +12,28 @@ export class PlatformController extends Component {
     @property(Label)
     titleLabel: Label = null!;
 
+    @property(Label)
+    descriptionTxt: Label = null!;
+
+    descriptionTxtOpacity: UIOpacity = null!;
+
+    @property(Label)
+    descriptionCount: Label = null!;
+
     @property(Sprite)
     titleSpriteComponent: Sprite = null!;
 
     @property(AnimationComponent)
     titleAnimation: AnimationComponent = null!;
+
+    @property(AnimationComponent)
+    planetDescription: AnimationComponent = null!;
+
+    @property(Button)
+    nextButton_description: Button = null!;
+
+    @property(Button)
+    prevButton_description: Button = null!;
 
     // @property(AnimationComponent)
     // webviewParent_Anim: AnimationComponent = null!;
@@ -43,13 +60,22 @@ export class PlatformController extends Component {
             PlatformController.instance = self;
         // }
 
-        self.titleLabel = find("Canvas/Planet_Titles")?.getComponent(Label);
+        self.titleLabel = find("Canvas/PlanetDescription/Planet_Title")?.getComponent(Label);
+        self.descriptionTxt = find("Canvas/PlanetDescription/DescriptionTxt")?.getComponent(Label);
+        self.descriptionTxtOpacity = self.descriptionTxt.getComponent(UIOpacity);
+        self.descriptionCount = find("Canvas/PlanetDescription/ContBttns/PgQty")?.getComponent(Label);
         self.titleSpriteComponent = find("Canvas/Planet_Titles_Images/Title_Image")?.getComponent(Sprite);
         self.titleAnimation = find("Canvas/Planet_Titles_Images")?.getComponent(AnimationComponent);
         self.soundContainer = find("Canvas/SoundContainer")?.getComponent(UIOpacity);
+        self.planetDescription = find("Canvas/PlanetDescription")?.getComponent(AnimationComponent);
 
-        self.titleLabel.node.active = false;
+        self.nextButton_description = find("Canvas/PlanetDescription/ContBttns/NextButton")?.getComponent(Button);
+        self.prevButton_description = find("Canvas/PlanetDescription/ContBttns/PrevButton")?.getComponent(Button);
+
+        // self.titleLabel.node.active = false;
         self.titleSpriteComponent.node.active = false;
+
+        self.planetDescription.node.active = false;
 
         // self.webview.node.on(WebView.EventType.LOADED, self.webviewLoadedFunc, self);
         
@@ -65,8 +91,7 @@ export class PlatformController extends Component {
     
     start()
     {
-        console.log("START NEW");
-
+        var self = this;
         if(AudioController.instance){
             AudioController.instance.startGameSound();
         }

@@ -1,7 +1,7 @@
 {
   "__version__": "1.2.8",
   "splash-setting": {
-    "displayWatermark": true,
+    "displayWatermark": false,
     "url": "D:\\YellowPanda\\PROJETOS\\AGILITA\\Resources\\LOADER\\LogoAgrinho.png",
     "clearColor": {
       "x": 0,
@@ -10,6 +10,6 @@
       "w": 1
     },
     "displayRatio": 1,
-    "totalTime": 3000
+    "totalTime": 0
   }
 }

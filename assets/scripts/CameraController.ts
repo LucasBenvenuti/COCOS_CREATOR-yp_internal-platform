@@ -1,5 +1,5 @@
 
-import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp, Collider, ITriggerEvent, find } from "cc";
+import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp, Collider, ITriggerEvent, find, SystemEventType, UIOpacity } from "cc";
 import { AudioController } from "./AudioController";
 import { Planet_Behavior } from "./Planet_Behavior";
 import { PlatformController } from "./PlatformController";
@@ -43,6 +43,8 @@ export class CameraController extends Component {
     currentPlanetBehavior: Planet_Behavior = null!;
 
     collider: Collider = null!;
+
+    descriptionIndex: number = 0;
 
 	onLoad() {
         var self = this;
@@ -177,11 +179,164 @@ export class CameraController extends Component {
                 PlatformController.instance.titleSpriteComponent.spriteFrame = self.currentPlanetBehavior.planetTitleImg;
                 PlatformController.instance.titleAnimation.play("Appear_TitleImages");
 
-                // PlatformController.instance.titleLabel.string = self.currentPlanetBehavior.planetTitle;
-                // PlatformController.instance.titleLabel.node.active = true;
+                if(self.currentPlanetBehavior.planetTitle === "Fruticultura, Floricultura e Olericultura")
+                {
+                    PlatformController.instance.titleLabel.string = "FRUTICULTURA";
+                }
+                else
+                {   
+                    PlatformController.instance.titleLabel.string = self.currentPlanetBehavior.planetTitle;
+                }
+
+                self.descriptionIndex = 0;
+
+                PlatformController.instance.nextButton_description.node.on(SystemEventType.TOUCH_START, self.nextDescriptionLabel, self);
+                PlatformController.instance.prevButton_description.node.on(SystemEventType.TOUCH_START, self.prevDescriptionLabel, self);
+
+                PlatformController.instance.descriptionCount.string = (self.descriptionIndex + 1) + "/" + self.currentPlanetBehavior.planetDescription.length;
+
+                let descriptionTextVar = self.currentPlanetBehavior.planetDescription[self.descriptionIndex];
+                descriptionTextVar = descriptionTextVar.replaceAll("<br>", "\n");
+                PlatformController.instance.descriptionTxt.string = descriptionTextVar;
+
+                PlatformController.instance.planetDescription.node.active = true;
+                PlatformController.instance.planetDescription.play("appear");
                 // PlatformController.instance.titleLabel.getComponent(AnimationComponent)?.play("Appear_UI");
             }, 2.2);
         }, 0.5);
+    }
+
+    nextDescriptionLabel ()
+    {
+        var self = this;
+
+        if(self.descriptionIndex == (self.currentPlanetBehavior.planetDescription.length - 1))
+        {
+            self.descriptionIndex = 0;
+        }
+        else
+        {
+            self.descriptionIndex++;
+        }
+
+        tween(PlatformController.instance.descriptionTxt.getComponent(UIOpacity)).to(0.25, {
+            opacity: 0
+        }, {
+            easing: "cubicInOut",
+            onStart: ()=> {
+                PlatformController.instance.nextButton_description.interactable = false;
+                PlatformController.instance.prevButton_description.interactable = false;
+
+                PlatformController.instance.nextButton_description.node.pauseSystemEvents(true);
+                PlatformController.instance.prevButton_description.node.pauseSystemEvents(true);
+            },
+            onComplete: ()=> {
+                let descriptionTextVar = self.currentPlanetBehavior.planetDescription[self.descriptionIndex];
+                descriptionTextVar = descriptionTextVar.replaceAll("<br>", "\n");
+
+                if(self.currentPlanetBehavior.planetTitle === "Fruticultura, Floricultura e Olericultura")
+                {
+                    if(self.descriptionIndex == 0 || self.descriptionIndex == 1)
+                    {
+                        PlatformController.instance.titleLabel.string = "FRUTICULTURA";
+                    }
+                    else if(self.descriptionIndex == 2 || self.descriptionIndex == 3)
+                    {
+                        PlatformController.instance.titleLabel.string = "FLORICULTURA";
+                    }
+                    else if(self.descriptionIndex == 4 || self.descriptionIndex == 5)
+                    {
+                        PlatformController.instance.titleLabel.string = "OLERICULTURA";
+                    }
+                }
+                else
+                {   
+                    PlatformController.instance.titleLabel.string = self.currentPlanetBehavior.planetTitle;
+                }
+
+                PlatformController.instance.descriptionTxt.string = descriptionTextVar;
+                PlatformController.instance.descriptionCount.string = (self.descriptionIndex + 1) + "/" + self.currentPlanetBehavior.planetDescription.length;
+
+                tween(PlatformController.instance.descriptionTxt.getComponent(UIOpacity)).to(0.25, {
+                    opacity: 255
+                }, {
+                    easing: "cubicInOut",
+                    onComplete: ()=> {
+                        PlatformController.instance.nextButton_description.interactable = true;
+                        PlatformController.instance.prevButton_description.interactable = true;
+
+                        PlatformController.instance.nextButton_description.node.resumeSystemEvents(true);
+                        PlatformController.instance.prevButton_description.node.resumeSystemEvents(true);
+                    }
+                }).start();
+            }
+        }).start();
+    }
+    prevDescriptionLabel ()
+    {
+        var self = this;
+
+        if(self.descriptionIndex == 0)
+        {
+            self.descriptionIndex = (self.currentPlanetBehavior.planetDescription.length - 1);
+        }
+        else
+        {
+            self.descriptionIndex--;
+        }
+
+        tween(PlatformController.instance.descriptionTxtOpacity).to(0.25, {
+            opacity: 0
+        }, {
+            easing: "cubicInOut",
+            onStart: ()=> {
+                PlatformController.instance.nextButton_description.interactable = false;
+                PlatformController.instance.prevButton_description.interactable = false;
+
+                PlatformController.instance.nextButton_description.node.pauseSystemEvents(true);
+                PlatformController.instance.prevButton_description.node.pauseSystemEvents(true);
+            },
+            onComplete: ()=> {
+                let descriptionTextVar = self.currentPlanetBehavior.planetDescription[self.descriptionIndex];
+                descriptionTextVar = descriptionTextVar.replaceAll("<br>", "\n");
+
+                if(self.currentPlanetBehavior.planetTitle === "Fruticultura, Floricultura e Olericultura")
+                {
+                    if(self.descriptionIndex == 0 || self.descriptionIndex == 1)
+                    {
+                        PlatformController.instance.titleLabel.string = "FRUTICULTURA";
+                    }
+                    else if(self.descriptionIndex == 2 || self.descriptionIndex == 3)
+                    {
+                        PlatformController.instance.titleLabel.string = "FLORICULTURA";
+                    }
+                    else if(self.descriptionIndex == 4 || self.descriptionIndex == 5)
+                    {
+                        PlatformController.instance.titleLabel.string = "OLERICULTURA";
+                    }
+                }
+                else
+                {   
+                    PlatformController.instance.titleLabel.string = self.currentPlanetBehavior.planetTitle;
+                }
+                
+                PlatformController.instance.descriptionTxt.string = descriptionTextVar;
+                PlatformController.instance.descriptionCount.string = (self.descriptionIndex + 1) + "/" + self.currentPlanetBehavior.planetDescription.length;
+
+                tween(PlatformController.instance.descriptionTxtOpacity).to(0.25, {
+                    opacity: 255
+                }, {
+                    easing: "cubicInOut",
+                    onComplete: ()=> {
+                        PlatformController.instance.nextButton_description.interactable = true;
+                        PlatformController.instance.prevButton_description.interactable = true;
+
+                        PlatformController.instance.nextButton_description.node.resumeSystemEvents(true);
+                        PlatformController.instance.prevButton_description.node.resumeSystemEvents(true);
+                    }
+                }).start();
+            }
+        }).start();
     }
 
     translateCameraToCustomValue(newPosValue: Vec3)
@@ -235,6 +390,9 @@ export class CameraController extends Component {
         if(!self.hasSelectedPlanet || !self.currentPlanetBehavior)
             return;
 
+            PlatformController.instance.nextButton_description.node.off(SystemEventType.TOUCH_START, self.nextDescriptionLabel, self);
+            PlatformController.instance.prevButton_description.node.off(SystemEventType.TOUCH_START, self.prevDescriptionLabel, self);
+
             self.scheduleOnce(()=>{
                 AudioController.instance.playReturnFromPlanetSource();
             }, 0.2);
@@ -250,8 +408,12 @@ export class CameraController extends Component {
             self.scheduleOnce(()=>{
                 self.closeBtnAnim.node.active = false;
                 PlatformController.instance.titleSpriteComponent.spriteFrame = null;
+                PlatformController.instance.planetDescription.play("disappear");
+                self.scheduleOnce(()=> {
+                    PlatformController.instance.titleLabel.string = "";
+                    PlatformController.instance.planetDescription.node.active = false;
+                }, 0.5);
                 // PlatformController.instance.titleLabel.node.active = false;
-                // PlatformController.instance.titleLabel.string = "";
             }, 0.5);
 
         self.canInteractWithPlanet = false;

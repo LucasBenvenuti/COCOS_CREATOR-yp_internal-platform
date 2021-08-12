@@ -22,6 +22,9 @@ export class Planet_Behavior extends Component {
     @property(String)
     planetTitle: string = "";
 
+    @property([String])
+    planetDescription: string[] = [];
+
     @property(SpriteFrame)
     planetTitleImg: SpriteFrame = null!;
 
