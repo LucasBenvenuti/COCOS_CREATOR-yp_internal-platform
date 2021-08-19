@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Vec3, RigidBody, Quat, tween, SpriteFrame, AnimationComponent, MeshRenderer, Texture2D, Color } from 'cc';
+import { _decorator, Component, Node, Vec3, RigidBody, Quat, tween, SpriteFrame, AnimationComponent, MeshRenderer, Texture2D, Color, Sprite } from 'cc';
 import { ImageBillboardBehavior } from './ImageBillboardBehavior';
 const { ccclass, property } = _decorator;
 
@@ -35,8 +35,8 @@ export class Planet_Behavior extends Component {
     // @property(Texture2D)
     // logoTexture: Texture2D = null!;
 
-    @property(MeshRenderer)
-    logoMesh: MeshRenderer = null!;
+    @property(Sprite)
+    logoSprite: Sprite = null!;
 
     @property([AnimationComponent])
     planetIcons_Anim: AnimationComponent[] = [];
@@ -57,8 +57,8 @@ export class Planet_Behavior extends Component {
         if(planetLogo)
             planetLogo.active = false;
 
-        if(self.logoMesh)
-            self.logoMesh.material.setProperty("mainTexture", self.planetTitleImg.texture);
+        if(self.logoSprite)
+            self.logoSprite.spriteFrame = self.planetTitleImg;
             //IN CASE OF DIFFERENT TEXTURE 2D ON LOGO PLANE AND SPRITE ON UI, COMMENT LINE ABOVE AND UNCOMMENT LINE BELOW
             // self.logoMesh.material.setProperty("mainTexture", self.planetTitleImg);
 

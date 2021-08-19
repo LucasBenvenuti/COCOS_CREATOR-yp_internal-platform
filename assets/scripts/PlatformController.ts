@@ -2,6 +2,8 @@
 import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView, UIOpacity, Color, tween, lerp, Button, director, TextureCube, find, SystemEventType } from 'cc';
 import { AudioController } from './AudioController';
 import { ButtonsHelper } from './ButtonsHelper';
+import { DataStorage } from './DataStorage';
+import { SceneChange_Behavior } from './SceneChange_Behavior';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlatformController')
@@ -47,8 +49,9 @@ export class PlatformController extends Component {
     // @property(Node)
     // closeWebviewButton:Node = null!;
 
-    @property(UIOpacity)
     soundContainer: UIOpacity = null!;
+    closeBtn: UIOpacity = null!;
+    descriptionContainer: UIOpacity = null!;
 
     onLoad()
     {
@@ -67,8 +70,9 @@ export class PlatformController extends Component {
         self.titleSpriteComponent = find("Canvas/Planet_Titles_Images/Title_Image")?.getComponent(Sprite);
         self.titleAnimation = find("Canvas/Planet_Titles_Images")?.getComponent(AnimationComponent);
         self.soundContainer = find("Canvas/SoundContainer")?.getComponent(UIOpacity);
+        self.closeBtn = find("Canvas/CloseBtnCont")?.getComponent(UIOpacity);
+        self.descriptionContainer = find("Canvas/PlanetDescription")?.getComponent(UIOpacity);
         self.planetDescription = find("Canvas/PlanetDescription")?.getComponent(AnimationComponent);
-
         self.nextButton_description = find("Canvas/PlanetDescription/ContBttns/NextButton")?.getComponent(Button);
         self.prevButton_description = find("Canvas/PlanetDescription/ContBttns/PrevButton")?.getComponent(Button);
 
@@ -76,6 +80,9 @@ export class PlatformController extends Component {
         self.titleSpriteComponent.node.active = false;
 
         self.planetDescription.node.active = false;
+
+        if(DataStorage.instance)
+            DataStorage.instance.currentScene = "Platform_OPTIMIZED";
 
         // self.webview.node.on(WebView.EventType.LOADED, self.webviewLoadedFunc, self);
         
@@ -113,32 +120,51 @@ export class PlatformController extends Component {
         {
             tween(this.soundContainer).to(0.5, {opacity: 0}, {easing: 'cubicInOut', onComplete: ()=>{ this.soundContainer.node.active = false; }}).start();
         }
-
     }
 
-    // openWebview(url: string) {
-    //     var self = this;
+    showCloseBtn(show: boolean)
+    {
+        if(show)
+        {
+            tween(this.closeBtn).to(0.5, {opacity: 255}, {easing: 'cubicInOut', onStart: ()=>{ this.closeBtn.node.active = true; }}).start();
+        }
+        else
+        {
+            tween(this.closeBtn).to(0.5, {opacity: 0}, {easing: 'cubicInOut', onComplete: ()=>{ this.closeBtn.node.active = false; }}).start();
+        }
+    }
 
-    //     if(url === undefined || url === "")
-    //     {
-    //         console.log("URL not setted...");
-    //     }
-    //     else
-    //     {
-    //         if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
-    //         {
-    //             console.log("WEBVIEW NOT SETTED");
-    //             return;
-    //         }
+    showDescriptionContainer(show: boolean)
+    {
+        if(show)
+        {
+            tween(this.descriptionContainer).to(0.5, {opacity: 255}, {easing: 'cubicInOut', onStart: ()=>{ this.descriptionContainer.node.active = true; }}).start();
+        }
+        else
+        {
+            tween(this.descriptionContainer).to(0.5, {opacity: 0}, {easing: 'cubicInOut', onComplete: ()=>{ this.descriptionContainer.node.active = false; }}).start();
+        }
+    }
 
-    //         self.webviewParent_Anim.node.active = true;
+    goToWebview(url: string) {
+        var self = this;
 
-    //         self.webviewParent_Anim.play("Appear_UI");
+        if(url === undefined || url === "")
+        {
+            console.log("URL not setted...");
+        }
+        else
+        {
+            if(DataStorage.instance)
+            {
+                DataStorage.instance.setWebviewURL(url);
 
-    //         self.webview.node.active = true;
-    //         self.webview.url = "http://localhost:7456/";
-    //     }
-    // }
+                //GO TO SCENE HERE
+                if(SceneChange_Behavior.instance)
+                    SceneChange_Behavior.instance.gameSceneLoad(url);
+            }
+        }
+    }
 
     // closeWebview() {
     //     var self = this;

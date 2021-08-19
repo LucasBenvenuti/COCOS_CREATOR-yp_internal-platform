@@ -1,7 +1,9 @@
 
 import { _decorator, Component, Node, director, ProgressBarComponent, loader, assetManager, game, find, UIOpacity, tween } from 'cc';
 import { AudioController } from './AudioController';
+import { DataStorage } from './DataStorage';
 import { PlatformController } from './PlatformController';
+import { WebviewBehavior } from './Webview_Behavior';
 const { ccclass, property } = _decorator;
 
 @ccclass('SceneChange_Behavior')
@@ -25,7 +27,7 @@ export class SceneChange_Behavior extends Component {
         var self = this;
         
         if(SceneChange_Behavior.instance != null && SceneChange_Behavior.instance != self){
-            self.destroy();
+            self.node.destroy();
         }else{
             SceneChange_Behavior.instance = self;
             game.addPersistRootNode(this.node);
@@ -41,7 +43,14 @@ export class SceneChange_Behavior extends Component {
     {
         var self = this;
         
-        self.nextSceneName = "Platform_OPTIMIZED";
+        self.nextSceneName = "LoginRegister";
+
+        if(localStorage.getItem("userToken") && localStorage.getItem("userToken") !== "")
+        {
+            console.log("ALREADY LOGGED BY TOKEN");
+            self.nextSceneName = "Platform_OPTIMIZED";
+        }
+
         self.screenChangerOpacity.opacity = 255;
         // self.loadingLayoutOpacity.opacity = 255;
         self.loadingLayout.node.active = false;
@@ -105,7 +114,11 @@ export class SceneChange_Behavior extends Component {
         var progress = 0;// a progress of scene loading,0 ~ 1;
 
         if(PlatformController.instance)
+        {
+            PlatformController.instance.showCloseBtn(false);
             PlatformController.instance.showSoundCointainer(false);
+            PlatformController.instance.showDescriptionContainer(false);
+        }
 
         tween(self.fadeOpacity).to(self.transitionSpeed, {
             opacity: 255
@@ -117,6 +130,7 @@ export class SceneChange_Behavior extends Component {
                 self.loadingLayout.node.active = false;
             },
             onComplete: ()=> {
+
                 self.loadingLayout.node.active = true;
 
                 tween(self.fadeOpacity).to(self.transitionSpeed, {
@@ -144,7 +158,7 @@ export class SceneChange_Behavior extends Component {
                                 easing: 'cubicInOut',
                                 onComplete: ()=> {
                                     self.loadingLayout.node.active = false;
-        
+
                                     tween(self.fadeOpacity).to(self.transitionSpeed, {
                                         opacity: 0
                                     }, {
@@ -153,10 +167,24 @@ export class SceneChange_Behavior extends Component {
                                             self.screenChangerOpacity.node.active = false;
         
                                             if(PlatformController.instance)
+                                            {
+                                                PlatformController.instance.showCloseBtn(true);
                                                 PlatformController.instance.showSoundCointainer(true);
+                                                PlatformController.instance.showDescriptionContainer(true);
+                                            }
 
                                             if(AudioController.instance)
                                                 AudioController.instance.findSoundButtonsNode();
+
+                                            if(DataStorage.instance)
+                                            {
+                                                if(DataStorage.instance.currentScene === "WebviewScene")
+                                                {
+                                                    //THIS IS CALLED WHEN SCENE IS LOADED INSIDE GAME
+                                                    if(WebviewBehavior.instance)
+                                                        WebviewBehavior.instance.checkWebview();
+                                                }
+                                            }
                                         }
                                     } ).start();
                                 }
@@ -174,7 +202,11 @@ export class SceneChange_Behavior extends Component {
         var progress = 0;// a progress of scene loading,0 ~ 1;
 
         if(PlatformController.instance)
+        {
+            PlatformController.instance.showCloseBtn(false);
             PlatformController.instance.showSoundCointainer(false);
+            PlatformController.instance.showDescriptionContainer(false);
+        }
 
         tween(self.fadeOpacity).to(self.transitionSpeed, {
             opacity: 255
@@ -186,56 +218,72 @@ export class SceneChange_Behavior extends Component {
                 self.loadingLayout.node.active = false;
             },
             onComplete: ()=> {
-                self.loadingLayout.node.active = true;
 
-                tween(self.fadeOpacity).to(self.transitionSpeed, {
-                    opacity: 0
-                }, {
-                    easing: 'cubicInOut',
-                    onStart: ()=> {
-                        self.progressBar.progress = 0;
-                        self.screenChangerOpacity.node.active = true;
-                        self.loadingLayout.node.active = true;
-                    }
-                } ).start();
+                let sceneURL = sceneName;
+                window.location.href = sceneURL;
+
+                // self.loadingLayout.node.active = true;
+
+                // tween(self.fadeOpacity).to(self.transitionSpeed, {
+                //     opacity: 0
+                // }, {
+                //     easing: 'cubicInOut',
+                //     onStart: ()=> {
+                //         self.progressBar.progress = 0;
+                //         self.screenChangerOpacity.node.active = true;
+                //         self.loadingLayout.node.active = true;
+                //     }
+                // } ).start();
         
-                director.preloadScene(sceneName, (completedCount: number, totalCount: number, item: any)=> {
-                    progress = completedCount / totalCount;
-                    self.progressBar.progress = progress;
-                }, ()=> {
+                // director.preloadScene(sceneName, (completedCount: number, totalCount: number, item: any)=> {
+                //     progress = completedCount / totalCount;
+                //     self.progressBar.progress = progress;
+                // }, ()=> {
 
-                    console.log("Scene Preloaded!");
+                //     console.log("Scene Preloaded!");
 
-                        director.loadScene(sceneName, ()=> {
-                            tween(self.fadeOpacity).to(self.transitionSpeed, {
-                                opacity: 255
-                            }, {
-                                easing: 'cubicInOut',
-                                onComplete: ()=> {
-                                    self.loadingLayout.node.active = false;
+                //         director.loadScene(sceneName, ()=> {
+                //             tween(self.fadeOpacity).to(self.transitionSpeed, {
+                //                 opacity: 255
+                //             }, {
+                //                 easing: 'cubicInOut',
+                //                 onComplete: ()=> {
+                //                     self.loadingLayout.node.active = false;
+
+                //                     tween(self.fadeOpacity).to(self.transitionSpeed, {
+                //                         opacity: 0
+                //                     }, {
+                //                         easing: 'cubicInOut',
+                //                         onComplete: ()=> {
+                //                             self.screenChangerOpacity.node.active = false;
         
-                                    tween(self.fadeOpacity).to(self.transitionSpeed, {
-                                        opacity: 0
-                                    }, {
-                                        easing: 'cubicInOut',
-                                        onComplete: ()=> {
-                                            self.screenChangerOpacity.node.active = false;
-        
-                                            if(PlatformController.instance)
-                                                PlatformController.instance.showSoundCointainer(true);
+                //                             if(PlatformController.instance)
+                //                             {
+                //                                 PlatformController.instance.showCloseBtn(true);
+                //                                 PlatformController.instance.showSoundCointainer(true);
+                //                                 PlatformController.instance.showDescriptionContainer(true);
+                //                             }
 
-                                            if(AudioController.instance)
-                                                AudioController.instance.findSoundButtonsNode();
-                                        }
-                                    } ).start();
-                                }
-                            } ).start();
-                        });
-                    }
-                );
+                //                             if(AudioController.instance)
+                //                                 AudioController.instance.findSoundButtonsNode();
+
+                //                             if(DataStorage.instance)
+                //                             {
+                //                                 if(DataStorage.instance.currentScene === "WebviewScene")
+                //                                 {
+                //                                     //THIS IS CALLED WHEN SCENE IS LOADED INSIDE GAME
+                //                                     if(WebviewBehavior.instance)
+                //                                         WebviewBehavior.instance.checkWebview();
+                //                                 }
+                //                             }
+                //                         }
+                //                     } ).start();
+                //                 }
+                //             } ).start();
+                //         });
+                //     }
+                // );
             }
         } ).start();
     }
-
-
 }

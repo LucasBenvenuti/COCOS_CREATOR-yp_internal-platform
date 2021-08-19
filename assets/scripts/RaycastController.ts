@@ -109,7 +109,7 @@ export class RaycastController extends Component {
                         {
                             console.log("Is Icon!");
                             let finalURL = CameraController.instance.getCurrentURLFromSelectedIcon(colliderParent.getComponent(AnimationComponent));
-                            PlatformController.instance.openWebview(finalURL);
+                            PlatformController.instance.goToWebview(finalURL);
                         }
                     }
                     else

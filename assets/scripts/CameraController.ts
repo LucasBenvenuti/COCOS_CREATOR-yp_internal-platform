@@ -1,6 +1,7 @@
 
 import { _decorator, Component, math, systemEvent, SystemEvent, macro, game, cclegacy, Touch, EventKeyboard, EventMouse, Node, Vec3, tween, quat, Quat, AnimationComponent, clamp, Collider, ITriggerEvent, find, SystemEventType, UIOpacity } from "cc";
 import { AudioController } from "./AudioController";
+import { DataStorage } from "./DataStorage";
 import { Planet_Behavior } from "./Planet_Behavior";
 import { PlatformController } from "./PlatformController";
 const { ccclass, property } = _decorator;
@@ -60,7 +61,7 @@ export class CameraController extends Component {
         self.limitUp_angle = 5;
         self.limitDown_angle = -10;
 
-        self.closeBtnAnim = find("Canvas/CloseBtn")?.getComponent(AnimationComponent);
+        self.closeBtnAnim = find("Canvas/CloseBtnCont/CloseBtn")?.getComponent(AnimationComponent);
 
 		math.Vec3.copy(self._euler, self.node.eulerAngles);
 
@@ -140,7 +141,6 @@ export class CameraController extends Component {
 
         self.hasSelectedPlanet = true;
         self.collider.node.active = false;
-
         
         self.scheduleOnce(()=>{
             self.startCameraRotation = self.node.getRotation();
@@ -202,6 +202,8 @@ export class CameraController extends Component {
                 PlatformController.instance.planetDescription.node.active = true;
                 PlatformController.instance.planetDescription.play("appear");
                 // PlatformController.instance.titleLabel.getComponent(AnimationComponent)?.play("Appear_UI");
+
+                DataStorage.instance.setPlanetSelected(self.currentPlanetBehavior);
             }, 2.2);
         }, 0.5);
     }
@@ -392,6 +394,8 @@ export class CameraController extends Component {
 
             PlatformController.instance.nextButton_description.node.off(SystemEventType.TOUCH_START, self.nextDescriptionLabel, self);
             PlatformController.instance.prevButton_description.node.off(SystemEventType.TOUCH_START, self.prevDescriptionLabel, self);
+
+            DataStorage.instance.setPlanetSelected(null);
 
             self.scheduleOnce(()=>{
                 AudioController.instance.playReturnFromPlanetSource();

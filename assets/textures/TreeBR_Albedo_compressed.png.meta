@@ -1,0 +1,43 @@
+{
+  "ver": "1.0.21",
+  "importer": "image",
+  "imported": true,
+  "uuid": "27071413-c731-421b-bc5e-84ab53c7e136",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "27071413-c731-421b-bc5e-84ab53c7e136@6c48a",
+      "displayName": "TreeBR_Albedo_compressed",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "27071413-c731-421b-bc5e-84ab53c7e136"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": true,
+    "type": "texture",
+    "redirect": "27071413-c731-421b-bc5e-84ab53c7e136@6c48a",
+    "compressSettings": {
+      "useCompressTexture": true
+    }
+  }
+}

@@ -1,6 +1,7 @@
 
 import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBox, EditBoxComponent } from 'cc';
 import { DataStorage } from './DataStorage';
+import { SceneChange_Behavior } from './SceneChange_Behavior';
 
 const { ccclass, property } = _decorator;
 
@@ -11,7 +12,7 @@ export class LoginRegisterController extends Component {
 
     @property(UIOpacity)
     cookiesNode: UIOpacity = null!;
-
+    
     @property(UIOpacity)
     loginNode: UIOpacity = null!;
 
@@ -88,13 +89,6 @@ export class LoginRegisterController extends Component {
         if(localStorage.getItem("platform_cookiesEnabled") && localStorage.getItem("platform_cookiesEnabled") === "true")
             self.cookiesNode.node.active = false;
         
-        if(localStorage.getItem("platform_validatedToken"))
-        {
-            self.loginNode.node.active = false;
-            console.log("ALREADY LOGGED BY TOKEN");
-            return;
-        }
-
         self.checkInitial();
     }
 
@@ -456,8 +450,13 @@ export class LoginRegisterController extends Component {
                 self.loginAnim(false);
                 self.loadingAnim(false);
 
-                localStorage.setItem("platform_validatedToken", responseObj.token);
-                DataStorage.instance.token = responseObj.token;
+                localStorage.setItem("userToken", responseObj.token);
+
+                if(DataStorage.instance)
+                    DataStorage.instance.token = responseObj.token;
+
+                if(SceneChange_Behavior.instance)
+                    SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
             }
             
             self.loadingAnim(false);
@@ -465,6 +464,18 @@ export class LoginRegisterController extends Component {
         };
 
         xmlhttp.send(JSON.stringify({ "email": emailInputValue, "password": passwordInputValue }));
+    }
+
+    guestlogic() {
+        var self = this;
+        
+        localStorage.setItem("userToken", "guest");
+
+        if(DataStorage.instance)
+            DataStorage.instance.token = "guest";
+
+        if(SceneChange_Behavior.instance)
+            SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
     }
 
     registerlogic() {
@@ -528,6 +539,9 @@ export class LoginRegisterController extends Component {
                 //Success
                 self.registerAnim(false);
                 self.loadingAnim(false);
+
+                if(SceneChange_Behavior.instance)
+                    SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
             }
             
             self.loadingAnim(false);

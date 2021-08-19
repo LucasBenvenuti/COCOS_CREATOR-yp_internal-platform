@@ -1,0 +1,43 @@
+{
+  "ver": "1.0.21",
+  "importer": "image",
+  "imported": true,
+  "uuid": "f8c49323-11e7-4349-a4e1-05af5b0c7730",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "f8c49323-11e7-4349-a4e1-05af5b0c7730@6c48a",
+      "displayName": "Icon_Pesca",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f8c49323-11e7-4349-a4e1-05af5b0c7730"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": true,
+    "type": "texture",
+    "redirect": "f8c49323-11e7-4349-a4e1-05af5b0c7730@6c48a",
+    "compressSettings": {
+      "useCompressTexture": true
+    }
+  }
+}

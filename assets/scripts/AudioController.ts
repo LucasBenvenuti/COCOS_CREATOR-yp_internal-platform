@@ -210,8 +210,11 @@ export class AudioController extends Component {
 
     public startSoundIcons(){
         if(AudioController.soundOn){
-            this.soundOnNode.active = true;
-            this.soundOffNode.active = false;
+            if(this.soundOnNode)
+                this.soundOnNode.active = true;
+
+            if(this.soundOffNode)
+                this.soundOffNode.active = false;
             // if(this.soundOffNodeDefaultMenu != null){
                 // this.soundOffNodeDefaultMenu.active = false;
             // }
@@ -219,8 +222,11 @@ export class AudioController extends Component {
                 // this.soundOnNodeDefaultMenu.active = true;
             // }
         }else{            
-            this.soundOnNode.active = false;
-            this.soundOffNode.active = true;
+            if(this.soundOnNode)
+                this.soundOnNode.active = false;
+            
+            if(this.soundOffNode)
+                this.soundOffNode.active = true;
             // if(this.soundOffNodeDefaultMenu != null){
                 // this.soundOffNodeDefaultMenu.active = true;
             // }
@@ -231,8 +237,11 @@ export class AudioController extends Component {
     }
 
     public toggleSoundIcons(){
-        this.soundOffNode.active = !this.soundOffNode.active;
-        this.soundOnNode.active = !this.soundOnNode.active;
+        if(this.soundOffNode)
+            this.soundOffNode.active = !this.soundOffNode.active;
+        
+        if(this.soundOnNode)
+            this.soundOnNode.active = !this.soundOnNode.active;
         //  if(this.soundOffNodeDefaultMenu != null){
             // this.soundOffNodeDefaultMenu.active = !this.soundOffNodeDefaultMenu.active;
         // }
@@ -242,8 +251,11 @@ export class AudioController extends Component {
     }
 
     public setToggleFunction(){
-        this.soundOffNode.on(SystemEventType.TOUCH_START, this.toggleGameSound, this);
-        this.soundOnNode.on(SystemEventType.TOUCH_START, this.toggleGameSound, this);
+        if(this.soundOffNode)
+            this.soundOffNode.on(SystemEventType.TOUCH_START, this.toggleGameSound, this);
+        
+        if(this.soundOnNode)
+            this.soundOnNode.on(SystemEventType.TOUCH_START, this.toggleGameSound, this);
         // if(this.soundOffNodeDefaultMenu != null){
             // this.soundOffNodeDefaultMenu.on(SystemEventType.TOUCH_START, this.toggleGameSound, this);
         // }

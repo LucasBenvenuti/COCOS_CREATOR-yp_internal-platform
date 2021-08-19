@@ -1,0 +1,43 @@
+{
+  "ver": "1.0.21",
+  "importer": "image",
+  "imported": true,
+  "uuid": "063215d4-833a-45e8-860d-7bb92b0e6b33",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "063215d4-833a-45e8-860d-7bb92b0e6b33@6c48a",
+      "displayName": "Icon_Colorindo",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "063215d4-833a-45e8-860d-7bb92b0e6b33"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": true,
+    "type": "texture",
+    "redirect": "063215d4-833a-45e8-860d-7bb92b0e6b33@6c48a",
+    "compressSettings": {
+      "useCompressTexture": true
+    }
+  }
+}
