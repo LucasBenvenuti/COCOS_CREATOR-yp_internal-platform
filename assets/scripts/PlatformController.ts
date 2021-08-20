@@ -3,7 +3,7 @@ import { _decorator, Component, Node, Label, Sprite, AnimationComponent, WebView
 import { AudioController } from './AudioController';
 import { ButtonsHelper } from './ButtonsHelper';
 import { DataStorage } from './DataStorage';
-import { SceneChange_Behavior } from './SceneChange_Behavior';
+import { SceneChange_Behavior } from '../external/SceneChange_Behavior';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlatformController')

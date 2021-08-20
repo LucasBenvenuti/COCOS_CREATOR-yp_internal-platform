@@ -1,9 +1,9 @@
 
 import { _decorator, Component, Node, director, ProgressBarComponent, loader, assetManager, game, find, UIOpacity, tween } from 'cc';
-import { AudioController } from './AudioController';
-import { DataStorage } from './DataStorage';
-import { PlatformController } from './PlatformController';
-import { WebviewBehavior } from './Webview_Behavior';
+import { AudioController } from '../scripts/AudioController';
+import { DataStorage } from '../scripts/DataStorage';
+import { PlatformController } from '../scripts/PlatformController';
+import { WebviewBehavior } from '../scripts/Webview_Behavior';
 const { ccclass, property } = _decorator;
 
 @ccclass('SceneChange_Behavior')

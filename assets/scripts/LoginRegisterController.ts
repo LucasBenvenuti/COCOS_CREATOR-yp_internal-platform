@@ -1,7 +1,7 @@
 
-import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBox, EditBoxComponent } from 'cc';
+import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBox, EditBoxComponent, Label, Vec3, lerp } from 'cc';
 import { DataStorage } from './DataStorage';
-import { SceneChange_Behavior } from './SceneChange_Behavior';
+import { SceneChange_Behavior } from '../external/SceneChange_Behavior';
 
 const { ccclass, property } = _decorator;
 
@@ -12,6 +12,18 @@ export class LoginRegisterController extends Component {
 
     @property(UIOpacity)
     cookiesNode: UIOpacity = null!;
+
+    @property(UIOpacity)
+    errorNode: UIOpacity = null!;
+    @property(Label)
+    errorLabel: Label = null!;
+    errorIsOpened = false;
+
+    @property(UIOpacity)
+    correctNode: UIOpacity = null!;
+    @property(Label)
+    correctLabel: Label = null!;
+    correctIsOpened = false;
     
     @property(UIOpacity)
     loginNode: UIOpacity = null!;
@@ -112,6 +124,72 @@ export class LoginRegisterController extends Component {
             console.log("SAVE HERE FIRST COOKIE");
 
             localStorage.setItem("platform_cookiesEnabled", "true");
+        }
+    }
+
+    errorAnim(show: boolean, errorMessage: string)
+    {
+        var self = this;
+
+        if(show)
+        {
+            self.errorNode.node.setPosition(new Vec3(0, 30, 0));
+
+            tween(self.errorNode.node).to(self.fadeDuration, {position: new Vec3(0,0,0)}, {
+                easing: 'quadInOut',
+                onStart: () => {
+                    self.errorNode.node.active = true;
+                    self.errorLabel.string = errorMessage;
+                },
+                onUpdate: (target: object, ratio: number)=> {
+
+                    let newOpacity = lerp(0, 255, ratio);
+                    self.errorNode.opacity = newOpacity;
+                },
+            }).union().start();
+        }
+        else
+        {
+            tween(self.errorNode).to(self.fadeDuration, {opacity: 0}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                    self.errorLabel.string = "";
+                    self.errorNode.node.active = false;
+                },
+            }).start();
+        }
+    }
+
+    correctAnim(show: boolean, correctMessage: string)
+    {
+        var self = this;
+
+        if(show)
+        {
+            self.correctNode.node.setPosition(new Vec3(0, 30, 0));
+
+            tween(self.correctNode.node).to(self.fadeDuration, {position: new Vec3(0,0,0)}, {
+                easing: 'quadInOut',
+                onStart: () => {
+                    self.correctNode.node.active = true;
+                    self.correctLabel.string = correctMessage;
+                },
+                onUpdate: (target: object, ratio: number)=> {
+
+                    let newOpacity = lerp(0, 255, ratio);
+                    self.correctNode.opacity = newOpacity;
+                },
+            }).union().start();
+        }
+        else
+        {
+            tween(self.correctNode).to(self.fadeDuration, {opacity: 0}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                    self.correctLabel.string = "";
+                    self.correctNode.node.active = false;
+                },
+            }).start();
         }
     }
 
@@ -421,6 +499,9 @@ export class LoginRegisterController extends Component {
         if(emailInputValue == "" || emailInputValue == undefined)
         {
             console.log("ERRO: Campo de Email deve ser preenchido");
+
+            self.errorAnim(true, "Campo de Email deve ser preenchido.");
+
             self.loadingAnim(false);
             return;
         }
@@ -428,6 +509,8 @@ export class LoginRegisterController extends Component {
         if(passwordInputValue == "" || passwordInputValue == undefined)
         {
             console.log("ERRO: Campo de Senha deve ser preenchido");
+            self.errorAnim(true, "Campo de Senha deve ser preenchido.");
+
             self.loadingAnim(false);
             return;
         }
@@ -450,14 +533,34 @@ export class LoginRegisterController extends Component {
                 self.loginAnim(false);
                 self.loadingAnim(false);
 
-                localStorage.setItem("userToken", responseObj.token);
+                self.correctAnim(true, "Login sendo efetuado.");
 
-                if(DataStorage.instance)
-                    DataStorage.instance.token = responseObj.token;
+                self.scheduleOnce(()=>{
+                    localStorage.setItem("userToken", responseObj.token);
+        
+                    if(DataStorage.instance)
+                        DataStorage.instance.token = responseObj.token;
+        
+                    if(SceneChange_Behavior.instance)
+                        SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+                }, 0.5);
 
-                if(SceneChange_Behavior.instance)
-                    SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
             }
+
+            if(self.errorIsOpened)
+                return;
+
+            if(responseObj.error === undefined)
+                return;
+
+            self.errorIsOpened = true;
+
+            let newString = responseObj.error + ".";
+            self.errorAnim(true, newString);
+
+            self.scheduleOnce(()=>{
+                self.errorIsOpened = false;
+            }, 0.2);
             
             self.loadingAnim(false);
 
@@ -488,16 +591,18 @@ export class LoginRegisterController extends Component {
         let passwordInputValue = self.registerPasswordField.string;
         let passwordConfirmationInputValue = self.registerPasswordConfirmationField.string;
 
-        if(completeNameInputValue == "" || completeNameInputValue == undefined)
-        {
-            console.log("ERRO: Campo de Nome Completo deve ser preenchido");
-            self.loadingAnim(false);
-            return;
-        }
+        // if(completeNameInputValue == "" || completeNameInputValue == undefined)
+        // {
+        //     console.log("ERRO: Campo de Nome Completo deve ser preenchido");
+        //     self.loadingAnim(false);
+        //     return;
+        // }
 
         if(emailInputValue == "" || emailInputValue == undefined)
         {
             console.log("ERRO: Campo de Email deve ser preenchido");
+            self.errorAnim(true, "Campo de Email deve ser preenchido.");
+
             self.loadingAnim(false);
             return;
         }
@@ -505,23 +610,25 @@ export class LoginRegisterController extends Component {
         if(passwordInputValue == "" || passwordInputValue == undefined)
         {
             console.log("ERRO: Campo de Senha deve ser preenchido");
+            self.errorAnim(true, "Campo de Senha deve ser preenchido.");
+
             self.loadingAnim(false);
             return;
         }
 
-        if(passwordConfirmationInputValue == "" || passwordConfirmationInputValue == undefined)
-        {
-            console.log("ERRO: Campo de Confirmação de Senha deve ser preenchido");
-            self.loadingAnim(false);
-            return;
-        }
+        // if(passwordConfirmationInputValue == "" || passwordConfirmationInputValue == undefined)
+        // {
+        //     console.log("ERRO: Campo de Confirmação de Senha deve ser preenchido");
+        //     self.loadingAnim(false);
+        //     return;
+        // }
 
-        if(passwordInputValue !== passwordConfirmationInputValue)
-        {
-            console.log("ERRO: Confirmação de Senha deve ser igual à senha");
-            self.loadingAnim(false);
-            return;
-        }
+        // if(passwordInputValue !== passwordConfirmationInputValue)
+        // {
+        //     console.log("ERRO: Confirmação de Senha deve ser igual à senha");
+        //     self.loadingAnim(false);
+        //     return;
+        // }
 
         var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
         xmlhttp.open("POST", url);
@@ -533,16 +640,38 @@ export class LoginRegisterController extends Component {
 
         xmlhttp.onreadystatechange = function () {
             var response = xmlhttp.responseText;
-            console.log(response);
+            var responseObj = JSON.parse(response || "{}");
             if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
             {
                 //Success
                 self.registerAnim(false);
                 self.loadingAnim(false);
 
+                self.correctAnim(true, "Cadastro efetuado.");
+
+                self.scheduleOnce(()=>{
+                    if(SceneChange_Behavior.instance)
+                        SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+                }, 0.5);
+
                 if(SceneChange_Behavior.instance)
                     SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
             }
+
+            if(self.errorIsOpened)
+                return;
+
+            if(responseObj.error === undefined)
+                return;
+
+            self.errorIsOpened = true;
+
+            let newString = responseObj.error + ".";
+            self.errorAnim(true, newString);
+
+            self.scheduleOnce(()=>{
+                self.errorIsOpened = false;
+            }, 0.2);
             
             self.loadingAnim(false);
 
@@ -565,6 +694,8 @@ export class LoginRegisterController extends Component {
         if(recoveryEmailInputValue == "" || recoveryEmailInputValue == undefined)
         {
             console.log("ERRO: Campo de Email deve ser preenchido");
+            self.errorAnim(true, "Campo de Email deve ser preenchido.");
+
             self.loadingAnim(false);
             return;
         }
@@ -575,14 +706,32 @@ export class LoginRegisterController extends Component {
 
         xmlhttp.onreadystatechange = function () {
             var response = xmlhttp.responseText;
+            var responseObj = JSON.parse(response || "{}");
             console.log(response);
             if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
             {
                 //Success
                 self.loadingAnim(false);
 
-                self.recoverPasswordToEmailSent();
+                self.correctAnim(true, "Um email contendo informações sobre a troca de senha foi enviado.");
+
+                self.recoverPasswordToLogin();
             }
+
+            if(self.errorIsOpened)
+                return;
+
+            if(responseObj.error === undefined)
+                return;
+
+            self.errorIsOpened = true;
+
+            let newString = responseObj.error + ".";
+            self.errorAnim(true, newString);
+
+            self.scheduleOnce(()=>{
+                self.errorIsOpened = false;
+            }, 0.2);
             
             self.loadingAnim(false);
         };
@@ -601,6 +750,8 @@ export class LoginRegisterController extends Component {
         if(passwordInputValue == "" || passwordInputValue == undefined)
         {
             console.log("ERRO: Campo de Senha deve ser preenchido");
+            self.errorAnim(true, "Campo de Senha deve ser preenchido.");
+
             self.loadingAnim(false);
             return;
         }
@@ -608,6 +759,8 @@ export class LoginRegisterController extends Component {
         if(passwordConfirmationInputValue == "" || passwordConfirmationInputValue == undefined)
         {
             console.log("ERRO: Campo de Confirmação de Senha deve ser preenchido");
+            self.errorAnim(true, "Campo de Confirmação de Senha deve ser preenchido.");
+
             self.loadingAnim(false);
             return;
         }
@@ -629,13 +782,31 @@ export class LoginRegisterController extends Component {
 
         xmlhttp.onreadystatechange = function () {
             var response = xmlhttp.responseText;
+            var responseObj = JSON.parse(response || "{}");
             console.log(response);
             if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
             {
                 //Success
+                self.correctAnim(true, "Nova senha definida.");
+
                 self.loadingAnim(false);
-                self.newPasswordToNewPasswordConfirmation();
+                self.newPasswordToLogin();
             }
+
+            if(self.errorIsOpened)
+                return;
+
+            if(responseObj.error === undefined)
+                return;
+
+            self.errorIsOpened = true;
+
+            let newString = responseObj.error + ".";
+            self.errorAnim(true, newString);
+
+            self.scheduleOnce(()=>{
+                self.errorIsOpened = false;
+            }, 0.2);
             
             self.loadingAnim(false);
         };

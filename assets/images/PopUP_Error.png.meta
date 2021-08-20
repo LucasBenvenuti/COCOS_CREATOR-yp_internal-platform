@@ -2,7 +2,7 @@
   "ver": "1.0.21",
   "importer": "image",
   "imported": true,
-  "uuid": "bb00f17d-82a6-46f6-9e1b-1d5e9e2908e8",
+  "uuid": "c894d6bc-29b0-4888-9e34-1bee6eefa9f0",
   "files": [
     ".png",
     ".json"
@@ -10,8 +10,8 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "bb00f17d-82a6-46f6-9e1b-1d5e9e2908e8@6c48a",
-      "displayName": "LogoYellow",
+      "uuid": "c894d6bc-29b0-4888-9e34-1bee6eefa9f0@6c48a",
+      "displayName": "PopUP_Error",
       "id": "6c48a",
       "name": "texture",
       "userData": {
@@ -22,7 +22,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "bb00f17d-82a6-46f6-9e1b-1d5e9e2908e8"
+        "imageUuidOrDatabaseUri": "c894d6bc-29b0-4888-9e34-1bee6eefa9f0"
       },
       "ver": "1.0.21",
       "imported": true,
@@ -33,8 +33,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "bb00f17d-82a6-46f6-9e1b-1d5e9e2908e8@f9941",
-      "displayName": "LogoYellow",
+      "uuid": "c894d6bc-29b0-4888-9e34-1bee6eefa9f0@f9941",
+      "displayName": "PopUP_Error",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -42,20 +42,20 @@
         "trimThreshold": 1,
         "rotated": false,
         "offsetX": 0.5,
-        "offsetY": 0,
-        "trimX": 136,
-        "trimY": 143,
-        "width": 241,
-        "height": 226,
-        "rawWidth": 512,
-        "rawHeight": 512,
+        "offsetY": -0.5,
+        "trimX": 155,
+        "trimY": 411,
+        "width": 715,
+        "height": 203,
+        "rawWidth": 1024,
+        "rawHeight": 1024,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
         "borderRight": 0,
         "packable": true,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "bb00f17d-82a6-46f6-9e1b-1d5e9e2908e8@6c48a",
+        "imageUuidOrDatabaseUri": "c894d6bc-29b0-4888-9e34-1bee6eefa9f0@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.9",
@@ -69,6 +69,6 @@
   "userData": {
     "hasAlpha": true,
     "type": "sprite-frame",
-    "redirect": "bb00f17d-82a6-46f6-9e1b-1d5e9e2908e8@f9941"
+    "redirect": "c894d6bc-29b0-4888-9e34-1bee6eefa9f0@f9941"
   }
 }
