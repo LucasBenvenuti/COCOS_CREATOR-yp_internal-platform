@@ -153,4 +153,16 @@ export class SeparatedFunctionsLoginRegister extends Component {
         LoginRegisterController.instance.stateDropdown.toggleBox();
         LoginRegisterController.instance.cityDropdown.forceCloseBox();
     }
+    returnLastInputs()
+    {
+        if(!LoginRegisterController.instance)
+            return;
+
+        LoginRegisterController.instance.stateDropdown.forceCloseBox();
+        LoginRegisterController.instance.stateDropdown.clearValue();
+        LoginRegisterController.instance.cityDropdown.forceCloseBox();
+        LoginRegisterController.instance.cityDropdown.clearValue();
+        
+        LoginRegisterController.instance.locationAnim(false);
+    }
 }

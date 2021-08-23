@@ -6,6 +6,7 @@ import { DropdownBehavior } from './Dropdown_Behavior';
 import { FeedbackBoxBehavior } from './FeedbackBox_Behavior';
 import { SetSibling } from '../external/SetSibling';
 import { PrefabContainer } from './PrefabContainer';
+import { AudioController } from './AudioController';
 
 const { ccclass, property } = _decorator;
 
@@ -569,20 +570,27 @@ export class LoginRegisterController extends Component {
                 self.loadingAnim(false);
 
                 self.tempToken = responseObj.token;
-                self.locationAnim(true);
 
-                // self.correctAnim("Login sendo efetuado.");
+                if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
+                {
+                    self.correctAnim("Login sendo efetuado.");
 
-                // self.scheduleOnce(()=>{
-                //     localStorage.setItem("userToken", responseObj.token);
-        
-                //     if(DataStorage.instance)
-                //         DataStorage.instance.token = responseObj.token;
-        
-                //     if(SceneChange_Behavior.instance)
-                //         SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
-                // }, 0.5);
+                    localStorage.setItem("userToken", self.tempToken);
 
+                    window.GASendUserType("Usuário");
+
+                    if(DataStorage.instance)
+                        DataStorage.instance.token = self.tempToken;
+
+                    self.scheduleOnce(()=>{
+                        if(SceneChange_Behavior.instance)
+                            SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+                    }, 0.5);
+                }
+                else
+                {
+                    self.locationAnim(true);
+                }
             }
 
             if(self.errorIsOpened)
@@ -610,16 +618,23 @@ export class LoginRegisterController extends Component {
     guestlogic() {
         var self = this;
 
-        self.tempToken = "guest";
-        self.locationAnim(true);
         
-        // localStorage.setItem("userToken", "guest");
-
-        // if(DataStorage.instance)
-        //     DataStorage.instance.token = "guest";
-
-        // if(SceneChange_Behavior.instance)
-        //     SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+        if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
+        {
+            window.GASendUserType("Convidado");
+            localStorage.setItem("userToken", "guest");
+    
+            if(DataStorage.instance)
+                DataStorage.instance.token = "guest";
+    
+            if(SceneChange_Behavior.instance)
+                SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+        }
+        else
+        {
+            self.tempToken = "guest";
+            self.locationAnim(true);
+        }
     }
 
     registerlogic() {
@@ -689,7 +704,6 @@ export class LoginRegisterController extends Component {
                 self.correctAnim("Cadastro efetuado.");
 
                 self.tempToken = responseObj.token;
-                self.locationAnim(true);
 
                 let schoolType = "";
 
@@ -705,11 +719,25 @@ export class LoginRegisterController extends Component {
                 //ANALYTICS
                 window.GASendSchoolPeriod(self.registerSchoolarPeriodDropdown.currentValue);
                 window.GASendSchoolType(schoolType);
+                
+                // if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
+                // {
+                //     localStorage.setItem("userToken", self.tempToken);
 
-                // self.scheduleOnce(()=>{
-                //     if(SceneChange_Behavior.instance)
-                //         SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
-                // }, 0.5);
+                //     window.GASendUserType("Usuário");
+
+                //     if(DataStorage.instance)
+                //         DataStorage.instance.token = self.tempToken;
+
+                //     self.scheduleOnce(()=>{
+                //         if(SceneChange_Behavior.instance)
+                //             SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+                //     }, 0.5);
+                // }
+                // else
+                // {
+                    self.locationAnim(true);
+                // }
             }
 
             if(self.errorIsOpened)
@@ -967,8 +995,19 @@ export class LoginRegisterController extends Component {
 
         self.correctAnim("Login sendo efetuado.");
 
+        localStorage.setItem("platform_stateCityAlreadySetted", "true");
+
         self.scheduleOnce(()=>{
             localStorage.setItem("userToken", self.tempToken);
+
+            if(self.tempToken === "guest")
+            {
+                window.GASendUserType("Convidado");
+            }
+            else
+            {
+                window.GASendUserType("Usuário");
+            }
 
             if(DataStorage.instance)
                 DataStorage.instance.token = self.tempToken;

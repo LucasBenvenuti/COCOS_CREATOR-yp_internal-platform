@@ -142,12 +142,12 @@ export class CameraController extends Component {
         self.hasSelectedPlanet = true;
         self.collider.node.active = false;
 
-        window.GASendEnteredWorld(self.currentPlanetBehavior.planetTitle);
         
         self.scheduleOnce(()=>{
             self.startCameraRotation = self.node.getRotation();
             
             self.currentPlanetBehavior = planet.getComponent('Planet_Behavior');
+            window.GASendEnteredWorld(self.currentPlanetBehavior.planetTitle);
             
             if(!self.currentPlanetBehavior)
             return;

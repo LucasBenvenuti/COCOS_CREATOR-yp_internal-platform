@@ -216,14 +216,9 @@ export class SceneChange_Behavior extends Component {
                                             if(AudioController.instance)
                                                 AudioController.instance.findSoundButtonsNode();
 
-                                            if(DataStorage.instance)
+                                            if(localStorage.getItem("platform_muteUnmute") && localStorage.getItem("platform_muteUnmute") === "true")
                                             {
-                                                if(DataStorage.instance.currentScene === "WebviewScene")
-                                                {
-                                                    //THIS IS CALLED WHEN SCENE IS LOADED INSIDE GAME
-                                                    if(WebviewBehavior.instance)
-                                                        WebviewBehavior.instance.checkWebview();
-                                                }
+                                                // AudioController.instance.audioOnOff();
                                             }
                                         }
                                     } ).start();
@@ -296,7 +291,7 @@ export class SceneChange_Behavior extends Component {
                     if(LoginRegisterController.instance)
                         LoginRegisterController.instance.initialDefinition();
 
-                    AudioController.instance.audioOff();
+                    AudioController.instance.audioOnOff();
 
                     // if(ButtonsHelper.instance)
                     //     ButtonsHelper.instance.node.destroy();

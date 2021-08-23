@@ -61,10 +61,17 @@ export class AudioController extends Component {
         if(self.soundOnNode == null || self.soundOffNode == null)
             self.findSoundButtonsNode();
 
+        
+
         if(AudioController.soundOn){
             // for(let i = 0; i < this.audioSources.length; i++){
             //       this.audioSources[i].volume = this.volumes[i];
             //   }
+
+            // if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
+            // {
+            //     localStorage.setItem("platform_muteUnmute", AudioController.soundOn.toString());
+            // }
 
             self.schedule(self.scheduleFunction, 1 / 100);
             self.buttonsAudioSource.volume = self.buttonsVolume;
@@ -85,9 +92,11 @@ export class AudioController extends Component {
             }
             //this.backgroundAudioSource.currentTime = 0;
             if(!self.backgroundAudioSource.playing){
+                // localStorage.setItem("platform_muteUnmute", "true");
                 self.backgroundAudioSource.currentTime = self.currentTimeBgAudio;
                 self.backgroundAudioSource.play();
             }
+
             self.setButtonsSound();
         }
         
@@ -105,6 +114,7 @@ export class AudioController extends Component {
                 // this.lowSecRateSound.volume = 0;
                 // this.winSound.volume = 0;
                 AudioController.soundOn = false;
+
             }else{
                 // for(let i = 0; i < this.audioSources.length; i++){
                 //     this.audioSources[i].volume = this.volumes[i];
@@ -117,27 +127,22 @@ export class AudioController extends Component {
                 // this.lowSecRateSound.volume = this.lowSecRateVolume;
                 // this.winSound.volume = this.winSoundVolume;
                 AudioController.soundOn = true;
-        }
-        this.toggleSoundIcons();
+
+            }
+
+            localStorage.setItem("platform_muteUnmute", AudioController.soundOn.toString());
+            this.toggleSoundIcons();
     }
 
-    audioOff()
+    audioOnOff()
     {
         var self = this;
         
-        if(AudioController.soundOn){
-            // for(let i = 0; i < this.audioSources.length; i++){
-            //     this.audioSources[i].volume = 0;
-            // }
-            self.buttonsAudioSource.volume = 0;
-            self.backgroundAudioSource.volume = 0;
-            self.goToPlanetAudioSource.volume = 0;
-            self.returnFromPlanetAudioSource.volume = 0;
-            // this.lowSecRateSound.volume = 0;
-            // this.winSound.volume = 0;
-            AudioController.soundOn = false;
-            this.toggleSoundIcons();
-        }
+        this.toggleGameSound();
+
+        AudioController.soundOn = !AudioController.soundOn;
+
+        localStorage.setItem("platform_muteUnmute", AudioController.soundOn.toString());
     }
 
     public playButtonSound(){

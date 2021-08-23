@@ -160,30 +160,4 @@ export class PlatformController extends Component {
         if(SceneChange_Behavior.instance)
             SceneChange_Behavior.instance.logout();
     }
-
-    // closeWebview() {
-    //     var self = this;
-
-    //     if(!self.webviewParent_Anim || !self.webview_Anim || !self.webview)
-    //     {
-    //         console.log("WEBVIEW NOT SETTED");
-    //         return;
-    //     }
-
-    //     self.webviewParent_Anim.play("Disappear_UI");
-    //     self.webview_Anim.play("Disappear_UI");
-
-    //     self.scheduleOnce(()=>{
-    //         self.webview.url = "";
-    //         self.webviewParent_Anim.node.active = false;
-    //     }, 0.5);
-
-    // }
-
-    // webviewLoadedFunc(event: WebView ) {
-    //     var self = this;
-    //     console.log(event);
-
-    //     self.webview_Anim.play("Appear_UI");
-    // }
 }
