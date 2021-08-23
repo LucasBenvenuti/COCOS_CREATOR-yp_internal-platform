@@ -1,7 +1,11 @@
 
-import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBox, EditBoxComponent, Label, Vec3, lerp } from 'cc';
+import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBoxComponent, Label, Vec3, lerp, Prefab, instantiate, Node, EventTouch, find, Button, SystemEventType, resources } from 'cc';
 import { DataStorage } from './DataStorage';
 import { SceneChange_Behavior } from '../external/SceneChange_Behavior';
+import { DropdownBehavior } from './Dropdown_Behavior';
+import { FeedbackBoxBehavior } from './FeedbackBox_Behavior';
+import { SetSibling } from '../external/SetSibling';
+import { PrefabContainer } from './PrefabContainer';
 
 const { ccclass, property } = _decorator;
 
@@ -13,16 +17,7 @@ export class LoginRegisterController extends Component {
     @property(UIOpacity)
     cookiesNode: UIOpacity = null!;
 
-    @property(UIOpacity)
-    errorNode: UIOpacity = null!;
-    @property(Label)
-    errorLabel: Label = null!;
     errorIsOpened = false;
-
-    @property(UIOpacity)
-    correctNode: UIOpacity = null!;
-    @property(Label)
-    correctLabel: Label = null!;
     correctIsOpened = false;
     
     @property(UIOpacity)
@@ -55,13 +50,14 @@ export class LoginRegisterController extends Component {
     loginPasswordField: EditBoxComponent = null!;
 
     @property(EditBoxComponent)
-    registerCompleteNameField: EditBoxComponent = null!;
-    @property(EditBoxComponent)
     registerEmailField: EditBoxComponent = null!;
     @property(EditBoxComponent)
     registerPasswordField: EditBoxComponent = null!;
-    @property(EditBoxComponent)
-    registerPasswordConfirmationField: EditBoxComponent = null!;
+
+    @property(DropdownBehavior)
+    registerSchoolarPeriodDropdown: DropdownBehavior = null!;
+    @property(DropdownBehavior)
+    registerSchoolKindDropdown: DropdownBehavior = null!;
 
     @property(EditBoxComponent)
     recoveryEmailField: EditBoxComponent = null!;
@@ -76,6 +72,27 @@ export class LoginRegisterController extends Component {
 
     urlToken: string = "";
 
+    @property(Prefab)
+    errorBox: Prefab = null!;
+
+    @property(Prefab)
+    correctBox: Prefab = null!;
+
+    @property(Node)
+    instanceArea: Node = null!;
+
+    @property(UIOpacity)
+    locationAnimNode: UIOpacity = null!;
+
+    tempToken: string = "";
+
+    @property(DropdownBehavior)
+    stateDropdown: DropdownBehavior = null!;
+    @property(DropdownBehavior)
+    cityDropdown: DropdownBehavior = null!;
+
+    prefabContainer: PrefabContainer = null!;
+
     onLoad() {
         var self = this;
         
@@ -87,7 +104,44 @@ export class LoginRegisterController extends Component {
     }
 
     start() {
+        this.initialDefinition();
+    }
+
+    initialDefinition()
+    {
         var self = this;
+
+        console.log("CALLED INITIAL DEFINITION");
+
+        self.tempToken = "";
+
+        self.prefabContainer = find("PrefabContainer")?.getComponent(PrefabContainer);
+
+        self.cookiesNode = find("Canvas/Cookies_Accept")?.getComponent(UIOpacity);
+        self.loginNode = find("Canvas/FormsBG/Login")?.getComponent(UIOpacity);
+        self.registerNode = find("Canvas/FormsBG/Register")?.getComponent(UIOpacity);
+        self.recoveryPasswordNode = find("Canvas/FormsBG/RecoveryPassword")?.getComponent(UIOpacity);
+        self.emailSentNode = find("Canvas/FormsBG/EmailSent")?.getComponent(UIOpacity);
+        self.NewPasswordNode = find("Canvas/FormsBG/NewPassword")?.getComponent(UIOpacity);
+        self.NewPasswordConfirmationNode = find("Canvas/FormsBG/NewPasswordChanged")?.getComponent(UIOpacity);
+        self.loadingNode = find("Canvas/Loading")?.getComponent(UIOpacity);
+        self.loadingAnimation = find("Canvas/Loading/AnimatedSprite")?.getComponent(AnimationComponent);
+        self.loginEmailField = find("Canvas/FormsBG/Login/Input_Box_0/EditBox_Email")?.getComponent(EditBoxComponent);
+        self.loginPasswordField = find("Canvas/FormsBG/Login/Input_Box_1/EditBox_Password")?.getComponent(EditBoxComponent);
+        self.registerEmailField = find("Canvas/FormsBG/Register/Input_Box_0/EditBox_Email")?.getComponent(EditBoxComponent);
+        self.registerPasswordField = find("Canvas/FormsBG/Register/Input_Box_1/EditBox_Password")?.getComponent(EditBoxComponent);
+        self.registerSchoolarPeriodDropdown = find("Canvas/FormsBG/Register/Input_Box_3")?.getComponent(DropdownBehavior);
+        self.registerSchoolKindDropdown = find("Canvas/FormsBG/Register/Input_Box_2")?.getComponent(DropdownBehavior);
+        self.recoveryEmailField = find("Canvas/FormsBG/RecoveryPassword/Input_Box_0/EditBox_RecoveryEmail")?.getComponent(EditBoxComponent);
+        self.changePasswordField = find("Canvas/FormsBG/NewPassword/Input_Box_0/EditBox_NewPassword")?.getComponent(EditBoxComponent);
+        self.changePasswordConfirmationField = find("Canvas/FormsBG/NewPassword/Input_Box_1/EditBox_ConfirmNewPassword")?.getComponent(EditBoxComponent);
+
+        self.errorBox = self.prefabContainer.errorBox;
+        self.correctBox = self.prefabContainer.correctBox;
+        self.instanceArea = find("Canvas/FeedbackParent");
+        self.locationAnimNode = find("Canvas/LastInputs")?.getComponent(UIOpacity);
+        self.stateDropdown = find("Canvas/LastInputs/Box_Inicio/Input_Box_3")?.getComponent(DropdownBehavior);
+        self.cityDropdown = find("Canvas/LastInputs/Box_Inicio/Input_Box_2")?.getComponent(DropdownBehavior);
 
         self.loginNode.opacity = 0;
         self.registerNode.opacity = 0;
@@ -96,10 +150,25 @@ export class LoginRegisterController extends Component {
         self.NewPasswordNode.opacity = 0;
         self.NewPasswordConfirmationNode.opacity = 0;
         self.loadingNode.opacity = 0;
+        self.locationAnimNode.opacity = 0;
+
+        self.registerNode.node.active = false;
+        self.recoveryPasswordNode.node.active = false;
+        self.emailSentNode.node.active = false;
+        self.NewPasswordNode.node.active = false;
+        self.NewPasswordConfirmationNode.node.active = false;
+        self.loadingNode.node.active = false;
+        self.locationAnimNode.node.active = false;
 
         //CHECK FIRST COOKIE HERE... IF IT EXISTS, ACTIVE = FALSE TO cookiesNode
         if(localStorage.getItem("platform_cookiesEnabled") && localStorage.getItem("platform_cookiesEnabled") === "true")
+        {
             self.cookiesNode.node.active = false;
+        }
+        else
+        {
+            self.cookiesNode.node.active = true;
+        }
         
         self.checkInitial();
     }
@@ -115,6 +184,7 @@ export class LoginRegisterController extends Component {
             easing: 'quadInOut',
             onComplete: () => {
                 self.cookiesNode.node.active = false;
+                localStorage.setItem("platform_cookiesEnabled", "true");
             }
         }).start();
 
@@ -127,70 +197,36 @@ export class LoginRegisterController extends Component {
         }
     }
 
-    errorAnim(show: boolean, errorMessage: string)
+    errorAnim(errorMessage: string)
     {
         var self = this;
 
-        if(show)
-        {
-            self.errorNode.node.setPosition(new Vec3(0, 30, 0));
+        let boxes = self.instanceArea.getComponentsInChildren(FeedbackBoxBehavior);
 
-            tween(self.errorNode.node).to(self.fadeDuration, {position: new Vec3(0,0,0)}, {
-                easing: 'quadInOut',
-                onStart: () => {
-                    self.errorNode.node.active = true;
-                    self.errorLabel.string = errorMessage;
-                },
-                onUpdate: (target: object, ratio: number)=> {
+        boxes.forEach(box => {
+            box.forceToDestroy(self.fadeDuration);
+        });
 
-                    let newOpacity = lerp(0, 255, ratio);
-                    self.errorNode.opacity = newOpacity;
-                },
-            }).union().start();
-        }
-        else
-        {
-            tween(self.errorNode).to(self.fadeDuration, {opacity: 0}, {
-                easing: 'quadInOut',
-                onComplete: () => {
-                    self.errorLabel.string = "";
-                    self.errorNode.node.active = false;
-                },
-            }).start();
-        }
+        let currentError = instantiate(self.errorBox);
+        self.instanceArea.addChild(currentError);
+
+        currentError.getComponent(FeedbackBoxBehavior)?.callBox(errorMessage, self.fadeDuration);
     }
 
-    correctAnim(show: boolean, correctMessage: string)
+    correctAnim(correctMessage: string)
     {
         var self = this;
 
-        if(show)
-        {
-            self.correctNode.node.setPosition(new Vec3(0, 30, 0));
+        let boxes = self.instanceArea.getComponentsInChildren(FeedbackBoxBehavior);
 
-            tween(self.correctNode.node).to(self.fadeDuration, {position: new Vec3(0,0,0)}, {
-                easing: 'quadInOut',
-                onStart: () => {
-                    self.correctNode.node.active = true;
-                    self.correctLabel.string = correctMessage;
-                },
-                onUpdate: (target: object, ratio: number)=> {
+        boxes.forEach(box => {
+            box.forceToDestroy(self.fadeDuration);
+        });
 
-                    let newOpacity = lerp(0, 255, ratio);
-                    self.correctNode.opacity = newOpacity;
-                },
-            }).union().start();
-        }
-        else
-        {
-            tween(self.correctNode).to(self.fadeDuration, {opacity: 0}, {
-                easing: 'quadInOut',
-                onComplete: () => {
-                    self.correctLabel.string = "";
-                    self.correctNode.node.active = false;
-                },
-            }).start();
-        }
+        let currentCorrect = instantiate(self.correctBox);
+        self.instanceArea.addChild(currentCorrect);
+
+        currentCorrect.getComponent(FeedbackBoxBehavior)?.callBox(correctMessage, self.fadeDuration);
     }
 
     //LOGIN
@@ -500,7 +536,7 @@ export class LoginRegisterController extends Component {
         {
             console.log("ERRO: Campo de Email deve ser preenchido");
 
-            self.errorAnim(true, "Campo de Email deve ser preenchido.");
+            self.errorAnim("Campo de Email deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
@@ -509,7 +545,7 @@ export class LoginRegisterController extends Component {
         if(passwordInputValue == "" || passwordInputValue == undefined)
         {
             console.log("ERRO: Campo de Senha deve ser preenchido");
-            self.errorAnim(true, "Campo de Senha deve ser preenchido.");
+            self.errorAnim("Campo de Senha deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
@@ -530,20 +566,22 @@ export class LoginRegisterController extends Component {
             if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
             {
                 //Success
-                self.loginAnim(false);
                 self.loadingAnim(false);
 
-                self.correctAnim(true, "Login sendo efetuado.");
+                self.tempToken = responseObj.token;
+                self.locationAnim(true);
 
-                self.scheduleOnce(()=>{
-                    localStorage.setItem("userToken", responseObj.token);
+                // self.correctAnim("Login sendo efetuado.");
+
+                // self.scheduleOnce(()=>{
+                //     localStorage.setItem("userToken", responseObj.token);
         
-                    if(DataStorage.instance)
-                        DataStorage.instance.token = responseObj.token;
+                //     if(DataStorage.instance)
+                //         DataStorage.instance.token = responseObj.token;
         
-                    if(SceneChange_Behavior.instance)
-                        SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
-                }, 0.5);
+                //     if(SceneChange_Behavior.instance)
+                //         SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+                // }, 0.5);
 
             }
 
@@ -556,7 +594,7 @@ export class LoginRegisterController extends Component {
             self.errorIsOpened = true;
 
             let newString = responseObj.error + ".";
-            self.errorAnim(true, newString);
+            self.errorAnim(newString);
 
             self.scheduleOnce(()=>{
                 self.errorIsOpened = false;
@@ -571,14 +609,17 @@ export class LoginRegisterController extends Component {
 
     guestlogic() {
         var self = this;
+
+        self.tempToken = "guest";
+        self.locationAnim(true);
         
-        localStorage.setItem("userToken", "guest");
+        // localStorage.setItem("userToken", "guest");
 
-        if(DataStorage.instance)
-            DataStorage.instance.token = "guest";
+        // if(DataStorage.instance)
+        //     DataStorage.instance.token = "guest";
 
-        if(SceneChange_Behavior.instance)
-            SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+        // if(SceneChange_Behavior.instance)
+        //     SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
     }
 
     registerlogic() {
@@ -586,22 +627,16 @@ export class LoginRegisterController extends Component {
 
         let url = "https://hfl5rlsrp5.execute-api.sa-east-1.amazonaws.com/user-register";
 
-        let completeNameInputValue = self.registerCompleteNameField.string;
         let emailInputValue = self.registerEmailField.string;
         let passwordInputValue = self.registerPasswordField.string;
-        let passwordConfirmationInputValue = self.registerPasswordConfirmationField.string;
 
-        // if(completeNameInputValue == "" || completeNameInputValue == undefined)
-        // {
-        //     console.log("ERRO: Campo de Nome Completo deve ser preenchido");
-        //     self.loadingAnim(false);
-        //     return;
-        // }
+        let registerSchoolarPeriodDropdownValue = self.registerSchoolarPeriodDropdown.currentValue;
+        let registerSchoolKindDropdownValue = self.registerSchoolKindDropdown.currentValue;
 
         if(emailInputValue == "" || emailInputValue == undefined)
         {
             console.log("ERRO: Campo de Email deve ser preenchido");
-            self.errorAnim(true, "Campo de Email deve ser preenchido.");
+            self.errorAnim("Campo de Email deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
@@ -610,25 +645,29 @@ export class LoginRegisterController extends Component {
         if(passwordInputValue == "" || passwordInputValue == undefined)
         {
             console.log("ERRO: Campo de Senha deve ser preenchido");
-            self.errorAnim(true, "Campo de Senha deve ser preenchido.");
+            self.errorAnim("Campo de Senha deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
         }
 
-        // if(passwordConfirmationInputValue == "" || passwordConfirmationInputValue == undefined)
-        // {
-        //     console.log("ERRO: Campo de Confirmação de Senha deve ser preenchido");
-        //     self.loadingAnim(false);
-        //     return;
-        // }
+        if(registerSchoolarPeriodDropdownValue == "" || registerSchoolarPeriodDropdownValue == undefined)
+        {
+            console.log("ERRO: Período escolar deve ser preenchido");
+            self.errorAnim("Período escolar deve ser preenchido.");
 
-        // if(passwordInputValue !== passwordConfirmationInputValue)
-        // {
-        //     console.log("ERRO: Confirmação de Senha deve ser igual à senha");
-        //     self.loadingAnim(false);
-        //     return;
-        // }
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(registerSchoolKindDropdownValue == "" || registerSchoolKindDropdownValue == undefined)
+        {
+            console.log("ERRO: Tipo de escola deve ser preenchido");
+            self.errorAnim("Tipo de escola deve ser preenchido.");
+
+            self.loadingAnim(false);
+            return;
+        }
 
         var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
         xmlhttp.open("POST", url);
@@ -647,15 +686,30 @@ export class LoginRegisterController extends Component {
                 self.registerAnim(false);
                 self.loadingAnim(false);
 
-                self.correctAnim(true, "Cadastro efetuado.");
+                self.correctAnim("Cadastro efetuado.");
 
-                self.scheduleOnce(()=>{
-                    if(SceneChange_Behavior.instance)
-                        SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
-                }, 0.5);
+                self.tempToken = responseObj.token;
+                self.locationAnim(true);
 
-                if(SceneChange_Behavior.instance)
-                    SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+                let schoolType = "";
+
+                if(self.registerSchoolKindDropdown.currentValue === "Pública")
+                {
+                    schoolType = "public";
+                }
+                else if(self.registerSchoolKindDropdown.currentValue === "Particular")
+                {
+                    schoolType = "private";
+                }
+
+                //ANALYTICS
+                window.GASendSchoolPeriod(self.registerSchoolarPeriodDropdown.currentValue);
+                window.GASendSchoolType(schoolType);
+
+                // self.scheduleOnce(()=>{
+                //     if(SceneChange_Behavior.instance)
+                //         SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+                // }, 0.5);
             }
 
             if(self.errorIsOpened)
@@ -667,7 +721,7 @@ export class LoginRegisterController extends Component {
             self.errorIsOpened = true;
 
             let newString = responseObj.error + ".";
-            self.errorAnim(true, newString);
+            self.errorAnim(newString);
 
             self.scheduleOnce(()=>{
                 self.errorIsOpened = false;
@@ -677,7 +731,7 @@ export class LoginRegisterController extends Component {
 
         };
 
-        xmlhttp.send(JSON.stringify({ "email": emailInputValue, "name": completeNameInputValue, "password": passwordInputValue }));
+        xmlhttp.send(JSON.stringify({ "email": emailInputValue, "name": "", "password": passwordInputValue }));
     }
 
     recoverPasswordlogic() {
@@ -694,7 +748,7 @@ export class LoginRegisterController extends Component {
         if(recoveryEmailInputValue == "" || recoveryEmailInputValue == undefined)
         {
             console.log("ERRO: Campo de Email deve ser preenchido");
-            self.errorAnim(true, "Campo de Email deve ser preenchido.");
+            self.errorAnim("Campo de Email deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
@@ -712,10 +766,7 @@ export class LoginRegisterController extends Component {
             {
                 //Success
                 self.loadingAnim(false);
-
-                self.correctAnim(true, "Um email contendo informações sobre a troca de senha foi enviado.");
-
-                self.recoverPasswordToLogin();
+                self.recoverPasswordToEmailSent();
             }
 
             if(self.errorIsOpened)
@@ -727,7 +778,7 @@ export class LoginRegisterController extends Component {
             self.errorIsOpened = true;
 
             let newString = responseObj.error + ".";
-            self.errorAnim(true, newString);
+            self.errorAnim(newString);
 
             self.scheduleOnce(()=>{
                 self.errorIsOpened = false;
@@ -750,7 +801,7 @@ export class LoginRegisterController extends Component {
         if(passwordInputValue == "" || passwordInputValue == undefined)
         {
             console.log("ERRO: Campo de Senha deve ser preenchido");
-            self.errorAnim(true, "Campo de Senha deve ser preenchido.");
+            self.errorAnim("Campo de Senha deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
@@ -759,7 +810,7 @@ export class LoginRegisterController extends Component {
         if(passwordConfirmationInputValue == "" || passwordConfirmationInputValue == undefined)
         {
             console.log("ERRO: Campo de Confirmação de Senha deve ser preenchido");
-            self.errorAnim(true, "Campo de Confirmação de Senha deve ser preenchido.");
+            self.errorAnim("Campo de Confirmação de Senha deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
@@ -768,6 +819,8 @@ export class LoginRegisterController extends Component {
         if(passwordInputValue !== passwordConfirmationInputValue)
         {
             console.log("ERRO: Confirmação de Senha deve ser igual à senha");
+            self.errorAnim("As senhas não coincidem");
+
             self.loadingAnim(false);
             return;
         }
@@ -787,7 +840,9 @@ export class LoginRegisterController extends Component {
             if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
             {
                 //Success
-                self.correctAnim(true, "Nova senha definida.");
+                self.correctAnim("Senha alterada com sucesso.");
+
+                window.history.replaceState(null, null, window.location.pathname);
 
                 self.loadingAnim(false);
                 self.newPasswordToLogin();
@@ -802,7 +857,7 @@ export class LoginRegisterController extends Component {
             self.errorIsOpened = true;
 
             let newString = responseObj.error + ".";
-            self.errorAnim(true, newString);
+            self.errorAnim(newString);
 
             self.scheduleOnce(()=>{
                 self.errorIsOpened = false;
@@ -851,6 +906,81 @@ export class LoginRegisterController extends Component {
             parms[n].push(nv.length === 2 ? v : null);
         }
         return parms;
+    }
+
+    //CONFIRM LOCATION
+    locationAnim(show: boolean)
+    {
+        var self = this;
+
+        if(show)
+        {   
+            tween(self.locationAnimNode).to(self.fadeDuration, {opacity: 255}, {
+                easing: 'quadInOut',
+                onStart: () => {
+                    self.locationAnimNode.node.active = true;
+                }
+            }).start();
+        }
+        else
+        {
+            tween(self.locationAnimNode).to(self.fadeDuration, {opacity: 0}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                    self.locationAnimNode.node.active = false;
+                }
+            }).start();
+        }
+    }
+
+    locationToGameLogic ()
+    {
+        var self = this;
+
+        let stateDropdownValue = self.stateDropdown.currentValue;
+        let cityDropdownValue = self.cityDropdown.currentValue;
+        
+        if(stateDropdownValue == "" || stateDropdownValue == undefined)
+        {
+            console.log("ERRO: Estado deve ser preenchido");
+            self.errorAnim("Estado deve ser preenchido.");
+
+            // self.loadingAnim(false);
+            return;
+        }
+
+        if(cityDropdownValue == "" || cityDropdownValue == undefined)
+        {
+            console.log("ERRO: Cidade deve ser preenchido");
+            self.errorAnim("Cidade deve ser preenchido.");
+
+            // self.loadingAnim(false);
+            return;
+        }
+
+        self.loginAnim(false);
+        self.locationAnim(false);
+
+        //ANALYTICS
+        window.GASendState(stateDropdownValue);
+        window.GASendCity(cityDropdownValue);
+
+        self.correctAnim("Login sendo efetuado.");
+
+        self.scheduleOnce(()=>{
+            localStorage.setItem("userToken", self.tempToken);
+
+            if(DataStorage.instance)
+                DataStorage.instance.token = self.tempToken;
+
+            if(SceneChange_Behavior.instance)
+                SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+        }, 0.5);
+    }
+
+    openHyperLink(e, customEvent)
+    {
+        window.open(customEvent, '_blank');
     }
 
 }

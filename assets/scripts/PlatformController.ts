@@ -49,7 +49,7 @@ export class PlatformController extends Component {
     // @property(Node)
     // closeWebviewButton:Node = null!;
 
-    soundContainer: UIOpacity = null!;
+    menuContainer: UIOpacity = null!;
     closeBtn: UIOpacity = null!;
     descriptionContainer: UIOpacity = null!;
 
@@ -69,7 +69,7 @@ export class PlatformController extends Component {
         self.descriptionCount = find("Canvas/PlanetDescription/ContBttns/PgQty")?.getComponent(Label);
         self.titleSpriteComponent = find("Canvas/Planet_Titles_Images/Title_Image")?.getComponent(Sprite);
         self.titleAnimation = find("Canvas/Planet_Titles_Images")?.getComponent(AnimationComponent);
-        self.soundContainer = find("Canvas/SoundContainer")?.getComponent(UIOpacity);
+        self.menuContainer = find("Canvas/OpenMenuButton")?.getComponent(UIOpacity);
         self.closeBtn = find("Canvas/CloseBtnCont")?.getComponent(UIOpacity);
         self.descriptionContainer = find("Canvas/PlanetDescription")?.getComponent(UIOpacity);
         self.planetDescription = find("Canvas/PlanetDescription")?.getComponent(AnimationComponent);
@@ -83,17 +83,6 @@ export class PlatformController extends Component {
 
         if(DataStorage.instance)
             DataStorage.instance.currentScene = "Platform_OPTIMIZED";
-
-        // self.webview.node.on(WebView.EventType.LOADED, self.webviewLoadedFunc, self);
-        
-        cocosAnalytics.enableDebug(true);
-        console.log(cocosAnalytics.isInited());
-
-        self.scheduleOnce(()=>{
-            cocosAnalytics.CAAccount.loginStart({
-                channel: '99999',
-            });
-        }, 2);
     }
     
     start()
@@ -106,19 +95,19 @@ export class PlatformController extends Component {
             ButtonsHelper.instance.setButtonsScaleAnim(0.08, 0.75);
         }
 
-        this.soundContainer.node.active = false;
-        this.soundContainer.opacity = 0;
+        this.menuContainer.node.active = false;
+        this.menuContainer.opacity = 0;
     }
     
-    showSoundCointainer(show: boolean)
+    showMenuContainer(show: boolean)
     {
         if(show)
         {
-            tween(this.soundContainer).to(0.5, {opacity: 255}, {easing: 'cubicInOut', onStart: ()=>{ this.soundContainer.node.active = true; }}).start();
+            tween(this.menuContainer).to(0.5, {opacity: 255}, {easing: 'cubicInOut', onStart: ()=>{ this.menuContainer.node.active = true; }}).start();
         }
         else
         {
-            tween(this.soundContainer).to(0.5, {opacity: 0}, {easing: 'cubicInOut', onComplete: ()=>{ this.soundContainer.node.active = false; }}).start();
+            tween(this.menuContainer).to(0.5, {opacity: 0}, {easing: 'cubicInOut', onComplete: ()=>{ this.menuContainer.node.active = false; }}).start();
         }
     }
 
@@ -164,6 +153,12 @@ export class PlatformController extends Component {
                     SceneChange_Behavior.instance.gameSceneLoad(url);
             }
         }
+    }
+
+    logoutFunction()
+    {
+        if(SceneChange_Behavior.instance)
+            SceneChange_Behavior.instance.logout();
     }
 
     // closeWebview() {

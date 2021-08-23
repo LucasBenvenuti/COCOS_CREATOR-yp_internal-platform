@@ -1,7 +1,9 @@
 
 import { _decorator, Component, Node, director, ProgressBarComponent, loader, assetManager, game, find, UIOpacity, tween } from 'cc';
 import { AudioController } from '../scripts/AudioController';
+import { ButtonsHelper } from '../scripts/ButtonsHelper';
 import { DataStorage } from '../scripts/DataStorage';
+import { LoginRegisterController } from '../scripts/LoginRegisterController';
 import { PlatformController } from '../scripts/PlatformController';
 import { WebviewBehavior } from '../scripts/Webview_Behavior';
 const { ccclass, property } = _decorator;
@@ -56,7 +58,42 @@ export class SceneChange_Behavior extends Component {
         self.loadingLayout.node.active = false;
         self.fadeOpacity.opacity = 255;
         self.progressBar.progress = 0;
+
+        if(self.nextSceneName === "LoginRegister")
+        {
+            self.progressBar.node.active = false;
+        //     self.normalLoad(self.nextSceneName);
+        }
+        else
+        {
+            self.progressBar.node.active = true;   
+        }
+
         self.firstLoad(self.nextSceneName);
+    }
+
+    normalLoad (sceneName: string)
+    {
+        var self = this;
+
+        director.loadScene(sceneName, ()=> {
+            self.loadingLayout.node.active = false;
+
+            tween(self.fadeOpacity).to(self.transitionSpeed, {
+                opacity: 0
+            }, {
+                easing: 'cubicInOut',
+                onComplete: ()=> {
+                    self.screenChangerOpacity.node.active = false;
+
+                    if(PlatformController.instance)
+                        PlatformController.instance.showMenuContainer(true);
+
+                    if(AudioController.instance)
+                        AudioController.instance.findSoundButtonsNode();
+                }
+            } ).start();
+        });
     }
     
     firstLoad (sceneName: string)
@@ -92,10 +129,13 @@ export class SceneChange_Behavior extends Component {
                             }, {
                                 easing: 'cubicInOut',
                                 onComplete: ()=> {
+
+                                    self.progressBar.node.active = true;
+
                                     self.screenChangerOpacity.node.active = false;
 
                                     if(PlatformController.instance)
-                                        PlatformController.instance.showSoundCointainer(true);
+                                        PlatformController.instance.showMenuContainer(true);
 
                                     if(AudioController.instance)
                                         AudioController.instance.findSoundButtonsNode();
@@ -116,7 +156,7 @@ export class SceneChange_Behavior extends Component {
         if(PlatformController.instance)
         {
             PlatformController.instance.showCloseBtn(false);
-            PlatformController.instance.showSoundCointainer(false);
+            PlatformController.instance.showMenuContainer(false);
             PlatformController.instance.showDescriptionContainer(false);
         }
 
@@ -169,7 +209,7 @@ export class SceneChange_Behavior extends Component {
                                             if(PlatformController.instance)
                                             {
                                                 PlatformController.instance.showCloseBtn(true);
-                                                PlatformController.instance.showSoundCointainer(true);
+                                                PlatformController.instance.showMenuContainer(true);
                                                 PlatformController.instance.showDescriptionContainer(true);
                                             }
 
@@ -204,7 +244,7 @@ export class SceneChange_Behavior extends Component {
         if(PlatformController.instance)
         {
             PlatformController.instance.showCloseBtn(false);
-            PlatformController.instance.showSoundCointainer(false);
+            PlatformController.instance.showMenuContainer(false);
             PlatformController.instance.showDescriptionContainer(false);
         }
 
@@ -221,68 +261,55 @@ export class SceneChange_Behavior extends Component {
 
                 let sceneURL = sceneName;
                 window.location.href = sceneURL;
+            }
+        } ).start();
+    }
 
-                // self.loadingLayout.node.active = true;
+    logout ()
+    {
+        let goToScene = "LoginRegister";
 
-                // tween(self.fadeOpacity).to(self.transitionSpeed, {
-                //     opacity: 0
-                // }, {
-                //     easing: 'cubicInOut',
-                //     onStart: ()=> {
-                //         self.progressBar.progress = 0;
-                //         self.screenChangerOpacity.node.active = true;
-                //         self.loadingLayout.node.active = true;
-                //     }
-                // } ).start();
-        
-                // director.preloadScene(sceneName, (completedCount: number, totalCount: number, item: any)=> {
-                //     progress = completedCount / totalCount;
-                //     self.progressBar.progress = progress;
-                // }, ()=> {
+        var self = this;
+        var progress = 0;// a progress of scene loading,0 ~ 1;
 
-                //     console.log("Scene Preloaded!");
+        localStorage.setItem("userToken", "");
 
-                //         director.loadScene(sceneName, ()=> {
-                //             tween(self.fadeOpacity).to(self.transitionSpeed, {
-                //                 opacity: 255
-                //             }, {
-                //                 easing: 'cubicInOut',
-                //                 onComplete: ()=> {
-                //                     self.loadingLayout.node.active = false;
+        if(PlatformController.instance)
+        {
+            PlatformController.instance.showCloseBtn(false);
+            PlatformController.instance.showMenuContainer(false);
+            PlatformController.instance.showDescriptionContainer(false);
+        }
 
-                //                     tween(self.fadeOpacity).to(self.transitionSpeed, {
-                //                         opacity: 0
-                //                     }, {
-                //                         easing: 'cubicInOut',
-                //                         onComplete: ()=> {
-                //                             self.screenChangerOpacity.node.active = false;
-        
-                //                             if(PlatformController.instance)
-                //                             {
-                //                                 PlatformController.instance.showCloseBtn(true);
-                //                                 PlatformController.instance.showSoundCointainer(true);
-                //                                 PlatformController.instance.showDescriptionContainer(true);
-                //                             }
+        tween(self.fadeOpacity).to(self.transitionSpeed, {
+            opacity: 255
+        }, {
+            easing: 'cubicInOut',
+            onStart: ()=> {
+                self.progressBar.progress = 0;
+                self.screenChangerOpacity.node.active = true;
+                self.loadingLayout.node.active = false;
+            },
+            onComplete: ()=> {
+                director.loadScene(goToScene, ()=> {
 
-                //                             if(AudioController.instance)
-                //                                 AudioController.instance.findSoundButtonsNode();
+                    if(LoginRegisterController.instance)
+                        LoginRegisterController.instance.initialDefinition();
 
-                //                             if(DataStorage.instance)
-                //                             {
-                //                                 if(DataStorage.instance.currentScene === "WebviewScene")
-                //                                 {
-                //                                     //THIS IS CALLED WHEN SCENE IS LOADED INSIDE GAME
-                //                                     if(WebviewBehavior.instance)
-                //                                         WebviewBehavior.instance.checkWebview();
-                //                                 }
-                //                             }
-                //                         }
-                //                     } ).start();
-                //                 }
-                //             } ).start();
-                //         });
-                //     }
-                // );
+                    AudioController.instance.audioOff();
+
+                    // if(ButtonsHelper.instance)
+                    //     ButtonsHelper.instance.node.destroy();
+
+                    tween(self.fadeOpacity).to(self.transitionSpeed, {
+                        opacity: 0
+                    }, {
+                        easing: 'cubicInOut',
+                        onComplete: ()=> {
+                            self.screenChangerOpacity.node.active = false;
+                        }
+                    } ).start();
+                });
             }
         } ).start();
     }

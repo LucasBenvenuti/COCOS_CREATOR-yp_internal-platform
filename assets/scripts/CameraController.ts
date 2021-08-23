@@ -141,6 +141,8 @@ export class CameraController extends Component {
 
         self.hasSelectedPlanet = true;
         self.collider.node.active = false;
+
+        window.GASendEnteredWorld(self.currentPlanetBehavior.planetTitle);
         
         self.scheduleOnce(()=>{
             self.startCameraRotation = self.node.getRotation();
@@ -465,6 +467,8 @@ export class CameraController extends Component {
 
         let index = self.currentPlanetBehavior.planetIcons_Anim.indexOf(nodeByAnimationComponent);
         let url = self.currentPlanetBehavior.webviewURLs[index];
+
+        window.GASendEnteredGame(self.currentPlanetBehavior.gameNames[index]);
 
         return url;
     }

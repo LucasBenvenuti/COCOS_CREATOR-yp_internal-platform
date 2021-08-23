@@ -71,7 +71,7 @@
     "type": "sprite-frame",
     "redirect": "140380ca-4aa8-464c-95af-e963ab1a1cba@f9941",
     "compressSettings": {
-      "useCompressTexture": true
+      "useCompressTexture": false
     }
   }
 }

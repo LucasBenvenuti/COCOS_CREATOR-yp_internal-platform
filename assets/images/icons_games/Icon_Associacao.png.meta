@@ -37,7 +37,7 @@
     "type": "texture",
     "redirect": "97ad8f93-c3be-4fa2-9f9b-1da450516e64@6c48a",
     "compressSettings": {
-      "useCompressTexture": true
+      "useCompressTexture": false
     }
   }
 }

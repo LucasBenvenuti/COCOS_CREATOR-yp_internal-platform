@@ -121,6 +121,25 @@ export class AudioController extends Component {
         this.toggleSoundIcons();
     }
 
+    audioOff()
+    {
+        var self = this;
+        
+        if(AudioController.soundOn){
+            // for(let i = 0; i < this.audioSources.length; i++){
+            //     this.audioSources[i].volume = 0;
+            // }
+            self.buttonsAudioSource.volume = 0;
+            self.backgroundAudioSource.volume = 0;
+            self.goToPlanetAudioSource.volume = 0;
+            self.returnFromPlanetAudioSource.volume = 0;
+            // this.lowSecRateSound.volume = 0;
+            // this.winSound.volume = 0;
+            AudioController.soundOn = false;
+            this.toggleSoundIcons();
+        }
+    }
+
     public playButtonSound(){
         if(this.buttonsAudioSource){
             this.buttonsAudioSource.playOneShot(this.buttonsAudioSource.clip);
@@ -198,10 +217,10 @@ export class AudioController extends Component {
     public findSoundButtonsNode()
     {
         // if(this.soundOffNode == null)
-            this.soundOffNode = find("Canvas/SoundContainer/SoundOffButton");
+            this.soundOffNode = find("Canvas/MenuDropdownParent/MenuDropdownContainer/Cont/SoundContainer/SoundOffButton");
         
         // if(this.soundOnNode == null)
-            this.soundOnNode = find("Canvas/SoundContainer/SoundOnButton");
+            this.soundOnNode = find("Canvas/MenuDropdownParent/MenuDropdownContainer/Cont/SoundContainer/SoundOnButton");
         // this.soundOnNodeDefaultMenu = find("Canvas/DefaultMenu/MenuDropdownContainer/Cont/SoundContainer/SoundOnButton");
         // this.soundOffNodeDefaultMenu = find("Canvas/DefaultMenu/MenuDropdownContainer/Cont/SoundContainer/SoundOffButton");
         this.startSoundIcons();

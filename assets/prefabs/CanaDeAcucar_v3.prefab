@@ -20,23 +20,23 @@
         "__id__": 2
       },
       {
-        "__id__": 196
+        "__id__": 138
       },
       {
-        "__id__": 220
+        "__id__": 162
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 227
+        "__id__": 169
       },
       {
-        "__id__": 230
+        "__id__": 172
       }
     ],
     "_prefab": {
-      "__id__": 232
+      "__id__": 174
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -79,15 +79,12 @@
       },
       {
         "__id__": 79
-      },
-      {
-        "__id__": 137
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 195
+      "__id__": 137
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1622,657 +1619,6 @@
     "fileId": "ecfNFieddBZL96aF6GZhDx"
   },
   {
-    "__type__": "cc.Node",
-    "_name": "Wind",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 2
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 138
-      }
-    ],
-    "_prefab": {
-      "__id__": 194
-    },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 19.152,
-      "z": -2.286
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0.7071067811865475,
-      "y": 0,
-      "z": 0,
-      "w": 0.7071067811865476
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 90,
-      "y": 0,
-      "z": 0
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.ParticleSystem",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 137
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 139
-    },
-    "_materials": [
-      {
-        "__uuid__": "891a6dc5-48b2-483d-860d-b06285032a70",
-        "__expectedType__": "cc.Material"
-      },
-      null
-    ],
-    "_visFlags": 0,
-    "startColor": {
-      "__id__": 140
-    },
-    "scaleSpace": 1,
-    "startSize3D": false,
-    "startSizeX": {
-      "__id__": 141
-    },
-    "startSize": {
-      "__id__": 141
-    },
-    "startSizeY": {
-      "__id__": 142
-    },
-    "startSizeZ": {
-      "__id__": 143
-    },
-    "startSpeed": {
-      "__id__": 144
-    },
-    "startRotation3D": false,
-    "startRotationX": {
-      "__id__": 145
-    },
-    "startRotationY": {
-      "__id__": 146
-    },
-    "startRotationZ": {
-      "__id__": 147
-    },
-    "startRotation": {
-      "__id__": 147
-    },
-    "startDelay": {
-      "__id__": 148
-    },
-    "startLifetime": {
-      "__id__": 149
-    },
-    "duration": 5,
-    "loop": true,
-    "simulationSpeed": 1,
-    "playOnAwake": true,
-    "gravityModifier": {
-      "__id__": 150
-    },
-    "rateOverTime": {
-      "__id__": 151
-    },
-    "rateOverDistance": {
-      "__id__": 152
-    },
-    "bursts": [],
-    "_colorOverLifetimeModule": {
-      "__id__": 153
-    },
-    "_shapeModule": {
-      "__id__": 160
-    },
-    "_sizeOvertimeModule": {
-      "__id__": 162
-    },
-    "_velocityOvertimeModule": {
-      "__id__": 167
-    },
-    "_forceOvertimeModule": {
-      "__id__": 172
-    },
-    "_limitVelocityOvertimeModule": {
-      "__id__": 176
-    },
-    "_rotationOvertimeModule": {
-      "__id__": 181
-    },
-    "_textureAnimationModule": {
-      "__id__": 185
-    },
-    "_trailModule": {
-      "__id__": 188
-    },
-    "renderer": {
-      "__id__": 193
-    },
-    "enableCulling": false,
-    "_prewarm": false,
-    "_capacity": 100,
-    "_simulationSpace": 1,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "0b7a7v3FVOCpzmec7amMlB"
-  },
-  {
-    "__type__": "cc.GradientRange",
-    "_mode": 0,
-    "color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 168
-    }
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 3,
-    "constantMin": 2,
-    "constantMax": 4,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 3,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 1.4,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.ColorOvertimeModule",
-    "_enable": true,
-    "color": {
-      "__id__": 154
-    }
-  },
-  {
-    "__type__": "cc.GradientRange",
-    "_mode": 1,
-    "gradient": {
-      "__id__": 155
-    }
-  },
-  {
-    "__type__": "cc.Gradient",
-    "colorKeys": [],
-    "alphaKeys": [
-      {
-        "__id__": 156
-      },
-      {
-        "__id__": 157
-      },
-      {
-        "__id__": 158
-      },
-      {
-        "__id__": 159
-      }
-    ],
-    "mode": 0
-  },
-  {
-    "__type__": "cc.AlphaKey",
-    "alpha": 0,
-    "time": 0
-  },
-  {
-    "__type__": "cc.AlphaKey",
-    "alpha": 255,
-    "time": 0.25892857142857145
-  },
-  {
-    "__type__": "cc.AlphaKey",
-    "alpha": 255,
-    "time": 0.7075892857142857
-  },
-  {
-    "__type__": "cc.AlphaKey",
-    "alpha": 0,
-    "time": 1
-  },
-  {
-    "__type__": "cc.ShapeModule",
-    "_enable": true,
-    "_shapeType": 0,
-    "shapeType": 0,
-    "emitFrom": 3,
-    "alignToDirection": false,
-    "randomDirectionAmount": 0,
-    "sphericalDirectionAmount": 0,
-    "randomPositionAmount": 0,
-    "radius": 1,
-    "radiusThickness": 1,
-    "arcMode": 0,
-    "arcSpread": 0,
-    "arcSpeed": {
-      "__id__": 161
-    },
-    "length": 5,
-    "boxThickness": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_rotation": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 36.708,
-      "y": 21.78,
-      "z": 10.439
-    },
-    "_arc": 6.283185307179586,
-    "_angle": 0.4363323129985824
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 1,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.SizeOvertimeModule",
-    "_enable": false,
-    "separateAxes": false,
-    "size": {
-      "__id__": 163
-    },
-    "x": {
-      "__id__": 164
-    },
-    "y": {
-      "__id__": 165
-    },
-    "z": {
-      "__id__": 166
-    }
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.VelocityOvertimeModule",
-    "_enable": true,
-    "x": {
-      "__id__": 168
-    },
-    "y": {
-      "__id__": 169
-    },
-    "z": {
-      "__id__": 170
-    },
-    "speedModifier": {
-      "__id__": 171
-    },
-    "space": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 3,
-    "constantMin": 3,
-    "constantMax": 6,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 1,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.ForceOvertimeModule",
-    "_enable": false,
-    "x": {
-      "__id__": 173
-    },
-    "y": {
-      "__id__": 174
-    },
-    "z": {
-      "__id__": 175
-    },
-    "space": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.LimitVelocityOvertimeModule",
-    "_enable": false,
-    "limitX": {
-      "__id__": 177
-    },
-    "limitY": {
-      "__id__": 178
-    },
-    "limitZ": {
-      "__id__": 179
-    },
-    "limit": {
-      "__id__": 180
-    },
-    "dampen": 3,
-    "separateAxes": false,
-    "space": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.RotationOvertimeModule",
-    "_enable": false,
-    "_separateAxes": false,
-    "x": {
-      "__id__": 182
-    },
-    "y": {
-      "__id__": 183
-    },
-    "z": {
-      "__id__": 184
-    }
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.TextureAnimationModule",
-    "_enable": false,
-    "_numTilesX": 0,
-    "numTilesX": 0,
-    "_numTilesY": 0,
-    "numTilesY": 0,
-    "_mode": 0,
-    "animation": 0,
-    "frameOverTime": {
-      "__id__": 186
-    },
-    "startFrame": {
-      "__id__": 187
-    },
-    "cycleCount": 0,
-    "_flipU": 0,
-    "_flipV": 0,
-    "_uvChannelMask": -1,
-    "randomRow": false,
-    "rowIndex": 0
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.TrailModule",
-    "_enable": false,
-    "mode": 0,
-    "lifeTime": {
-      "__id__": 189
-    },
-    "_minParticleDistance": 0.1,
-    "existWithParticles": true,
-    "textureMode": 0,
-    "widthFromParticle": true,
-    "widthRatio": {
-      "__id__": 190
-    },
-    "colorFromParticle": false,
-    "colorOverTrail": {
-      "__id__": 191
-    },
-    "colorOvertime": {
-      "__id__": 192
-    },
-    "_space": 0,
-    "_particleSystem": {
-      "__id__": 138
-    }
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 1,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.CurveRange",
-    "mode": 0,
-    "constant": 0,
-    "multiplier": 1
-  },
-  {
-    "__type__": "cc.GradientRange",
-    "_mode": 0,
-    "color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    }
-  },
-  {
-    "__type__": "cc.GradientRange",
-    "_mode": 0,
-    "color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    }
-  },
-  {
-    "__type__": "cc.ParticleSystemRenderer",
-    "_renderMode": 1,
-    "_velocityScale": 1,
-    "_lengthScale": 1,
-    "_mesh": null,
-    "_mainTexture": {
-      "__uuid__": "7aabc41a-452d-40d3-8b7f-70f1befe9cd1@6c48a",
-      "__expectedType__": "cc.Texture2D"
-    },
-    "_useGPU": false
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__id__": 0
-    },
-    "fileId": "b071asWMNHmJY6CPRWzfv5"
-  },
-  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -2291,16 +1637,16 @@
     },
     "_children": [
       {
-        "__id__": 197
+        "__id__": 139
       },
       {
-        "__id__": 208
+        "__id__": 150
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 219
+      "__id__": 161
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2335,20 +1681,20 @@
     "_name": "Armature.043",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 196
+      "__id__": 138
     },
     "_children": [
       {
-        "__id__": 198
+        "__id__": 140
       },
       {
-        "__id__": 203
+        "__id__": 145
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 207
+      "__id__": 149
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2383,17 +1729,17 @@
     "_name": "road_straight.001",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 197
+      "__id__": 139
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 199
+        "__id__": 141
       }
     ],
     "_prefab": {
-      "__id__": 202
+      "__id__": 144
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2428,11 +1774,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 198
+      "__id__": 140
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 200
+      "__id__": 142
     },
     "_materials": [
       {
@@ -2442,7 +1788,7 @@
     ],
     "_visFlags": 0,
     "lightmapSettings": {
-      "__id__": 201
+      "__id__": 143
     },
     "_mesh": {
       "__uuid__": "79120e4c-2fc5-44c7-906b-ff7bac0a5511@4179e",
@@ -2495,17 +1841,17 @@
     "_name": "Bone",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 197
+      "__id__": 139
     },
     "_children": [
       {
-        "__id__": 204
+        "__id__": 146
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 206
+      "__id__": 148
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2540,13 +1886,13 @@
     "_name": "Bone.001",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 203
+      "__id__": 145
     },
     "_children": [],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 205
+      "__id__": 147
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2611,20 +1957,20 @@
     "_name": "Armature.044",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 196
+      "__id__": 138
     },
     "_children": [
       {
-        "__id__": 209
+        "__id__": 151
       },
       {
-        "__id__": 214
+        "__id__": 156
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 218
+      "__id__": 160
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2659,17 +2005,17 @@
     "_name": "car",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 208
+      "__id__": 150
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 210
+        "__id__": 152
       }
     ],
     "_prefab": {
-      "__id__": 213
+      "__id__": 155
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2704,11 +2050,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 209
+      "__id__": 151
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 211
+      "__id__": 153
     },
     "_materials": [
       {
@@ -2722,7 +2068,7 @@
     ],
     "_visFlags": 0,
     "lightmapSettings": {
-      "__id__": 212
+      "__id__": 154
     },
     "_mesh": {
       "__uuid__": "79120e4c-2fc5-44c7-906b-ff7bac0a5511@453ac",
@@ -2775,17 +2121,17 @@
     "_name": "Bone",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 208
+      "__id__": 150
     },
     "_children": [
       {
-        "__id__": 215
+        "__id__": 157
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 217
+      "__id__": 159
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2820,13 +2166,13 @@
     "_name": "Bone.001",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 214
+      "__id__": 156
     },
     "_children": [],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 216
+      "__id__": 158
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2905,13 +2251,13 @@
     },
     "_children": [
       {
-        "__id__": 221
+        "__id__": 163
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 226
+      "__id__": 168
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2946,17 +2292,17 @@
     "_name": "Ilha.002",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 220
+      "__id__": 162
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 222
+        "__id__": 164
       }
     ],
     "_prefab": {
-      "__id__": 225
+      "__id__": 167
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2991,11 +2337,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 221
+      "__id__": 163
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 223
+      "__id__": 165
     },
     "_materials": [
       {
@@ -3025,7 +2371,7 @@
     ],
     "_visFlags": 0,
     "lightmapSettings": {
-      "__id__": 224
+      "__id__": 166
     },
     "_mesh": {
       "__uuid__": "79120e4c-2fc5-44c7-906b-ff7bac0a5511@09044",
@@ -3085,7 +2431,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 228
+      "__id__": 170
     },
     "playOnLoad": true,
     "_clips": [
@@ -3101,7 +2447,7 @@
     "_useBakedAnimation": true,
     "_sockets": [
       {
-        "__id__": 229
+        "__id__": 171
       }
     ],
     "_id": ""
@@ -3114,7 +2460,7 @@
     "__type__": "cc.SkeletalAnimation.Socket",
     "path": "CanaDeAcucar",
     "target": {
-      "__id__": 220
+      "__id__": 162
     }
   },
   {
@@ -3126,7 +2472,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 231
+      "__id__": 173
     },
     "speedRotation": 1,
     "_id": ""

@@ -47,6 +47,9 @@ export class Planet_Behavior extends Component {
     @property([String])
     webviewURLs: string[] = [];
 
+    @property([String])
+    gameNames: string[] = [];
+
     onLoad() {
         var self = this;
         self.startPlanetRotation = self.planetModel.node.getRotation();

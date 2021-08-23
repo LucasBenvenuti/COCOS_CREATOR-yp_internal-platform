@@ -36,7 +36,7 @@
       "services": [
         {
           "service_id": "235",
-          "enable": true,
+          "enable": false,
           "param": {
             "app_id": "669603933",
             "store_id": "H5",
