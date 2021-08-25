@@ -789,19 +789,43 @@ export class LoginRegisterController extends Component {
         xmlhttp.onreadystatechange = function () {
             var response = xmlhttp.responseText;
             var responseObj = JSON.parse(response || "{}");
-            console.log(response);
-            if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
+            // console.log(response);
+            console.log(xmlhttp.status);
+            if (xmlhttp.status === 200)
             {
                 //Success
                 self.loadingAnim(false);
                 self.recoverPasswordToEmailSent();
+
+                return;
+            }
+
+            if(responseObj.error === 500)
+            {
+                let newString = responseObj.error + ".";
+                self.errorAnim(newString);
+
+                self.loadingAnim(false);
+                return;
             }
 
             if(self.errorIsOpened)
+            {
+                console.log("ERRO: Ocorreu um erro. Tente novamente.");
+                self.errorAnim("Ocorreu um erro. Tente novamente.");
+
+                self.loadingAnim(false);
                 return;
+            }
 
             if(responseObj.error === undefined)
+            {
+                console.log("ERRO: Ocorreu um erro desconhecido. Tente novamente.");
+                self.errorAnim("Ocorreu um erro desconhecido. Tente novamente.");
+
+                self.loadingAnim(false);
                 return;
+            }
 
             self.errorIsOpened = true;
 
