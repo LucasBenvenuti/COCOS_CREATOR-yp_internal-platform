@@ -748,7 +748,7 @@ export class LoginRegisterController extends Component {
 
             self.errorIsOpened = true;
 
-            let newString = responseObj.error + ".";
+            let newString = responseObj.error;
             self.errorAnim(newString);
 
             self.scheduleOnce(()=>{

@@ -8071,8 +8071,8 @@
     "speedRotation": 1,
     "planetTitle": "Apicultura",
     "planetDescription": [
-      "<br>É a atividade de criação de espécies de abelhas do Gênero Apis, para fins de produção de mel, pólen apícola, própolis, cera de abelhas, geleia real ou para serviços de polinização.<br>Fósseis envolvendo abelhas em pesquisas arqueológicas datam a sua existência há 42 milhões de anos.<br>A atividade apícola teve início no Brasil em 1839, quando o padre Antônio Carneiro trouxe algumas colônias de abelhas da espécie Apis mellifera da",
-      "<br>região do Porto, em Portugal, para o Rio de Janeiro."
+      "<br>É a criação de abelhas focada na produção de mel, própolis, pólen apícola, cera e geleia real. Além disso, muitas realizam serviço de polinização, o que garante a produção de boa parte dos alimentos que consumimos. A atividade apícola iniciou no Brasil em 1839, quando o padre Antônio Carneiro trouxe algumas colônias de Portugal. Você sabia que abelhas são insetos muito antigos? Na verdade, foram encontrados fósseis datados de 42",
+      "<br>milhões de anos. Sem abelhas, pode faltar alimento no planeta!"
     ],
     "planetTitleImg": {
       "__uuid__": "cbd80b0f-b738-4f63-a8da-f58530af0303@f9941",
@@ -9164,12 +9164,11 @@
     "speedRotation": 1,
     "planetTitle": "Fruticultura, Floricultura e Olericultura",
     "planetDescription": [
-      "<br>É o conjunto de técnicas e práticas aplicadas adequadamente com o objetivo de cultivar plantas que produzam frutas, seja para consumo próprio, para comercialização in natura ou sob a forma industrializada de néctares e sucos.<br>Em plantações agrícolas, as plantas recebem cuidados e tratamentos coletivos, enquanto que na fruticultura esses procedimentos são específicos para cada espécime.",
-      "<br>Em 1970, o desenvolvimento de pesquisas possibilitaram a expansão de áreas cultivadas com frutíferas e o aumento dos índices de produtividade.",
-      "<br>É o ramo da horticultura focado no cultivo de plantas e flores ornamentais de forma industrializada, destinadas a jardins e ao comércio.<br>Em 1950 foram plantadas as primeiras mudas de árvores e palmeiras em área localizada no atual Centro Experimental de Campinas.<br>Dependendo da região e do tipo de produtor, é possível optar pela produção a céu aberto ou pela produção intensiva, em sistema de cultivo",
-      "<br>protegido, onde ocorre total controle das condições de cultivo.",
-      "<br>É o ramo da horticultura que abrange a produção de um grande número de espécies de plantas, habitualmente conhecidas como hortaliças. Elas podem ser constituídas das seguintes partes: folhas, inflorescências, raízes, caules e frutos.<br>A Olericultura é uma atividade que pode ser desempenhada por toda a família, o exemplo disso é o cultivo de uma horta, que, dentre os benefícios, está o acesso a alimentos frescos, a uma",
-      "<br>alimentação mais saudável e equilibrada, ao bem-estar e relaxamento promovidos pelo contato com a natureza."
+      "<br>É o conjunto de técnicas e práticas para o cultivo de frutas, seja para o consumo, para comercialização ou mesmo para a fabricação de néctares e sucos. Enquanto nas plantações agrícolas os cuidados são coletivos, na fruticultura cada espécime exige um tratamento específico. O desenvolvimento de pesquisas, realizados na década de 70, possibilitou a expansão de áreas cultivadas e o aumento dos índices de produtividade.",
+      "<br>No Brasil, as frutas mais cultivadas são a banana, a laranja, a uva, o abacaxi, a melancia e a maçã.",
+      "<br>É o ramo da horticultura focado no cultivo de plantas e flores ornamentais, destinadas a jardins e ao comércio. Em 1950 foram plantadas as primeiras mudas de árvores e palmeiras em área localizada no atual Centro Experimental de Campinas. Cada espécie de planta exige um tratamento específico. Enquanto algumas podem ser cultivadas a céu aberto, outras se desenvolvem apenas em estufas (cultivo protegido), onde ocorre total controle das.",
+      "<br>condições de cultivo.",
+      "<br>É o cultivo de hortaliças (legumes e verduras) que não precisam, necessariamente, passar pela indústria antes de serem consumidos. Trata-se de uma atividade que pode ser desempenhada por toda a família, até mesmo em hortas feitas em casa, o que garante o acesso a alimentos frescos, a uma alimentação saudável e ao contato com a natureza."
     ],
     "planetTitleImg": {
       "__uuid__": "45858155-7199-42a6-8540-a7de2cfea68b@f9941",
@@ -10270,7 +10269,7 @@
     "speedRotation": 1,
     "planetTitle": "Bovinocultura de Corte",
     "planetDescription": [
-      "<br>É caracterizada pela criação de bovinos com o objetivo de produzir carne. A bovinocultura de corte se desenvolve a partir de três fases da vida dos bovinos: cria, recria e engorda. Tanto a carne, quanto seus derivados são fundamentais para o fornecimento de proteína animal aos seres humanos.<br>O estado de Mato Grosso do Sul, no Ranking Nacional, é o 2º colocado em produção e o 5º colocado em exportação de carne bovina."
+      "<br>É a criação de gado focada na produção de carne, que se dá em três fases: cria, recria e engorda. A carne bovina é uma grande fonte de proteína animal, nutriente essencial para o organismo dos seres humanos. Mato Grosso do Sul é um dos grandes produtores e exportadores desse produto."
     ],
     "planetTitleImg": {
       "__uuid__": "dd3ddaf6-d167-4b1b-a4c9-9d48e8f73a11@f9941",
@@ -11123,7 +11122,7 @@
     "speedRotation": 1,
     "planetTitle": "Bovinocultura de Leite",
     "planetDescription": [
-      "<br>É como é chamada a criação de gado tendo como foco a produção de leite. Essa produção necessita de animais bem tratados e alimentados, organizados em locais que propiciem a eles o conforto necessário para que possam produzir leite livre de doenças e transtornos."
+      "<br>É a criação de gado focada na produção de leite. Nesse tipo de cultura, o bem-estar dos animais é essencial. Um ambiente organizado e confortável, com boa alimentação e água fresquinha contribuem para que os animais produzam leite em maior quantidade e melhor qualidade."
     ],
     "planetTitleImg": {
       "__uuid__": "b828d603-07a8-40dc-9bd4-2733481cef79@f9941",
@@ -11967,9 +11966,9 @@
     "speedRotation": 1,
     "planetTitle": "Grãos",
     "planetDescription": [
-      "<br>A soja é originária da região oeste da China, onde é cultivado há mais de dois milênios. No Brasil, a introdução oficial da soja aconteceu em 1924, na cidade de Santa Rosa (RS).<br>Os primeiros registros do cultivo do milho datam de há 7.300 anos, e foram encontrados em pequenas ilhas próximas ao litoral do México. Seu nome significa “sustento da vida”. No Brasil, o cultivo do milho vem desde antes da chegada dos europeus. Os índios,",
-      "<br>principalmente os guaranis, tinham o cereal como o principal ingrediente de sua dieta. Com a chegada dos portugueses, o consumo aumentou e novos produtos à base de milho foram incorporados aos hábitos alimentares dos brasileiros.<br>O estado de Mato Grosso do Sul, no Ranking Nacional, é o 5º colocado em produção e o 6º colocado em exportação de soja em grão e 4º colocado em produção e o 3º colocado",
-      "<br>em exportação de milho."
+      "<br>SOJA: é cultivada há mais de 2 milênios, em alguns países do Continente Asiático. No século XIX o grão foi levado aos Estados Unidos. No Brasil, a introdução oficial da soja aconteceu em 1924, na cidade de Santa Rosa (RS).",
+      "<br>MILHO: os primeiros registros do cultivo foram encontrados em pequenas ilhas no golfo do México, datados de 7.300 anos. Seu nome, de origem indígena caribenha, significa “sustento da vida”. Os índios brasileiros, principalmente os guaranis, tinham o cereal como principal ingrediente de sua dieta, cultivando-o muito antes da chegada dos europeus.",
+      "<br>Mato Grosso do Sul é um dos grandes produtores e exportadores de soja e milho."
     ],
     "planetTitleImg": {
       "__uuid__": "a4683e51-26db-4333-8e0a-b338facc7a85@f9941",
@@ -12284,7 +12283,7 @@
     "_prefab": {
       "__id__": 458
     },
-    "_id": "8dh7VqBB9NsLMVKzZDDPQF"
+    "_id": "60Ea/t3FdFGauohb4pB8LE"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -12570,7 +12569,7 @@
     "_prefab": {
       "__id__": 482
     },
-    "_id": "c3zvpdRwNJ/p4tpDlUbQIr"
+    "_id": "8cTiN7mxlGBpW8mb6cAfCL"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -12798,7 +12797,7 @@
     "_prefab": {
       "__id__": 499
     },
-    "_id": "aa6eqBVhtJ6KqOT3WXG2oA"
+    "_id": "c68xT6HoxMqIdHLvto32mU"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -13530,7 +13529,8 @@
     "speedRotation": 1,
     "planetTitle": "Florestas Plantadas",
     "planetDescription": [
-      "<br>São áreas de reflorestamento através do plantio, produção, manejo e colheita de culturas, que atendam a um plano sustentável. Essa prática é importante  pois recupera espaços degradados, reduzindo os impactos ambientais através da captura de CO2.<br>O estado de Mato Grosso do Sul, no Ranking Nacional, é o 2º colocado em produção e o 2º colocado em exportação de produtos florestais."
+      "<br>É a prática de plantio, produção, manejo e colheita de culturas destinadas à restauração de áreas degradadas, reduzindo impactos ambientais, por meio da captura de CO2. Na estação chuvosa, parte da água é retida pelas copas e parte absorvida pelo solo, diminuindo o assoreamento, o que possibilita a manutenção do volume do rio. Já na estação seca, as florestas funcionam como um regulador, graças aos lençóis freáticos que foram",
+      "<br>abastecidos na estação chuvosa. Mato Grosso do Sul é um dos grandes produtores e exportadores de produtos florestais."
     ],
     "planetTitleImg": {
       "__uuid__": "92ca6eec-d9a9-451d-9e7e-ab8919f1df5d@f9941",
@@ -14374,8 +14374,7 @@
     "speedRotation": 1,
     "planetTitle": "Equideocultura",
     "planetDescription": [
-      "<br>É a criação de equinos, especialmente cavalos de raça. Como não tem como finalidade a produção de alimentos, é classificado como animal de companhia.<br>A chegada de cavalos no Brasil foi registrada em 1549, onde Tomé de Souza, primeiro Governador Geral do Brasil, trouxe alguns animais de Cabo Verde. Com o passar do tempo, a falta de condição de alguns proprietários em oferecer um ambiente adequado ao comportamento natural dos cavalos, foi",
-      "<br>criada a cultura de se confinar esses animais em baias. As instalações e o manejo adequado são de suma importância para o bem estar do animal."
+      "<br>É a criação de equinos, especialmente cavalos de raça, classificados como animais de companhia. Sua chegada ao Brasil data de 1549, quando Tomé de Souza, o primeiro Governador Geral, trouxe para cá alguns animais vindos da África. Assim como nas demais cadeias ligadas à pecuária, o bem-estar animal faz toda a diferença para o sucesso na criação de equídeos."
     ],
     "planetTitleImg": {
       "__uuid__": "89eb0057-5f0d-4482-a301-e0242f540cb5@f9941",
@@ -15235,8 +15234,8 @@
     "speedRotation": 1,
     "planetTitle": "Piscicultura",
     "planetDescription": [
-      "<br>É a produção de peixes em ambientes controlados, podendo ser desenvolvida em diversos sistemas de criação, como viveiros escavado, açudes e tanques-rede.<br>Há registros de que os egípcios já praticavam a piscicultura 4.000 anos a.C.. A piscicultura, como conhecemos hoje, e principalmente a fecundação artificial, foi estudada e criada a partir de 1931, graças a um gaúcho filho e neto de alemães chamado Rodolpho Theodor",
-      "<br>Wilhelm Gaspar von Ihering."
+      "<br>É a produção de peixes em ambientes controlados. Há diversos tipos de sistemas de criação. Ex.: viveiro escavado, açude e tanque-rede. Foram encontrados registros de que os egípcios já praticavam a piscicultura há 4 mil anos a.C.",
+      "<br>CURIOSIDADE: a fecundação artificial em peixes foi estudada e criada, em 1931, pelo pesquisador gaúcho Rodolpho Theodor Wilhelm Gaspar von Ihering."
     ],
     "planetTitleImg": {
       "__uuid__": "fefbe91f-856a-400c-baa0-6ddd0afa5bb5@f9941",
@@ -16114,8 +16113,7 @@
     "speedRotation": 1,
     "planetTitle": "Suinocultura",
     "planetDescription": [
-      "<br>É a criação de suínos em que, em um sistema intensivo, são mantidos em confinamento e recebem ração balanceada, práticas sanitárias e instalações apropriadas.<br>Os suínos chegaram ao Brasil a partir de 1532, trazidos por Martim Afonso de Souza, Administrador Colonial Português. Provenientes de raças derivadas de javalis europeus, logo se adaptaram ao clima tropical e permitiram aos criadores o",
-      "<br>desenvolvimento de raças próprias. Grande parte das mais de 100 raças existentes no mundo podem ser chamadas de brasileiras.<br>O estado de Mato Grosso do Sul, no Ranking Nacional, é o 7º colocado em produção e o 6º colocado em exportação de carne suína."
+      "<br>É a criação racional de suínos de maneira intensiva, ficando confinados em um ambiente limpo e apropriado, onde recebem uma dieta balanceada para que cresçam fortes e saudáveis. Os suínos chegaram ao Brasil, trazidos pelos portugueses em 1532. Grande parte das mais de 100 raças existentes no mundo, podem ser chamadas de brasileiras. Mato Grosso do Sul é um dos grandes produtores e exportadores de carne suína."
     ],
     "planetTitleImg": {
       "__uuid__": "140380ca-4aa8-464c-95af-e963ab1a1cba@f9941",
@@ -16959,7 +16957,8 @@
     "speedRotation": 1,
     "planetTitle": "Ovinocultura",
     "planetDescription": [
-      "<br>É a criação de ovinos, visando à tosa do pelo das ovelhas para a produção da lã, ou ao abate para obtenção da carne e da gordura.  O carneiro é o macho da ovelha e juntos geram os cordeiros. Esses cordeiros, dos os 7 e 12 meses, são chamados de borregos.<br>O Brasil, no ranking mundial é 18º maior rebanho de ovinos."
+      "<br>É a criação de ovinos focada na produção de lã, carne e gordura. De acordo com registros históricos, o homem cria ovinos há mais de 4000 anos. No ranking mundial, o Brasil está na 18ª colocação de rebanho ovino.",
+      "<br>Ovelha (fêmea) + Carneiro (macho) = Cordeiro (até 7 meses) / Borrego (de 7 a 12 meses)."
     ],
     "planetTitleImg": {
       "__uuid__": "e9be54ed-ba22-46bf-a1c3-736693cef1de@f9941",
@@ -17803,8 +17802,7 @@
     "speedRotation": 1,
     "planetTitle": "Cana de Açúcar",
     "planetDescription": [
-      "<br>É um grupo de espécies de gramíneas perenes, utilizadas principalmente para a produção de açúcar e etanol. Foi Martim Affonso de Souza, Administrador Colonial Português, que em 1532 trouxe a primeira muda de cana ao Brasil e iniciou seu cultivo na Capitania de São Vicente. Ele próprio construiu o primeiro engenho de açúcar.<br>Com a cana-de-açúcar se faz dois produtos essenciais para a economia mundial: o açúcar, parte indispensável",
-      "<br>da alimentação humana, e o etanol.<br>O estado de Mato Grosso do Sul, no Ranking Nacional, é o 4º colocado em produção e o 6º colocado em exportação de cana-de-açúcar."
+      "<br>Trazida ao Brasil pelos portugueses, em 1532, a cana-de-açúcar, como o nome sugere, é utilizada para a produção do açúcar que consumimos, mas não apenas isso: ela serve também como matéria-prima para a produção de Etanol, combustível bastante utilizado em veículos. Mato Grosso do Sul é um dos grandes produtores e exportadores de açúcar."
     ],
     "planetTitleImg": {
       "__uuid__": "2fc2a09c-5b77-4d74-b2ff-cf7e8bb5f7bd@f9941",
@@ -18682,8 +18680,8 @@
     "speedRotation": 1,
     "planetTitle": "Avicultura",
     "planetDescription": [
-      "<br>É a criação de aves para a produção de alimentos, em especial carne (corte) e ovos (postura). Entre as espécies criadas na avicultura, destaca-se o frango.  Foi na década de 30 que deu-se o início da avicultura no Brasil, quando pequenos produtores criavam galinhas caipiras. Entretanto, foi na década de 70 que a avicultura se profissionalizou, com avançadas técnicas de produção de frangos de corte.<br>O estado de Mato Grosso do Sul, no",
-      "<br>Ranking Nacional, é o 8º colocado em produção e o 5º colocado em exportação de carne de frango."
+      "<br>É a criação de aves focada na produção de alimentos, em especial carne (corte) e ovos (postura). É possível criar aves como o peru, o pato, a codorna, o avestruz, entre outras espécies exóticas, mas o grande campeão na criação mundial é o frango. Foi na década de 30 que surgiu a avicultura no Brasil, porém somente na década de 70 que houve o avanço tecnológico na produção de frangos de corte. Mato Grosso do Sul está entre os grandes",
+      "<br>produtores e exportadores de carne de frango."
     ],
     "planetTitleImg": {
       "__uuid__": "becebab1-c22f-4c8e-806f-d502727b6006@f9941",
