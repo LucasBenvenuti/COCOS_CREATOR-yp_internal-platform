@@ -1,5 +1,5 @@
 
-import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBoxComponent, Label, Vec3, lerp, Prefab, instantiate, Node, EventTouch, find, Button, SystemEventType, resources } from 'cc';
+import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBoxComponent, Label, Vec3, lerp, Prefab, instantiate, Node, EventTouch, find, Button, SystemEventType, resources, Toggle } from 'cc';
 import { DataStorage } from './DataStorage';
 import { SceneChange_Behavior } from '../external/SceneChange_Behavior';
 import { DropdownBehavior } from './Dropdown_Behavior';
@@ -59,6 +59,9 @@ export class LoginRegisterController extends Component {
     registerSchoolarPeriodDropdown: DropdownBehavior = null!;
     @property(DropdownBehavior)
     registerSchoolKindDropdown: DropdownBehavior = null!;
+
+    @property(Toggle)
+    registerAcceptTerms: Toggle = null!;
 
     @property(EditBoxComponent)
     recoveryEmailField: EditBoxComponent = null!;
@@ -133,6 +136,8 @@ export class LoginRegisterController extends Component {
         self.registerPasswordField = find("Canvas/FormsBG/Register/Input_Box_1/EditBox_Password")?.getComponent(EditBoxComponent);
         self.registerSchoolarPeriodDropdown = find("Canvas/FormsBG/Register/Input_Box_3")?.getComponent(DropdownBehavior);
         self.registerSchoolKindDropdown = find("Canvas/FormsBG/Register/Input_Box_2")?.getComponent(DropdownBehavior);
+        self.registerAcceptTerms = find("Canvas/FormsBG/Register/CheckBox_Input/Toggle")?.getComponent(Toggle);
+
         self.recoveryEmailField = find("Canvas/FormsBG/RecoveryPassword/Input_Box_0/EditBox_RecoveryEmail")?.getComponent(EditBoxComponent);
         self.changePasswordField = find("Canvas/FormsBG/NewPassword/Input_Box_0/EditBox_NewPassword")?.getComponent(EditBoxComponent);
         self.changePasswordConfirmationField = find("Canvas/FormsBG/NewPassword/Input_Box_1/EditBox_ConfirmNewPassword")?.getComponent(EditBoxComponent);
@@ -648,6 +653,8 @@ export class LoginRegisterController extends Component {
         let registerSchoolarPeriodDropdownValue = self.registerSchoolarPeriodDropdown.currentValue;
         let registerSchoolKindDropdownValue = self.registerSchoolKindDropdown.currentValue;
 
+        let acceptTerms = self.registerAcceptTerms.isChecked;
+
         if(emailInputValue == "" || emailInputValue == undefined)
         {
             console.log("ERRO: Campo de Email deve ser preenchido");
@@ -679,6 +686,15 @@ export class LoginRegisterController extends Component {
         {
             console.log("ERRO: Tipo de escola deve ser preenchido");
             self.errorAnim("Tipo de escola deve ser preenchido.");
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(!acceptTerms)
+        {
+            console.log("ERRO: É preciso aceitar os Termos e Política de Privacidade");
+            self.errorAnim("É preciso aceitar os Termos e Política de Privacidade.");
 
             self.loadingAnim(false);
             return;
@@ -888,8 +904,9 @@ export class LoginRegisterController extends Component {
         xmlhttp.onreadystatechange = function () {
             var response = xmlhttp.responseText;
             var responseObj = JSON.parse(response || "{}");
-            console.log(response);
-            if (xmlhttp.readyState == 4 && (xmlhttp.status >= 200 && xmlhttp.status < 400))
+            // console.log(response);
+            console.log(xmlhttp);
+            if (xmlhttp.status === 200)
             {
                 //Success
                 self.correctAnim("Senha alterada com sucesso.");
@@ -898,13 +915,36 @@ export class LoginRegisterController extends Component {
 
                 self.loadingAnim(false);
                 self.newPasswordToLogin();
+
+                return;
+            }
+
+            if(responseObj.error === 500)
+            {
+                let newString = responseObj.error + ".";
+                self.errorAnim(newString);
+
+                self.loadingAnim(false);
+                return;
             }
 
             if(self.errorIsOpened)
+            {
+                console.log("ERRO: Ocorreu um erro. Tente novamente.");
+                self.errorAnim("Ocorreu um erro. Tente novamente.");
+
+                self.loadingAnim(false);
                 return;
+            }
 
             if(responseObj.error === undefined)
+            {
+                console.log("ERRO: Ocorreu um erro desconhecido. Tente novamente.");
+                self.errorAnim("Ocorreu um erro desconhecido. Tente novamente.");
+
+                self.loadingAnim(false);
                 return;
+            }
 
             self.errorIsOpened = true;
 

@@ -12,6 +12,12 @@ export class SeparatedFunctionsLoginRegister extends Component {
             LoginRegisterController.instance.disappearCookies("", true);
     }
 
+    openHyperLink(e, customEvent)
+    {
+        if(LoginRegisterController.instance)
+            LoginRegisterController.instance.openHyperLink(e, customEvent);
+    }
+
     loginLogic()
     {
         if(LoginRegisterController.instance)

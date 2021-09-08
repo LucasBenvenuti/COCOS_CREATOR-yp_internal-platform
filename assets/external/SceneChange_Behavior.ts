@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, director, ProgressBarComponent, loader, assetManager, game, find, UIOpacity, tween } from 'cc';
+import { _decorator, Component, Node, director, ProgressBarComponent, loader, assetManager, game, find, UIOpacity, tween, AnimationComponent } from 'cc';
 import { AudioController } from '../scripts/AudioController';
 import { ButtonsHelper } from '../scripts/ButtonsHelper';
 import { DataStorage } from '../scripts/DataStorage';
@@ -20,7 +20,10 @@ export class SceneChange_Behavior extends Component {
     fadeOpacity: UIOpacity = null!;
     screenChangerOpacity: UIOpacity = null!;
     loadingLayout: UIOpacity = null!;
+    textTips: UIOpacity = null!;
     transitionSpeed: number = 1;
+
+    loaderAnimation: AnimationComponent = null!;
 
     alreadyLoaded: boolean = false;
 
@@ -38,7 +41,11 @@ export class SceneChange_Behavior extends Component {
         self.progressBar = find("SceneController_Canvas/SceneController/Loading/ProgressBar")?.getComponent(ProgressBarComponent);
         self.fadeOpacity = find("SceneController_Canvas/SceneController/FadeImage")?.getComponent(UIOpacity);
         self.loadingLayout = find("SceneController_Canvas/SceneController/Loading")?.getComponent(UIOpacity);
+        self.textTips = find("SceneController_Canvas/SceneController/Loading/Text_Tips")?.getComponent(UIOpacity);
         self.screenChangerOpacity = find("SceneController_Canvas/SceneController")?.getComponent(UIOpacity);
+        self.loaderAnimation = find("SceneController_Canvas/SceneController/Loading/AnimatedSprite")?.getComponent(AnimationComponent);
+
+        self.textTips.node.active = false;
     }
     
     start ()
@@ -57,16 +64,24 @@ export class SceneChange_Behavior extends Component {
         // self.loadingLayoutOpacity.opacity = 255;
         self.loadingLayout.node.active = false;
         self.fadeOpacity.opacity = 255;
+        self.progressBar.node.active = false;
         self.progressBar.progress = 0;
+        self.textTips.node.active = false;
+        self.textTips.opacity = 0;
+
+        self.loaderAnimation.play("loadingLoop");
 
         if(self.nextSceneName === "LoginRegister")
         {
-            self.progressBar.node.active = false;
+            // self.progressBar.node.active = false;
+            self.textTips.node.active = false;
         //     self.normalLoad(self.nextSceneName);
         }
         else
         {
-            self.progressBar.node.active = true;   
+            // self.progressBar.node.active = true;
+
+            self.textTips.node.active = true;
         }
 
         self.firstLoad(self.nextSceneName);
@@ -130,7 +145,7 @@ export class SceneChange_Behavior extends Component {
                                 easing: 'cubicInOut',
                                 onComplete: ()=> {
 
-                                    self.progressBar.node.active = true;
+                                    // self.progressBar.node.active = true;
 
                                     self.screenChangerOpacity.node.active = false;
 
