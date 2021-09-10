@@ -622,7 +622,6 @@ export class LoginRegisterController extends Component {
 
     guestlogic() {
         var self = this;
-
         
         if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
         {

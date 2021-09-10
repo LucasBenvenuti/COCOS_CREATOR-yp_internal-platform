@@ -27,18 +27,29 @@ export class TextTipsBehavior extends Component {
     randomText()
     {
         var self = this;
-        
-        let randomIndex = randomRangeInt(0, this.tipsList.length - 1);
 
-        if(this.currentIndex === randomIndex)
+        if(self.tipsList.length > 1)
         {
-            self.randomText();
-            return;
+            console.log(self.tipsList.length);
+
+            let randomIndex = randomRangeInt(0, self.tipsList.length);
+            
+            if(self.currentIndex === randomIndex)
+            {
+                self.randomText();
+                return;
+            }
+            
+            self.currentIndex = randomIndex;
+        }
+        else
+        {
+            self.currentIndex = 0;
         }
 
-        this.currentIndex = randomIndex;
-
-        self.textLabel.string = self.tipsList[this.currentIndex];
+        let newText = self.tipsList[self.currentIndex].replaceAll("<br>", "\n")
+        
+        self.textLabel.string = newText;
 
         self.scheduleOnce(()=> {
             tween(self.textOpacity).to(0.5, {
@@ -46,16 +57,19 @@ export class TextTipsBehavior extends Component {
             }, {
                 easing: "cubicInOut",
                 onComplete: ()=> {
-                    self.scheduleOnce(()=>{
-                        tween(self.textOpacity).to(0.5, {
-                            opacity: 0
-                        }, {
-                            easing: "cubicInOut",
-                            onComplete: ()=> {
-                                self.randomText();
-                            }
-                        }).start();
-                    }, self.textDuration);
+                    if(self.tipsList.length > 1)
+                    {   
+                        self.scheduleOnce(()=>{
+                            tween(self.textOpacity).to(0.5, {
+                                opacity: 0
+                            }, {
+                                easing: "cubicInOut",
+                                onComplete: ()=> {
+                                    self.randomText();
+                                }
+                            }).start();
+                        }, self.textDuration);
+                    }
                 }
             }).start();
         }, 0.2);

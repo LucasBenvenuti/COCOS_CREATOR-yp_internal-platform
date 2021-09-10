@@ -6,6 +6,7 @@ import { DataStorage } from '../scripts/DataStorage';
 import { LoginRegisterController } from '../scripts/LoginRegisterController';
 import { PlatformController } from '../scripts/PlatformController';
 import { WebviewBehavior } from '../scripts/Webview_Behavior';
+import { TextTipsBehavior } from './TextTips_Behavior';
 const { ccclass, property } = _decorator;
 
 @ccclass('SceneChange_Behavior')
@@ -44,7 +45,6 @@ export class SceneChange_Behavior extends Component {
         self.textTips = find("SceneController_Canvas/SceneController/Loading/Text_Tips")?.getComponent(UIOpacity);
         self.screenChangerOpacity = find("SceneController_Canvas/SceneController")?.getComponent(UIOpacity);
         self.loaderAnimation = find("SceneController_Canvas/SceneController/Loading/AnimatedSprite")?.getComponent(AnimationComponent);
-
         self.textTips.node.active = false;
     }
     
@@ -187,6 +187,8 @@ export class SceneChange_Behavior extends Component {
             onComplete: ()=> {
 
                 self.loadingLayout.node.active = true;
+
+                self.textTips.node.active = true;
 
                 tween(self.fadeOpacity).to(self.transitionSpeed, {
                     opacity: 0

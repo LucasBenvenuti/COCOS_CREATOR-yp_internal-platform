@@ -18,6 +18,13 @@ export class AudioSetterBehavior extends Component {
         find("Canvas")
             ?.getComponentsInChildren(Button)
             .forEach((btn) => {
+
+                if(btn.node.name === "CheckTouchOut")
+                {
+                    console.log(btn.node.name);
+                    return;
+                }
+
                 var clickEventHandler = new EventHandler();
                 clickEventHandler.target = this.node; // This node is the node to which your event handler code component belongs
                 clickEventHandler.component = "AudioSetterBehavior";// This is the code file name
