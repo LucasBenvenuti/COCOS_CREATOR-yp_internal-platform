@@ -95,6 +95,9 @@ export class LoginRegisterController extends Component {
     @property(DropdownBehavior)
     cityDropdown: DropdownBehavior = null!;
 
+    @property(Toggle)
+    lastAcceptTerms: Toggle = null!;
+
     prefabContainer: PrefabContainer = null!;
 
     onLoad() {
@@ -137,6 +140,8 @@ export class LoginRegisterController extends Component {
         self.registerSchoolarPeriodDropdown = find("Canvas/FormsBG/Register/Input_Box_3")?.getComponent(DropdownBehavior);
         self.registerSchoolKindDropdown = find("Canvas/FormsBG/Register/Input_Box_2")?.getComponent(DropdownBehavior);
         self.registerAcceptTerms = find("Canvas/FormsBG/Register/CheckBox_Input/Toggle")?.getComponent(Toggle);
+
+        self.lastAcceptTerms = find("Canvas/LastInputs/Box_Inicio/CheckBox_Input/ToggleBorder")?.getComponent(Toggle);
 
         self.recoveryEmailField = find("Canvas/FormsBG/RecoveryPassword/Input_Box_0/EditBox_RecoveryEmail")?.getComponent(EditBoxComponent);
         self.changePasswordField = find("Canvas/FormsBG/NewPassword/Input_Box_0/EditBox_NewPassword")?.getComponent(EditBoxComponent);
@@ -652,7 +657,7 @@ export class LoginRegisterController extends Component {
         let registerSchoolarPeriodDropdownValue = self.registerSchoolarPeriodDropdown.currentValue;
         let registerSchoolKindDropdownValue = self.registerSchoolKindDropdown.currentValue;
 
-        let acceptTerms = self.registerAcceptTerms.isChecked;
+        // let acceptTerms = self.registerAcceptTerms.isChecked;
 
         if(emailInputValue == "" || emailInputValue == undefined)
         {
@@ -690,14 +695,14 @@ export class LoginRegisterController extends Component {
             return;
         }
 
-        if(!acceptTerms)
-        {
-            console.log("ERRO: É preciso aceitar os Termos e Política de Privacidade");
-            self.errorAnim("É preciso aceitar os Termos e Política de Privacidade.");
+        // if(!acceptTerms)
+        // {
+        //     console.log("ERRO: É preciso aceitar os Termos e Política de Privacidade");
+        //     self.errorAnim("É preciso aceitar os Termos e Política de Privacidade.");
 
-            self.loadingAnim(false);
-            return;
-        }
+        //     self.loadingAnim(false);
+        //     return;
+        // }
 
         var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
         xmlhttp.open("POST", url);
@@ -1030,7 +1035,9 @@ export class LoginRegisterController extends Component {
 
         let stateDropdownValue = self.stateDropdown.currentValue;
         let cityDropdownValue = self.cityDropdown.currentValue;
-        
+
+        let acceptTerms = self.lastAcceptTerms.isChecked;
+
         if(stateDropdownValue == "" || stateDropdownValue == undefined)
         {
             console.log("ERRO: Estado deve ser preenchido");
@@ -1044,6 +1051,15 @@ export class LoginRegisterController extends Component {
         {
             console.log("ERRO: Cidade deve ser preenchido");
             self.errorAnim("Cidade deve ser preenchido.");
+
+            // self.loadingAnim(false);
+            return;
+        }
+
+        if(!acceptTerms)
+        {
+            console.log("ERRO: É preciso aceitar os Termos e Política de Privacidade");
+            self.errorAnim("É preciso aceitar os Termos e Política de Privacidade.");
 
             // self.loadingAnim(false);
             return;

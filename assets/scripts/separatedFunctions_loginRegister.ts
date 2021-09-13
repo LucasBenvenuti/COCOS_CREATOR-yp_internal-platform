@@ -168,6 +168,8 @@ export class SeparatedFunctionsLoginRegister extends Component {
         LoginRegisterController.instance.stateDropdown.clearValue();
         LoginRegisterController.instance.cityDropdown.forceCloseBox();
         LoginRegisterController.instance.cityDropdown.clearValue();
+
+        LoginRegisterController.instance.lastAcceptTerms.isChecked = false;
         
         LoginRegisterController.instance.locationAnim(false);
     }
