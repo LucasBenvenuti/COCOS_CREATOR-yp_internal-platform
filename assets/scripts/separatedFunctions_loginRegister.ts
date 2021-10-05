@@ -62,6 +62,9 @@ export class SeparatedFunctionsLoginRegister extends Component {
         if(!LoginRegisterController.instance)
             return;
 
+        LoginRegisterController.instance.registerNameField.string = "";
+        LoginRegisterController.instance.registerCPFField.string = "";
+        LoginRegisterController.instance.registerDateField.string = "";
         LoginRegisterController.instance.registerEmailField.string = "";
         LoginRegisterController.instance.registerPasswordField.string = "";
         LoginRegisterController.instance.registerSchoolKindDropdown.forceCloseBox();
@@ -70,6 +73,13 @@ export class SeparatedFunctionsLoginRegister extends Component {
         LoginRegisterController.instance.registerSchoolarPeriodDropdown.clearValue();
         
         LoginRegisterController.instance.registerToLogin();
+    }
+
+    nextRegisterPageLogic() {
+        LoginRegisterController.instance.nextRegisterPageLogic();
+    }
+    returnRegisterPageLogic() {
+        LoginRegisterController.instance.returnRegisterPageLogic();        
     }
 
     dropboxCloseToggle_Register_2()

@@ -1,5 +1,5 @@
 
-import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBoxComponent, Label, Vec3, lerp, Prefab, instantiate, Node, EventTouch, find, Button, SystemEventType, resources, Toggle } from 'cc';
+import { _decorator, Component, UIOpacity, tween, AnimationComponent, EditBoxComponent, Label, Vec3, lerp, Prefab, instantiate, Node, EventTouch, find, Button, SystemEventType, resources, Toggle, BlockInputEventsComponent } from 'cc';
 import { DataStorage } from './DataStorage';
 import { SceneChange_Behavior } from '../external/SceneChange_Behavior';
 import { DropdownBehavior } from './Dropdown_Behavior';
@@ -49,6 +49,26 @@ export class LoginRegisterController extends Component {
     loginEmailField: EditBoxComponent = null!;
     @property(EditBoxComponent)
     loginPasswordField: EditBoxComponent = null!;
+
+    @property(UIOpacity)
+    registerPage_0_Node: UIOpacity = null!;
+    @property(UIOpacity)
+    registerPage_1_Node: UIOpacity = null!;
+
+    @property(Node)
+    registerPageCircle_0 = null!;
+    @property(Node)
+    registerPageCircle_1 = null!;
+
+    @property(Node)
+    blockEventInputRegister: Node = null!;
+
+    @property(EditBoxComponent)
+    registerNameField: EditBoxComponent = null!;
+    @property(EditBoxComponent)
+    registerCPFField: EditBoxComponent = null!;
+    @property(EditBoxComponent)
+    registerDateField: EditBoxComponent = null!;
 
     @property(EditBoxComponent)
     registerEmailField: EditBoxComponent = null!;
@@ -135,10 +155,24 @@ export class LoginRegisterController extends Component {
         self.loadingAnimation = find("Canvas/Loading/AnimatedSprite")?.getComponent(AnimationComponent);
         self.loginEmailField = find("Canvas/FormsBG/Login/Input_Box_0/EditBox_Email")?.getComponent(EditBoxComponent);
         self.loginPasswordField = find("Canvas/FormsBG/Login/Input_Box_1/EditBox_Password")?.getComponent(EditBoxComponent);
-        self.registerEmailField = find("Canvas/FormsBG/Register/Input_Box_0/EditBox_Email")?.getComponent(EditBoxComponent);
-        self.registerPasswordField = find("Canvas/FormsBG/Register/Input_Box_1/EditBox_Password")?.getComponent(EditBoxComponent);
-        self.registerSchoolarPeriodDropdown = find("Canvas/FormsBG/Register/Input_Box_3")?.getComponent(DropdownBehavior);
-        self.registerSchoolKindDropdown = find("Canvas/FormsBG/Register/Input_Box_2")?.getComponent(DropdownBehavior);
+
+        self.registerPage_0_Node = find("Canvas/FormsBG/Register/Page_0")?.getComponent(UIOpacity);
+        self.registerPage_1_Node = find("Canvas/FormsBG/Register/Page_1")?.getComponent(UIOpacity);
+
+        self.registerPageCircle_0 = find("Canvas/FormsBG/Register/PageCount/Circle_0");
+        self.registerPageCircle_1 = find("Canvas/FormsBG/Register/PageCount/Circle_1");
+
+        
+
+        self.blockEventInputRegister = find("Canvas/FormsBG/Register/BlockEventInput");
+
+        self.registerNameField = find("Canvas/FormsBG/Register/Page_0/Input_Box_0/EditBox_Name")?.getComponent(EditBoxComponent);
+        self.registerCPFField = find("Canvas/FormsBG/Register/Page_0/Input_Box_1/EditBox_CPF")?.getComponent(EditBoxComponent);
+        self.registerDateField = find("Canvas/FormsBG/Register/Page_0/Input_Box_2/EditBox_Date")?.getComponent(EditBoxComponent);
+        self.registerEmailField = find("Canvas/FormsBG/Register/Page_1/Input_Box_0/EditBox_Email")?.getComponent(EditBoxComponent);
+        self.registerPasswordField = find("Canvas/FormsBG/Register/Page_1/Input_Box_1/EditBox_Password")?.getComponent(EditBoxComponent);
+        self.registerSchoolarPeriodDropdown = find("Canvas/FormsBG/Register/Page_1/Input_Box_3")?.getComponent(DropdownBehavior);
+        self.registerSchoolKindDropdown = find("Canvas/FormsBG/Register/Page_1/Input_Box_2")?.getComponent(DropdownBehavior);
         self.registerAcceptTerms = find("Canvas/FormsBG/Register/CheckBox_Input/Toggle")?.getComponent(Toggle);
 
         self.lastAcceptTerms = find("Canvas/LastInputs/Box_Inicio/CheckBox_Input/ToggleBorder")?.getComponent(Toggle);
@@ -163,6 +197,12 @@ export class LoginRegisterController extends Component {
         self.loadingNode.opacity = 0;
         self.locationAnimNode.opacity = 0;
 
+        self.registerPage_0_Node.opacity = 255;
+        self.registerPage_1_Node.opacity = 0;
+
+        self.registerPageCircle_0.setScale(1,1,1);
+        self.registerPageCircle_1.setScale(0.7,0.7,0.7);
+
         self.registerNode.node.active = false;
         self.recoveryPasswordNode.node.active = false;
         self.emailSentNode.node.active = false;
@@ -170,6 +210,10 @@ export class LoginRegisterController extends Component {
         self.NewPasswordConfirmationNode.node.active = false;
         self.loadingNode.node.active = false;
         self.locationAnimNode.node.active = false;
+
+        self.registerPage_0_Node.node.active = true;
+        self.registerPage_1_Node.node.active = false;
+        self.blockEventInputRegister.active = false;
 
         //CHECK FIRST COOKIE HERE... IF IT EXISTS, ACTIVE = FALSE TO cookiesNode
         if(localStorage.getItem("platform_cookiesEnabled") && localStorage.getItem("platform_cookiesEnabled") === "true")
@@ -628,28 +672,119 @@ export class LoginRegisterController extends Component {
     guestlogic() {
         var self = this;
         
-        if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
-        {
-            window.GASendUserType("Convidado");
-            localStorage.setItem("userToken", "guest");
+        // if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
+        // {
+        //     window.GASendUserType("Convidado");
+        //     localStorage.setItem("userToken", "guest");
     
-            if(DataStorage.instance)
-                DataStorage.instance.token = "guest";
+        //     if(DataStorage.instance)
+        //         DataStorage.instance.token = "guest";
     
-            if(SceneChange_Behavior.instance)
-                SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
-        }
-        else
-        {
-            self.tempToken = "guest";
-            self.locationAnim(true);
-        }
+        //     if(SceneChange_Behavior.instance)
+        //         SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
+        // }
+        // else
+        // {
+        //     self.tempToken = "guest";
+        //     self.locationAnim(true);
+        // }
+    }
+
+    nextRegisterPageLogic() {
+        var self = this;
+
+        console.log("Next Page");
+
+        self.registerPage_0_Node.node.active = true;
+        // self.registerPage_1_Node.node.active = true;
+
+        self.blockEventInputRegister.active = true;
+
+        tween(self.registerPage_0_Node).to(self.fadeDuration, {opacity: 0}, {
+            easing: 'quadInOut',
+            onComplete: () => {
+                self.registerPage_0_Node.node.active = false;
+                // localStorage.setItem("platform_cookiesEnabled", "true");
+            }
+        }).start();
+
+        self.scheduleOnce(()=> {
+
+            self.registerPage_1_Node.node.active = true;
+
+            tween(self.registerPageCircle_0).to(self.fadeDuration, {scale: new Vec3(0.7,0.7,0.7)}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                }
+            }).start();
+            tween(self.registerPageCircle_1).to(self.fadeDuration, {scale: new Vec3(1,1,1)}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                }
+            }).start();
+
+            tween(self.registerPage_1_Node).to(self.fadeDuration, {opacity: 255}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                    self.blockEventInputRegister.active = false;
+
+                    console.log(self.registerPage_1_Node);
+                    // localStorage.setItem("platform_cookiesEnabled", "true");
+                }
+            }).start();
+        }, 0.15);
+    }
+
+    returnRegisterPageLogic() {
+        var self = this;
+
+        console.log("Return Page");
+
+        self.registerPage_1_Node.node.active = true;
+
+        self.blockEventInputRegister.active = true;
+
+        tween(self.registerPage_1_Node).to(self.fadeDuration, {opacity: 0}, {
+            easing: 'quadInOut',
+            onComplete: () => {
+                self.registerPage_1_Node.node.active = false;
+                // localStorage.setItem("platform_cookiesEnabled", "true");
+            }
+        }).start();
+
+        self.scheduleOnce(()=> {
+
+            self.registerPage_0_Node.node.active = true;
+
+            tween(self.registerPageCircle_0).to(self.fadeDuration, {scale: new Vec3(1,1,1)}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                }
+            }).start();
+            tween(self.registerPageCircle_1).to(self.fadeDuration, {scale: new Vec3(0.7,0.7,0.7)}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                }
+            }).start();
+
+            tween(self.registerPage_0_Node).to(self.fadeDuration, {opacity: 255}, {
+                easing: 'quadInOut',
+                onComplete: () => {
+                    self.blockEventInputRegister.active = false;
+                    // localStorage.setItem("platform_cookiesEnabled", "true");
+                }
+            }).start();
+        }, 0.15);
     }
 
     registerlogic() {
         var self = this;
 
         let url = "https://hfl5rlsrp5.execute-api.sa-east-1.amazonaws.com/user-register";
+
+        let nameInputValue = self.registerNameField.string;
+        let cpfInputValue = self.registerCPFField.string;
+        let dateInputValue = self.registerDateField.string;
 
         let emailInputValue = self.registerEmailField.string;
         let passwordInputValue = self.registerPasswordField.string;
@@ -659,19 +794,105 @@ export class LoginRegisterController extends Component {
 
         // let acceptTerms = self.registerAcceptTerms.isChecked;
 
-        if(emailInputValue == "" || emailInputValue == undefined)
+        if(nameInputValue == "" || nameInputValue == undefined)
         {
-            console.log("ERRO: Campo de Email deve ser preenchido");
-            self.errorAnim("Campo de Email deve ser preenchido.");
+            console.log("ERRO: Campo de Nome do responsável deve ser preenchido");
+            self.errorAnim("Campo de Nome do responsável deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
         }
 
-        if(passwordInputValue == "" || passwordInputValue == undefined)
+        if(cpfInputValue == "" || cpfInputValue == undefined || cpfInputValue.length !== 11)
         {
-            console.log("ERRO: Campo de Senha deve ser preenchido");
-            self.errorAnim("Campo de Senha deve ser preenchido.");
+            console.log("ERRO: Campo de CPF deve ser preenchido corretamente");
+            self.errorAnim("Campo de CPF deve ser preenchido corretamente.");
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(dateInputValue == "" || dateInputValue == undefined || dateInputValue.length !== 10)
+        {
+            console.log("ERRO: Campo de Data de nascimento do responsável deve ser preenchido");
+            self.errorAnim("Campo de Data de nascimento do responsável deve ser preenchido.");
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        let dateInputValueNew;
+
+        if(!dateInputValue.includes("/"))
+        {
+            console.log('ERRO: Campo de Data de nascimento deve ser formatado conforme exemplo');
+            self.errorAnim('Campo de Data de nascimento deve ser formatado conforme exemplo.');
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        for (let i = 0; i < dateInputValue.length; i++) {
+  
+            // Check if character is
+            // digit from 0-9
+            // then return true
+            // else false
+            if ((dateInputValue.charAt(i) >= '0'
+                && dateInputValue.charAt(i) <= '9') || dateInputValue.charAt(i) === "/") {
+                    console.log("OK");
+            }
+            else {                
+                console.log('ERRO: Campo de Data de nascimento deve ser formatado conforme exemplo');
+                self.errorAnim('Campo de Data de nascimento deve ser formatado conforme exemplo.');
+
+                self.loadingAnim(false);
+                return;
+            }
+        }
+
+        dateInputValueNew = dateInputValue.split("/");
+
+        if(dateInputValueNew.length !== 3)
+        {
+            console.log('ERRO: Campo de Data de nascimento deve ser formatado conforme exemplo');
+            self.errorAnim('Campo de Data de nascimento deve ser formatado conforme exemplo.');
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(dateInputValueNew[0].length !== 2 || parseInt(dateInputValueNew[0]) > 31)
+        {
+            console.log('ERRO: Dia inválido, tente novamente');
+            self.errorAnim('Dia inválido, tente novamente.');
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(dateInputValueNew[1].length !== 2 || parseInt(dateInputValueNew[1]) > 12)
+        {
+            console.log('ERRO: Mês inválido, tente novamente');
+            self.errorAnim('Mês inválido, tente novamente.');
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if((dateInputValueNew[1] === "02" && parseInt(dateInputValueNew[0]) > 29) || (dateInputValueNew[1] === "04" && parseInt(dateInputValueNew[0]) > 30) || (dateInputValueNew[1] === "06" && parseInt(dateInputValueNew[0]) > 30) || (dateInputValueNew[1] === "09" && parseInt(dateInputValueNew[0]) > 30) || (dateInputValueNew[1] === "11" && parseInt(dateInputValueNew[0]) > 30))
+        {
+            console.log('ERRO: Dia inválido, tente novamente');
+            self.errorAnim('Dia inválido, tente novamente.');
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(dateInputValueNew[2].length !== 4 || parseInt(dateInputValueNew[2]) > 2022)
+        {
+            console.log('ERRO: Ano inválido, tente novamente');
+            self.errorAnim('Ano inválido, tente novamente.');
 
             self.loadingAnim(false);
             return;
@@ -690,6 +911,24 @@ export class LoginRegisterController extends Component {
         {
             console.log("ERRO: Tipo de escola deve ser preenchido");
             self.errorAnim("Tipo de escola deve ser preenchido.");
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(emailInputValue == "" || emailInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Email deve ser preenchido");
+            self.errorAnim("Campo de Email deve ser preenchido.");
+
+            self.loadingAnim(false);
+            return;
+        }
+
+        if(passwordInputValue == "" || passwordInputValue == undefined)
+        {
+            console.log("ERRO: Campo de Senha deve ser preenchido");
+            self.errorAnim("Campo de Senha deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
@@ -719,6 +958,7 @@ export class LoginRegisterController extends Component {
             {
                 //Success
                 self.registerAnim(false);
+                self.loginAnim(true);
                 self.loadingAnim(false);
 
                 self.correctAnim("Cadastro efetuado.");
@@ -739,25 +979,8 @@ export class LoginRegisterController extends Component {
                 //ANALYTICS
                 window.GASendSchoolPeriod(self.registerSchoolarPeriodDropdown.currentValue);
                 window.GASendSchoolType(schoolType);
-                
-                // if(localStorage.getItem("platform_stateCityAlreadySetted") && localStorage.getItem("platform_stateCityAlreadySetted") === "true")
-                // {
-                //     localStorage.setItem("userToken", self.tempToken);
 
-                //     window.GASendUserType("Usuário");
-
-                //     if(DataStorage.instance)
-                //         DataStorage.instance.token = self.tempToken;
-
-                //     self.scheduleOnce(()=>{
-                //         if(SceneChange_Behavior.instance)
-                //             SceneChange_Behavior.instance.nextSceneLoad("Platform_OPTIMIZED");
-                //     }, 0.5);
-                // }
-                // else
-                // {
-                    self.locationAnim(true);
-                // }
+                self.locationAnim(true);
             }
 
             if(self.errorIsOpened)
@@ -779,7 +1002,7 @@ export class LoginRegisterController extends Component {
 
         };
 
-        xmlhttp.send(JSON.stringify({ "email": emailInputValue, "name": "", "password": passwordInputValue }));
+        xmlhttp.send(JSON.stringify({ "name": nameInputValue, "school_year": registerSchoolarPeriodDropdownValue, "school_type": registerSchoolKindDropdownValue, "birth_date": dateInputValue, "email": emailInputValue, "password": passwordInputValue, "cpf": cpfInputValue }));
     }
 
     recoverPasswordlogic() {
