@@ -397,7 +397,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 473.5,
+    "_orthoHeight": 479.1724137931035,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -8096,7 +8096,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.sa-east-1.amazonaws.com/games/encontrar-objetos/index.html"
+      "https://jogos.agrinhoms.com.br/games/encontrar-objetos/index.html"
     ],
     "gameNames": [
       "Encontrar Objetos"
@@ -9199,8 +9199,8 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.amazonaws.com/games/quiz/index.html",
-      "https://jogos-senar-ms.s3.sa-east-1.amazonaws.com/games/jogo-de-plantacao/index.html"
+      "https://jogos.agrinhoms.com.br/games/quiz/index.html",
+      "https://jogos.agrinhoms.com.br/games/jogo-de-plantacao/index.html"
     ],
     "gameNames": [
       "Quiz",
@@ -10300,8 +10300,8 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.sa-east-1.amazonaws.com/games/jogo-de-colorir/index.html",
-      "https://jogos-senar-ms.s3.amazonaws.com/games/quebracabecas-onomatopeia/index.html"
+      "https://jogos.agrinhoms.com.br/games/jogo-de-colorir/index.html",
+      "https://jogos.agrinhoms.com.br/games/quebracabecas-onomatopeia/index.html"
     ],
     "gameNames": [
       "Jogo de Colorir",
@@ -11146,7 +11146,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.sa-east-1.amazonaws.com/games/jogo-da-memoria/index.html"
+      "https://jogos.agrinhoms.com.br/games/jogo-da-memoria/index.html"
     ],
     "gameNames": [
       "Jogo da Memória"
@@ -11992,7 +11992,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.amazonaws.com/games/plumbergame/index.html"
+      "https://jogos.agrinhoms.com.br/games/plumbergame/index.html"
     ],
     "gameNames": [
       "Plumber Game"
@@ -12283,7 +12283,7 @@
     "_prefab": {
       "__id__": 458
     },
-    "_id": "53pARPrLdMuq5sgBkdRJiy"
+    "_id": "47WIUmY3pAXqoxYxOINi6x"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -12569,7 +12569,7 @@
     "_prefab": {
       "__id__": 482
     },
-    "_id": "c5KOLipqdMmIffF1aYb3hZ"
+    "_id": "02sJU3JHVMoJYyXFAi91VB"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -12797,7 +12797,7 @@
     "_prefab": {
       "__id__": 499
     },
-    "_id": "60iDVbIIVHu57LsjC4qS8L"
+    "_id": "daR69fHOxJz4O0QTf1Wa3K"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -13554,7 +13554,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.sa-east-1.amazonaws.com/games/jogo-da-forca/index.html"
+      "https://jogos.agrinhoms.com.br/games/jogo-da-forca/index.html"
     ],
     "gameNames": [
       "Jogo da Forca"
@@ -14398,7 +14398,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.amazonaws.com/games/quebracabecas/index.html"
+      "https://jogos.agrinhoms.com.br/games/quebracabecas/index.html"
     ],
     "gameNames": [
       "Quebra-cabeças"
@@ -15259,7 +15259,7 @@
       }
     ],
     "webviewURLs": [
-      "http://jogos-senar-ms.s3.sa-east-1.amazonaws.com/games/jogo-de-pesca/index.html"
+      "https://jogos.agrinhoms.com.br/games/jogo-de-pesca/index.html"
     ],
     "gameNames": [
       "Jogo de Pesca"
@@ -16137,7 +16137,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.amazonaws.com/games/jogo-de-associacao/index.html"
+      "https://jogos.agrinhoms.com.br/games/jogo-de-associacao/index.html"
     ],
     "gameNames": [
       "Jogo de Associação"
@@ -16982,7 +16982,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.amazonaws.com/games/7erros/index.html"
+      "https://jogos.agrinhoms.com.br/games/7erros/index.html"
     ],
     "gameNames": [
       "Jogo dos 7 erros"
@@ -17826,7 +17826,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.amazonaws.com/games/caca-palavras/index.html"
+      "https://jogos.agrinhoms.com.br/games/caca-palavras/index.html"
     ],
     "gameNames": [
       "Caça-Palavras"
@@ -18705,7 +18705,7 @@
       }
     ],
     "webviewURLs": [
-      "https://jogos-senar-ms.s3.sa-east-1.amazonaws.com/games/quebracabecas-informativo/index.html"
+      "https://jogos.agrinhoms.com.br/games/quebracabecas-informativo/index.html"
     ],
     "gameNames": [
       "Quebra-cabeças Informativo"

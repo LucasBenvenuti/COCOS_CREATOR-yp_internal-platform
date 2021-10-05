@@ -76,6 +76,13 @@ export class LoginRegisterController extends Component {
     registerPasswordField: EditBoxComponent = null!;
 
     @property(DropdownBehavior)
+    registerDayDropdown: DropdownBehavior = null!;
+    @property(DropdownBehavior)
+    registerMonthDropdown: DropdownBehavior = null!;
+    @property(DropdownBehavior)
+    registerYearDropdown: DropdownBehavior = null!;
+
+    @property(DropdownBehavior)
     registerSchoolarPeriodDropdown: DropdownBehavior = null!;
     @property(DropdownBehavior)
     registerSchoolKindDropdown: DropdownBehavior = null!;
@@ -171,6 +178,11 @@ export class LoginRegisterController extends Component {
         self.registerDateField = find("Canvas/FormsBG/Register/Page_0/Input_Box_2/EditBox_Date")?.getComponent(EditBoxComponent);
         self.registerEmailField = find("Canvas/FormsBG/Register/Page_1/Input_Box_0/EditBox_Email")?.getComponent(EditBoxComponent);
         self.registerPasswordField = find("Canvas/FormsBG/Register/Page_1/Input_Box_1/EditBox_Password")?.getComponent(EditBoxComponent);
+
+        self.registerDayDropdown = find("Canvas/FormsBG/Register/Page_0/Input_Box_Day")?.getComponent(DropdownBehavior);
+        self.registerMonthDropdown = find("Canvas/FormsBG/Register/Page_0/Input_Box_Month")?.getComponent(DropdownBehavior);
+        self.registerYearDropdown = find("Canvas/FormsBG/Register/Page_0/Input_Box_Year")?.getComponent(DropdownBehavior);
+
         self.registerSchoolarPeriodDropdown = find("Canvas/FormsBG/Register/Page_1/Input_Box_3")?.getComponent(DropdownBehavior);
         self.registerSchoolKindDropdown = find("Canvas/FormsBG/Register/Page_1/Input_Box_2")?.getComponent(DropdownBehavior);
         self.registerAcceptTerms = find("Canvas/FormsBG/Register/CheckBox_Input/Toggle")?.getComponent(Toggle);
@@ -204,6 +216,10 @@ export class LoginRegisterController extends Component {
         self.registerPageCircle_1.setScale(0.7,0.7,0.7);
 
         self.registerNode.node.active = false;
+
+        // self.registerNameField.enabled = false;
+        // self.registerCPFField.enabled = false;
+
         self.recoveryPasswordNode.node.active = false;
         self.emailSentNode.node.active = false;
         self.NewPasswordNode.node.active = false;
@@ -315,7 +331,7 @@ export class LoginRegisterController extends Component {
         var self = this;
 
         if(show)
-        {   
+        {
             tween(self.registerNode).to(self.fadeDuration, {opacity: 255}, {
                 easing: 'quadInOut',
                 onStart: () => {
@@ -789,6 +805,10 @@ export class LoginRegisterController extends Component {
         let emailInputValue = self.registerEmailField.string;
         let passwordInputValue = self.registerPasswordField.string;
 
+        let dayInputValue = self.registerDayDropdown.currentValue;
+        let monthInputValue = self.registerMonthDropdown.currentValue;
+        let yearInputValue = self.registerYearDropdown.currentValue;
+
         let registerSchoolarPeriodDropdownValue = self.registerSchoolarPeriodDropdown.currentValue;
         let registerSchoolKindDropdownValue = self.registerSchoolKindDropdown.currentValue;
 
@@ -805,94 +825,44 @@ export class LoginRegisterController extends Component {
 
         if(cpfInputValue == "" || cpfInputValue == undefined || cpfInputValue.length !== 11)
         {
-            console.log("ERRO: Campo de CPF deve ser preenchido corretamente");
-            self.errorAnim("Campo de CPF deve ser preenchido corretamente.");
+            console.log('ERRO: Campo de CPF deve ser preenchido corretamente sem "." e sem "-"');
+            self.errorAnim('Campo de CPF deve ser preenchido corretamente sem "." e sem "-".');
 
             self.loadingAnim(false);
             return;
         }
 
-        if(dateInputValue == "" || dateInputValue == undefined || dateInputValue.length !== 10)
+        if(dayInputValue == "" || dayInputValue == undefined)
         {
-            console.log("ERRO: Campo de Data de nascimento do responsável deve ser preenchido");
-            self.errorAnim("Campo de Data de nascimento do responsável deve ser preenchido.");
+            console.log("ERRO: Campo de Dia deve ser preenchido");
+            self.errorAnim("Campo de Dia deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
         }
 
-        let dateInputValueNew;
-
-        if(!dateInputValue.includes("/"))
+        if(monthInputValue == "" || monthInputValue == undefined)
         {
-            console.log('ERRO: Campo de Data de nascimento deve ser formatado conforme exemplo');
-            self.errorAnim('Campo de Data de nascimento deve ser formatado conforme exemplo.');
+            console.log("ERRO: Campo de Mês deve ser preenchido");
+            self.errorAnim("Campo de Mês deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
         }
 
-        for (let i = 0; i < dateInputValue.length; i++) {
-  
-            // Check if character is
-            // digit from 0-9
-            // then return true
-            // else false
-            if ((dateInputValue.charAt(i) >= '0'
-                && dateInputValue.charAt(i) <= '9') || dateInputValue.charAt(i) === "/") {
-                    console.log("OK");
-            }
-            else {                
-                console.log('ERRO: Campo de Data de nascimento deve ser formatado conforme exemplo');
-                self.errorAnim('Campo de Data de nascimento deve ser formatado conforme exemplo.');
-
-                self.loadingAnim(false);
-                return;
-            }
-        }
-
-        dateInputValueNew = dateInputValue.split("/");
-
-        if(dateInputValueNew.length !== 3)
+        if(yearInputValue == "" || yearInputValue == undefined)
         {
-            console.log('ERRO: Campo de Data de nascimento deve ser formatado conforme exemplo');
-            self.errorAnim('Campo de Data de nascimento deve ser formatado conforme exemplo.');
+            console.log("ERRO: Campo de Ano deve ser preenchido");
+            self.errorAnim("Campo de Ano deve ser preenchido.");
 
             self.loadingAnim(false);
             return;
         }
 
-        if(dateInputValueNew[0].length !== 2 || parseInt(dateInputValueNew[0]) > 31)
+        if((monthInputValue === "2" && parseInt(dayInputValue) > 29) || (monthInputValue === "4" && parseInt(dayInputValue) > 30) || (monthInputValue === "6" && parseInt(dayInputValue) > 30) || (monthInputValue === "9" && parseInt(dayInputValue) > 30) || (monthInputValue === "11" && parseInt(dayInputValue) > 30))
         {
             console.log('ERRO: Dia inválido, tente novamente');
             self.errorAnim('Dia inválido, tente novamente.');
-
-            self.loadingAnim(false);
-            return;
-        }
-
-        if(dateInputValueNew[1].length !== 2 || parseInt(dateInputValueNew[1]) > 12)
-        {
-            console.log('ERRO: Mês inválido, tente novamente');
-            self.errorAnim('Mês inválido, tente novamente.');
-
-            self.loadingAnim(false);
-            return;
-        }
-
-        if((dateInputValueNew[1] === "02" && parseInt(dateInputValueNew[0]) > 29) || (dateInputValueNew[1] === "04" && parseInt(dateInputValueNew[0]) > 30) || (dateInputValueNew[1] === "06" && parseInt(dateInputValueNew[0]) > 30) || (dateInputValueNew[1] === "09" && parseInt(dateInputValueNew[0]) > 30) || (dateInputValueNew[1] === "11" && parseInt(dateInputValueNew[0]) > 30))
-        {
-            console.log('ERRO: Dia inválido, tente novamente');
-            self.errorAnim('Dia inválido, tente novamente.');
-
-            self.loadingAnim(false);
-            return;
-        }
-
-        if(dateInputValueNew[2].length !== 4 || parseInt(dateInputValueNew[2]) > 2022)
-        {
-            console.log('ERRO: Ano inválido, tente novamente');
-            self.errorAnim('Ano inválido, tente novamente.');
 
             self.loadingAnim(false);
             return;
@@ -1002,7 +972,17 @@ export class LoginRegisterController extends Component {
 
         };
 
-        xmlhttp.send(JSON.stringify({ "name": nameInputValue, "school_year": registerSchoolarPeriodDropdownValue, "school_type": registerSchoolKindDropdownValue, "birth_date": dateInputValue, "email": emailInputValue, "password": passwordInputValue, "cpf": cpfInputValue }));
+        if(parseInt(dayInputValue) < 10)
+        {
+            dayInputValue = "0" + dayInputValue;
+        }
+
+        if(parseInt(monthInputValue) < 10)
+        {
+            monthInputValue = "0" + monthInputValue;
+        }
+
+        xmlhttp.send(JSON.stringify({ "name": nameInputValue, "school_year": registerSchoolarPeriodDropdownValue, "school_type": registerSchoolKindDropdownValue, "birth_date": dayInputValue + "/" + monthInputValue + "/" + yearInputValue, "email": emailInputValue, "password": passwordInputValue, "cpf": cpfInputValue }));
     }
 
     recoverPasswordlogic() {

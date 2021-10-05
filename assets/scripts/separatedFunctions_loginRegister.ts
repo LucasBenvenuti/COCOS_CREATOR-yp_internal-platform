@@ -71,16 +71,57 @@ export class SeparatedFunctionsLoginRegister extends Component {
         LoginRegisterController.instance.registerSchoolKindDropdown.clearValue();
         LoginRegisterController.instance.registerSchoolarPeriodDropdown.forceCloseBox();
         LoginRegisterController.instance.registerSchoolarPeriodDropdown.clearValue();
+
+        LoginRegisterController.instance.registerDayDropdown.forceCloseBox();
+        LoginRegisterController.instance.registerDayDropdown.clearValue();
+        LoginRegisterController.instance.registerMonthDropdown.forceCloseBox();
+        LoginRegisterController.instance.registerMonthDropdown.clearValue();
+        LoginRegisterController.instance.registerYearDropdown.forceCloseBox();
+        LoginRegisterController.instance.registerYearDropdown.clearValue();
         
         LoginRegisterController.instance.registerToLogin();
     }
 
     nextRegisterPageLogic() {
         LoginRegisterController.instance.nextRegisterPageLogic();
+
+        LoginRegisterController.instance.registerDayDropdown.forceCloseBox();
+        LoginRegisterController.instance.registerMonthDropdown.forceCloseBox();
+        LoginRegisterController.instance.registerYearDropdown.forceCloseBox();
     }
     returnRegisterPageLogic() {
-        LoginRegisterController.instance.returnRegisterPageLogic();        
+        LoginRegisterController.instance.returnRegisterPageLogic();
+        
+        LoginRegisterController.instance.registerSchoolKindDropdown.forceCloseBox();
+        LoginRegisterController.instance.registerSchoolarPeriodDropdown.forceCloseBox();
     }
+
+    dropboxCloseToggle_Day()
+    {
+        if(!LoginRegisterController.instance)
+            return;
+
+        LoginRegisterController.instance.registerDayDropdown.toggleBox();
+        // LoginRegisterController.instance.registerDayDropdown.forceCloseBox();
+    }
+
+    dropboxCloseToggle_Month()
+    {
+        if(!LoginRegisterController.instance)
+            return;
+
+        LoginRegisterController.instance.registerMonthDropdown.toggleBox();
+        // LoginRegisterController.instance.registerMonthDropdown.forceCloseBox();
+    }
+
+    dropboxCloseToggle_Year()
+    {
+        if(!LoginRegisterController.instance)
+            return;
+
+        LoginRegisterController.instance.registerYearDropdown.toggleBox();
+        // LoginRegisterController.instance.registerYearDropdown.forceCloseBox();
+    }        
 
     dropboxCloseToggle_Register_2()
     {

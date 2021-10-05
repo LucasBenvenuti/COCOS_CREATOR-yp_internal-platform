@@ -10,6 +10,17 @@ export class DropdownBehavior extends Component {
     
     isOpened = false;
 
+    @property(Boolean)
+    isUsingValueLimits: boolean = false!;
+
+    @property(Boolean)
+    invertValues: boolean = false!;
+
+    @property(Number)
+    minimumValue: number = 0!;
+    @property(Number)
+    maximumValue: number = 0!;
+
     @property(EstadosCidades)
     stateCity: EstadosCidades = null!;
 
@@ -101,6 +112,21 @@ export class DropdownBehavior extends Component {
         }
         else
         {
+            if(self.isUsingValueLimits)
+            {
+                self.valueList = [];
+
+                for(let i = self.minimumValue; i <= self.maximumValue; i++)
+                {
+                    self.valueList[i - 1] = i.toString();
+                }
+
+                if(self.invertValues)
+                {
+                    self.valueList.reverse();
+                }
+            }
+
             self.valueList.forEach(newValue => {
                 var newOption = instantiate(instantiateBaseNode);
     
@@ -121,7 +147,12 @@ export class DropdownBehavior extends Component {
 
     toggleBox()
     {
+
+        console.log("OPEN");
+
         this.isOpened = !this.isOpened;
+
+        console.log(this.isOpened);
 
         if(this.isOpened)
         {
@@ -131,6 +162,8 @@ export class DropdownBehavior extends Component {
                 easing: 'cubicInOut',
                 onStart: ()=> {
                     this.dropBox.active = this.isOpened;
+
+                    console.log(this.dropBox);
                 },
             }).start();
         }
@@ -142,9 +175,13 @@ export class DropdownBehavior extends Component {
                 easing: 'cubicInOut',
                 onComplete: ()=> {
                     this.dropBox.active = this.isOpened;
+
+                    console.log("OFF - " + this.dropBox);
                 },
             }).start();
         }
+
+        console.log(this.dropBox);
     }
 
     forceCloseBox()
