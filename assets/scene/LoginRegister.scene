@@ -673,7 +673,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 479.1724137931035,
+    "_orthoHeight": 541.8626528692381,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -1680,7 +1680,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Email",
+    "_string": "Email*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -2315,7 +2315,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Senha",
+    "_string": "Senha*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -6484,7 +6484,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Nome do responsável",
+    "_string": "Nome do responsável*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -7119,7 +7119,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "CPF do responsável",
+    "_string": "CPF do responsável*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -8173,7 +8173,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -59.735,
+      "x": -66.433,
       "y": 0.725,
       "z": 0
     },
@@ -8212,7 +8212,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 140,
+      "width": 160,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -8246,7 +8246,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Mês",
+    "_string": "Mês*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -9831,7 +9831,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -59.735,
+      "x": -62.404,
       "y": 0.725,
       "z": 0
     },
@@ -9870,7 +9870,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 140,
+      "width": 145,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -9904,7 +9904,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Ano",
+    "_string": "Ano*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -11621,7 +11621,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Dia",
+    "_string": "Dia*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -15597,7 +15597,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Email do responsável",
+    "_string": "Email do responsável*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -17399,6 +17399,7 @@
     "maximumValue": 0,
     "stateCity": null,
     "valueList": [
+      "Período escolar",
       "1º ano",
       "2º ano",
       "3º ano",
@@ -17945,7 +17946,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Senha",
+    "_string": "Senha*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -19784,6 +19785,7 @@
     "maximumValue": 0,
     "stateCity": null,
     "valueList": [
+      "Tipo de escola",
       "Pública",
       "Particular"
     ],
@@ -21072,7 +21074,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Email",
+    "_string": "Email*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -23556,7 +23558,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Senha",
+    "_string": "Senha*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -24194,7 +24196,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Repetir senha",
+    "_string": "Repetir senha*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -26457,7 +26459,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Cidade",
+    "_string": "Cidade*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -28143,7 +28145,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Estado",
+    "_string": "Estado*",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 60,

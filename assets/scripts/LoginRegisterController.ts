@@ -868,23 +868,33 @@ export class LoginRegisterController extends Component {
             return;
         }
 
-        if(registerSchoolarPeriodDropdownValue == "" || registerSchoolarPeriodDropdownValue == undefined)
+        if(registerSchoolarPeriodDropdownValue === "Período escolar")
         {
-            console.log("ERRO: Período escolar deve ser preenchido");
-            self.errorAnim("Período escolar deve ser preenchido.");
-
-            self.loadingAnim(false);
-            return;
+            registerSchoolarPeriodDropdownValue = "-";
         }
 
-        if(registerSchoolKindDropdownValue == "" || registerSchoolKindDropdownValue == undefined)
+        if(registerSchoolKindDropdownValue === "Tipo de escola")
         {
-            console.log("ERRO: Tipo de escola deve ser preenchido");
-            self.errorAnim("Tipo de escola deve ser preenchido.");
-
-            self.loadingAnim(false);
-            return;
+            registerSchoolKindDropdownValue = "-";
         }
+
+        // if(registerSchoolarPeriodDropdownValue == "" || registerSchoolarPeriodDropdownValue == undefined)
+        // {
+        //     console.log("ERRO: Período escolar deve ser preenchido");
+        //     self.errorAnim("Período escolar deve ser preenchido.");
+
+        //     self.loadingAnim(false);
+        //     return;
+        // }
+
+        // if(registerSchoolKindDropdownValue == "" || registerSchoolKindDropdownValue == undefined)
+        // {
+        //     console.log("ERRO: Tipo de escola deve ser preenchido");
+        //     self.errorAnim("Tipo de escola deve ser preenchido.");
+
+        //     self.loadingAnim(false);
+        //     return;
+        // }
 
         if(emailInputValue == "" || emailInputValue == undefined)
         {
