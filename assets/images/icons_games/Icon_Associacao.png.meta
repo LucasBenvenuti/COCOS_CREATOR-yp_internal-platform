@@ -1,0 +1,43 @@
+{
+  "ver": "1.0.21",
+  "importer": "image",
+  "imported": true,
+  "uuid": "97ad8f93-c3be-4fa2-9f9b-1da450516e64",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "97ad8f93-c3be-4fa2-9f9b-1da450516e64@6c48a",
+      "displayName": "Icon_Associacao",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "97ad8f93-c3be-4fa2-9f9b-1da450516e64"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": true,
+    "type": "texture",
+    "redirect": "97ad8f93-c3be-4fa2-9f9b-1da450516e64@6c48a",
+    "compressSettings": {
+      "useCompressTexture": false
+    }
+  }
+}

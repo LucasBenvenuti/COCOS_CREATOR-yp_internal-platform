@@ -6,7 +6,38 @@
   },
   "general": {
     "designResolution": {
-      "fitHeight": true
+      "fitHeight": false,
+      "width": 1920,
+      "height": 947,
+      "fitWidth": true
     }
-  }
+  },
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "PLANETS"
+      },
+      {
+        "index": 2,
+        "name": "CAMERACOLLIDER"
+      },
+      {
+        "index": 3,
+        "name": "PLANET_ICONS"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 3,
+      "1": 5,
+      "2": 2,
+      "3": 0
+    }
+  },
+  "layer": [
+    {
+      "name": "SceneController",
+      "value": 1
+    }
+  ]
 }

@@ -86,13 +86,14 @@
       "skeletons": [],
       "textures": [],
       "materials": [
-        "3a29fa93-2cc0-4b59-a9de-4c98e8f941f1"
+        "322f48ea-fe3e-487a-8ea5-366038692dde"
       ],
       "scenes": [
         "6ccf4482-8e71-4cd2-9894-605111667636@c1bfe"
       ]
     },
     "dumpMaterials": true,
-    "materialDumpDir": "db://assets/model/Materials_Clouds"
+    "materialDumpDir": "db://assets/model/Materials_Clouds",
+    "useVertexColors": true
   }
 }

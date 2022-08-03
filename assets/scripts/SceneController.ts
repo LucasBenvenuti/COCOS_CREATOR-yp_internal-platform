@@ -24,7 +24,7 @@ export class SceneController extends Component {
         // -0.007
         // 0.02
 
-        self.cloud_0.position = new Vec3(self.cloud_0.position.x + 0.01, self.cloud_0.position.y, self.cloud_0.position.z);
-        self.cloud_1.position = new Vec3(self.cloud_1.position.x + 0.01, self.cloud_1.position.y, self.cloud_1.position.z);
+        self.cloud_0.position = new Vec3(self.cloud_0.position.x + 0.015, self.cloud_0.position.y, self.cloud_0.position.z);
+        self.cloud_1.position = new Vec3(self.cloud_1.position.x + 0.015, self.cloud_1.position.y, self.cloud_1.position.z);
     }
 }
