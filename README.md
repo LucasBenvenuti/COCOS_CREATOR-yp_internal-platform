@@ -1,4 +1,4 @@
-#3D Platform made with COCOS CREATOR for a specific client
+# 3D Platform made with COCOS CREATOR for a specific client
 
 This project was a web focus and made using Cocos Creator Engine.
 
